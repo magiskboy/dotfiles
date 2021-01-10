@@ -1,0 +1,28 @@
+add_newline = true
+
+[character]
+success_symbol = "[➜](bold green)"
+error_symbol = "[➜](bold red)"
+
+[python]
+pyenv_version_name = true
+
+[kubernetes]
+disabled = false
+[kubernetes.context_aliases]
+"gke_teko-development-staging_asia-southeast1-a_default" = "stag"
+"gke_teko-development_asia-southeast1-a_teko-develop" = "dev"
+"gke_teko-development_asia-southeast1-a_test-1" = "test1"
+
+[gcloud]
+disabled = true
+
+[docker_context]
+disabled = false
+only_with_files = true
+
+[battery]
+disabled = false
+[battery.display]
+threshold = 60
+style = "bold red"

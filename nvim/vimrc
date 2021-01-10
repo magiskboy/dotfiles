@@ -1,0 +1,11 @@
+filetype plugin on
+syntax on
+
+set number numberwidth=5 norelativenumber
+
+set tabstop=4 shiftwidth=4 expandtab
+
+set undofile noswapfile nobackup
+set undodir=/tmp
+
+set autoindent

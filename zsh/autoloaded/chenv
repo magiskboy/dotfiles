@@ -1,0 +1,37 @@
+#/usr/bin/env bash
+
+ENV=$1
+
+if [[ "${ENV}" == "dev" ]]; then
+  PROJ=teko-development
+  LOC=asia-southeast1-a
+  CLUSTER=teko-develop
+elif [[ "${ENV}" == "stag" ]]; then
+  PROJ=teko-development-staging
+  LOC=asia-southeast1-a
+  CLUSTER=default
+elif [[ "${ENV}" == "test1" ]]; then
+  PROJ=teko-development
+  LOC=asia-southeast1-a
+  CLUSTER=test-1
+elif [[ "${ENV}" == "prod" ]]; then
+  PROJ=prod-backend-asia-east2
+  LOC=asia-east2
+  CLUSTER=prod-hk-1
+else
+  (>&2 echo "Unknown environment '${ENV}'!")
+  usage
+  exit 1
+fi
+
+gcloud config set project $PROJ
+gcloud config set compute/zone $LOC
+gcloud container clusters get-credentials $CLUSTER --zone=$LOC
+
+kubectl config current-context | grep -iq $CLUSTER
+if [ "$?" != "0" ] ; then
+  (>&2 echo "Wrong cluster context '$(kubectl config current-context)'!")
+  exit 1
+fi
+
+kubectl config set-context --current --namespace catalog
