@@ -20,8 +20,8 @@ function setup_base() {
         brew install bat tldr ripgrep ctags tree htop git curl fzf pgcli mycli fd zsh tmux ccls node npm starship git-delta
     fi
 
-    git clone https://github.com/pyenv/pyenv.git $HOME/.pyenv && \
-    git clone https://github.com/pyenv/pyenv-virtualenv.git $HOME/.pyenv/plugins/pyenv-virtualenv
+    ln -sf $(pwd)/python/pyenv $HOME/.pyenv && \
+    ln -sf $(pwd)/python/pyenv-virtualenv $HOME/.pyenv/plugins/pyenv-virtualenv
 
     # ==================== RC FILES ====================
     rm -rf $HOME/.myclirc $HOME/.config/pgcli
@@ -34,26 +34,16 @@ function setup_base() {
     ln -sf $(pwd)/tmux/tmux.conf $HOME/.tmux.conf && \
     ln -sf $(pwd)/tmux/tmux.theme.conf $HOME/.tmux.theme.conf
 
-    # ==================== FONTS =======================
-    local FONTDIR
-    if [[ $OS == "darwin" ]]; then
-        FONTDIR=$HOME/Library/Fonts
-    else
-        FONTDIR=$LOCAL/share/fonts
-    fi
-    [ -d $FONTDIR ] && mkdir -p $FONTDIR
-    curl -fLo "$FONTDIR/Hack Nerd Font Complete.otf" \
-        https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete.ttf
-
     # ==================== SHELL ========================
     rm -rf $HOME/.zshrc $HOME/.oh-my-zsh $HOME/.zshrc $HOME/.zshenv $HOME/.zlogin $HOME/.zprofile && \
     ln -sf $(pwd)/zsh/zshrc $HOME/.zshrc && \
     ln -sf $(pwd)/zsh/oh-my-zsh $HOME/.oh-my-zsh && \
-    ln -sf $(pwd)/zsh/themes/nkthanh.zsh-theme $HOME/.oh-my-zsh/custom/themes && \
     ln -sf $(pwd)/zsh/zlogin $HOME/.zlogin && \
     ln -sf $(pwd)/zsh/zprofile $HOME/.zprofile && \
     ln -sf $(pwd)/zsh/zshenv $HOME/.zshenv && \
-    ln -sf $(pwd)/zsh/zshrc $HOME/.zshrc
+    ln -sf $(pwd)/zsh/zshrc $HOME/.zshrc && \
+    ln -sf $(pwd)/zsh/zsh-z $HOME/.oh-my-zsh/custom/plugins/zsh-z && \
+    ln -sf $(pwd)/zsh/zsh-autosuggestions $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 
     rm -rf $HOME/.bashrc && ln -sf $(pwd)/bashrc $HOME/.bashrc
 
