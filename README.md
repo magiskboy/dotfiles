@@ -4,7 +4,7 @@
 ### How to install
 
 ```bash
-$ ./install base
+$ ./install.sh base
 ```
 
 Hey,
@@ -14,7 +14,7 @@ This are my public dotfiles. They might not work for you, but feel free to steal
 
 #### Note
 
-In linux, you must install ccls from [https://github.com/MaskRay/ccls](source code). Following code above:
+In linux, you must install ccls from [https://github.com/MaskRay/ccls](source code). Following below commands:
 
 ```bash
 $ sudo apt install clang cmake libclang-dev llvm-dev rapidjson-dev
@@ -23,7 +23,7 @@ $ cmake --build Release
 ```
 
 
-If you want install newest version neovim from [https://github.com/neovim/neovim](source), you follow tutorial above
+If you want install newest version neovim from [https://github.com/neovim/neovim](source), you follow bellow commands
 
 ```bash
 $ sudo apt install gperf luajit luarocks libuv1-dev libluajit-5.1-dev libunibilium-dev libmsgpack-dev libtermkey-dev libvterm-dev libutf8proc-dev

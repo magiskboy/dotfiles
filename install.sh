@@ -20,11 +20,6 @@ function setup_base() {
         brew install bat tldr ripgrep ctags tree htop git curl fzf pgcli mycli fd zsh tmux ccls node npm starship git-delta
     fi
 
-    DIFF_SO_FANCY_URL=https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy
-    SO_DIFF_FANCY_NAME=$(basename $DIFF_SO_FANCY_URL)
-    curl -O $DIFF_SO_FANCY_URL && mv $SO_DIFF_FANCY_NAME $LOCAL/bin/$SO_DIFF_FANCY_NAME && \
-    chmod +x $LOCAL/bin/$SO_DIFF_FANCY_NAME
-
     git clone https://github.com/pyenv/pyenv.git $HOME/.pyenv && \
     git clone https://github.com/pyenv/pyenv-virtualenv.git $HOME/.pyenv/plugins/pyenv-virtualenv
 
@@ -54,15 +49,11 @@ function setup_base() {
     rm -rf $HOME/.zshrc $HOME/.oh-my-zsh $HOME/.zshrc $HOME/.zshenv $HOME/.zlogin $HOME/.zprofile && \
     ln -sf $(pwd)/zsh/zshrc $HOME/.zshrc && \
     ln -sf $(pwd)/zsh/oh-my-zsh $HOME/.oh-my-zsh && \
-    ln -sf $(pwd)/zsh/zsh-autosuggestions $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions && \
-    ln -sf $(pwd)/zsh/zsh-syntax-highlighting $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting && \
     ln -sf $(pwd)/zsh/themes/nkthanh.zsh-theme $HOME/.oh-my-zsh/custom/themes && \
     ln -sf $(pwd)/zsh/zlogin $HOME/.zlogin && \
     ln -sf $(pwd)/zsh/zprofile $HOME/.zprofile && \
     ln -sf $(pwd)/zsh/zshenv $HOME/.zshenv && \
-    ln -sf $(pwd)/zsh/zshrc $HOME/.zshrc && \
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k && \
-    git clone --depth=1 https://github.com/agkozak/zsh-z ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-z
+    ln -sf $(pwd)/zsh/zshrc $HOME/.zshrc
 
     rm -rf $HOME/.bashrc && ln -sf $(pwd)/bashrc $HOME/.bashrc
 
