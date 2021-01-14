@@ -11,13 +11,14 @@ function setup_base() {
     # ==================== BASE PACKAGE ===================
     [[ -d $LOCAL/bin ]] && mkdir $LOCAL/bin
     if [[ $OS == "linux" ]]; then
-        apt install -y tldr ripgrep exuberant-ctags tree htop git curl fzf pgcli mycli fd-find zsh tmux \
-            nodejs npm libffi-dev zlib1g-dev libbz2-dev libsqlite3-dev #@TODO install ccls
+        apt install -y tldr ripgrep exuberant-ctags htop git curl fzf pgcli mycli fd-find zsh tmux \
+            nodejs npm libffi-dev zlib1g-dev libbz2-dev libsqlite3-dev exa
+        #@TODO install ccls
         BATURL=https://github.com/sharkdp/bat/releases/download/v0.11.0/bat_0.11.0_amd64.deb
         curl -fLO $BATURL && dpkg -i $(basename $BATURL) && rm -f $(basename $BATURL)
         curl -fsSL https://starship.rs/install.sh | bash
     else
-        brew install bat tldr ripgrep ctags tree htop git curl fzf pgcli mycli fd zsh tmux ccls node npm starship git-delta
+        brew install bat tldr ripgrep ctags htop git curl fzf pgcli mycli fd zsh tmux ccls node npm starship git-delta exa tokei
     fi
 
     ln -sf $(pwd)/python/pyenv $HOME/.pyenv && \

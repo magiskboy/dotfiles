@@ -112,8 +112,8 @@ set diffopt+=vertical
 
 set regexpengine=1
 
-let g:python3_host_prog = expand('$PYENV_ROOT/shims/python')
-let g:python_host_prog = expand('/usr/bin/python')
+let g:python3_host_prog = expand('/usr/local/bin/python3')
+let g:python_host_prog = expand('/usr/bin/python2')
 
 " ============= Ident line ==============
 " Set indent line guide character

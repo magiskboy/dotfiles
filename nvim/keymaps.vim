@@ -13,7 +13,6 @@ nmap rr :!tmux send-keys -t rust.0 "cargo run" enter<cr>
 nmap <leader>p :Files<cr>
 nmap <leader>r :Rg<cr>
 nmap <leader>w :Windows<cr>
-nmap ww :call RipgrepFzf(expand("<cword>"), 0)<cr>
 
 " Minimize block code
 nnoremap <space> za
