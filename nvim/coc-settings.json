@@ -29,5 +29,6 @@
   },
   "yaml.schemas": {
       "kubernetes": "/*.yaml"
-  }
+  },
+  "java.errors.incompleteClasspath.severity": "ignore"
 }

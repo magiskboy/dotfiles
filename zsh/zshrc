@@ -28,7 +28,7 @@ fi
 alias e="exa"
 alias ee="exa --long --git"
 alias preview="[[ -d \$1 ]] && exa -T \$1 || bat \$1"
-alias cd="_f() {[[ -z \$@ ]] && {x=\$(FZF_DEFAULT_COMMAND='fd --type d' fzf);[[ \$? -eq 0 ]] && builtin cd \$x || true} || {builtin cd \$@}}; _f \$@"
+alias cd="_f() {[[ -z \$@ ]] && {x=\$(FZF_DEFAULT_COMMAND='fd --type d' fzf);[[ \$? -eq 0 ]] && builtin cd \$x || true} || builtin cd \$@ }; _f \$@"
 alias open="_f() {[[ -z \$@ ]] && {x=\$(FZF_DEFAULT_COMMAND='fd' fzf); [[ \$? -eq 0 ]] && command open \$x || true } || { command open \$@ }}; _f \$@"
 alias nvim="_f() {[[ -z \$@ ]] && {x=\$(FZF_DEFAULT_COMMAND='fd --type f' fzf);[[ \$? -eq 0 ]] && command nvim \$x || true} || { command nvim \$@ } }; _f $@"
 alias rvim="x=\$(fzf --bind 'change:reload:rg --column --line-number --no-heading --color=always --smart-case {q} || true' --ansi --phony --query '');[[ \$? -eq 0 ]] && command nvim '\$(echo \$x|cut -d: -f1)' +':\$(echo $x| cut -d: -f2)' || true"

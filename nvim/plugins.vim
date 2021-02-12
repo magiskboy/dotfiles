@@ -27,7 +27,7 @@ Plug 'majutsushi/tagbar'
 Plug 'w0rp/ale'
 
 " Solid pack language syntax highlight
-" Plug 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot'
 
 " Plug 'rakr/vim-one'
 Plug 'ayu-theme/ayu-vim'
