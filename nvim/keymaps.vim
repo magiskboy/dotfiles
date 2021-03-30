@@ -8,7 +8,6 @@ nmap tf :TestFile<cr>
 nmap ts :TestSuite<cr>
 
 nmap aa :call OpenFloatTerm()<cr>
-nmap rr :!tmux send-keys -t rust.0 "cargo run" enter<cr>
 
 nmap <leader>p :Files<cr>
 nmap <leader>r :Rg<cr>

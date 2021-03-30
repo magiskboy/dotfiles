@@ -5,7 +5,8 @@ set termguicolors
 
 set t_Co=256
 
-colorscheme ayu
+colorscheme onedark
+" colorscheme ayu
 let ayucolor="dark"
 
 syntime on
@@ -62,7 +63,7 @@ set mousehide
 set mouse=a
 
 " Show line number.
-set number numberwidth=5 relativenumber
+set number numberwidth=5
 
 " Set border for window
 set fillchars+=vert:│
@@ -151,7 +152,7 @@ let g:airline#extensions#default#layout = [['a', 'b', 'c'], ['x', 'y', 'z', 'war
 " Do not draw separators for empty sections (only for the active window) >
 let g:airline_skip_empty_sections = 1
 
-let g:airline_theme='simple'
+let g:airline_theme='onedark'
 
 " Disable vim-airline in preview mode
 let g:airline_exclude_preview = 1
@@ -214,7 +215,6 @@ let test#strategy = {
   \ 'suite':   'basic',
 \}
 
-
 let g:coc_enabled = 0
 
 autocmd BufWritePost * :silent! %s/\s\+$\| \+\zs\t//g
@@ -230,5 +230,3 @@ autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 autocmd BufWritePost * GitGutter
-
-let g:vimspector_enable_mappings = 'HUMAN'

@@ -12,6 +12,12 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
+
+Plug 'alvan/vim-closetag'
+
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+
 " Indent guild line
 Plug 'Yggdroot/indentLine'
 
@@ -31,6 +37,7 @@ Plug 'sheerun/vim-polyglot'
 
 " Plug 'rakr/vim-one'
 Plug 'ayu-theme/ayu-vim'
+Plug 'joshdick/onedark.vim'
 
 Plug 'rust-lang/rust.vim'
 

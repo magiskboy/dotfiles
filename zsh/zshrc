@@ -34,8 +34,6 @@ alias nvim="_f() {[[ -z \$@ ]] && {x=\$(FZF_DEFAULT_COMMAND='fd --type f' fzf);[
 alias rvim="x=\$(fzf --bind 'change:reload:rg --column --line-number --no-heading --color=always --smart-case {q} || true' --ansi --phony --query '');[[ \$? -eq 0 ]] && command nvim '\$(echo \$x|cut -d: -f1)' +':\$(echo $x| cut -d: -f2)' || true"
 alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
 
-eval "$(thefuck --alias)"
-eval "$(starship init zsh)"
 
 autoload -Uz compinit
 
@@ -58,3 +56,7 @@ if [[ -d $my_loader ]]; then
     done
 fi
 unset my_loader
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
