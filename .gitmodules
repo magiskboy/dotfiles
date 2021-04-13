@@ -13,3 +13,6 @@
 [submodule "zsh/zsh-z"]
 	path = zsh/zsh-z
 	url = https://github.com/agkozak/zsh-z
+[submodule "nodejs/nvm"]
+	path = nodejs/nvm
+	url = https://github.com/nvm-sh/nvm.git

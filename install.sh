@@ -13,16 +13,20 @@ function setup_base() {
     if [[ $OS == "linux" ]]; then
         apt install -y tldr ripgrep exuberant-ctags htop git curl fzf pgcli mycli fd-find zsh tmux \
             nodejs npm libffi-dev zlib1g-dev libbz2-dev libsqlite3-dev exa
-        #@TODO install ccls
         BATURL=https://github.com/sharkdp/bat/releases/download/v0.11.0/bat_0.11.0_amd64.deb
         curl -fLO $BATURL && dpkg -i $(basename $BATURL) && rm -f $(basename $BATURL)
         curl -fsSL https://starship.rs/install.sh | bash
     else
-        brew install bat tldr ripgrep ctags htop git curl fzf pgcli mycli fd zsh tmux ccls node npm starship git-delta exa tokei
+        brew install bat tldr ripgrep ctags htop git curl fzf pgcli mycli fd zsh tmux \
+            node npm starship git-delta exa
     fi
 
+    # ================== VERSION MANAGER ===================
     ln -sf $(pwd)/python/pyenv $HOME/.pyenv && \
     ln -sf $(pwd)/python/pyenv-virtualenv $HOME/.pyenv/plugins/pyenv-virtualenv
+
+    ln -sf $(pwd)/nodejs/nvm $HOME/.nvm && \
+    source $HOME/.nvm/nvm.sh
 
     # ==================== RC FILES ====================
     rm -rf $HOME/.myclirc $HOME/.config/pgcli
@@ -31,9 +35,11 @@ function setup_base() {
     ln -sf `pwd`/dbcli/pgclirc $HOME/.config/pgcli/config
     ln -sf $(pwd)/gitconfig $HOME/.gitconfig
 
-    rm -rf $HOME/.tmux.conf && \
-    ln -sf $(pwd)/tmux/tmux.conf $HOME/.tmux.conf && \
-    ln -sf $(pwd)/tmux/tmux.theme.conf $HOME/.tmux.theme.conf
+    if [[ $OS = "linux" ]]; then
+        rm -rf $HOME/.tmux.conf && \
+        ln -sf $(pwd)/tmux/tmux.conf $HOME/.tmux.conf && \
+        ln -sf $(pwd)/tmux/tmux.theme.conf $HOME/.tmux.theme.conf
+    fi
 
     # ==================== SHELL ========================
     rm -rf $HOME/.zshrc $HOME/.oh-my-zsh $HOME/.zshrc $HOME/.zshenv $HOME/.zlogin $HOME/.zprofile && \
@@ -54,21 +60,6 @@ function setup_base() {
     ssh-keygen -f $HOME/.ssh/id_rsa
 
     ln -sf $(pwd)/starship.toml $HOME/.config/starship.toml
-}
-
-function setup_buf() {
-    function downloader() {
-        local BINARY_NAME=$1
-        local VERSION="0.23.0"
-        curl -sSL \
-            "https://github.com/bufbuild/buf/releases/download/v${VERSION}/${BINARY_NAME}-$(uname -s)-$(uname -m)" \
-                -o "${LOCAL}/bin/${BINARY_NAME}" && \
-        chmod +x "${LOCAL}/bin/${BINARY_NAME}"
-    }
-    for BIN in "buf" "protoc-gen-buf-check-breaking" "protoc-gen-buf-check-lint"; do
-        echo "Installing $BIN"
-        downloader $BIN
-    done
 }
 
 function setup_docker() {

@@ -12,11 +12,9 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
-
 Plug 'alvan/vim-closetag'
 
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
+Plug 'wakatime/vim-wakatime'
 
 " Indent guild line
 Plug 'Yggdroot/indentLine'
@@ -39,7 +37,12 @@ Plug 'sheerun/vim-polyglot'
 Plug 'ayu-theme/ayu-vim'
 Plug 'joshdick/onedark.vim'
 
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries'  }
+
 Plug 'rust-lang/rust.vim'
+
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 
 " Code completion engine
 Plug 'neoclide/coc.nvim', {'branch': 'release'}

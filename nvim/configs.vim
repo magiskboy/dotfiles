@@ -115,7 +115,7 @@ set diffopt+=vertical
 
 set regexpengine=1
 
-let g:python3_host_prog = expand('/usr/local/bin/python3')
+let g:python3_host_prog = expand('~/.pyenv/shims/python')
 let g:python_host_prog = expand('/usr/bin/python2')
 
 " ============= Ident line ==============
@@ -176,19 +176,32 @@ let airline#extensions#ale = {
     \'warning_synbol': 'W:'
     \}
 "============== ALE ================
-let g:ale_enabled = 0
-
 " Define ALE linter
-let b:ale_linters = {
+let g:ale_linters = {
     \'javascript': ['eslint'],
     \'typescript': ['tslint'],
     \'python': ['pylint', 'mypy'],
-    \'c': ['ccls']
+    \'golang': ['golint'],
+    \'rust': ['cargo'],
+    \'c': ['clangd', 'ccls'],
+    \'c++': ['clangd', 'ccls']
     \}
 
+let g:ale_fixers = {
+    \'javascript': ['prettier', 'eslint'],
+    \'typescript': ['prettier'],
+    \'python': ['black', 'isort'],
+    \'golang': ['gofmt'],
+    \'rust': ['rustfmt'],
+    \'c': ['clang-format'],
+    \'c++': ['clang-format']
+    \}
+
+let g:ale_fix_on_save = 1
+
 " Setting icon before error/warning ale
-let g:ale_sign_error = '*'
-let g:ale_sign_warning = '*'
+let g:ale_sign_error = '•'
+let g:ale_sign_warning = '•'
 
 " Format ALE message
 let g:ale_python_pylint_use_msg_id = 1
@@ -200,7 +213,15 @@ let g:ale_set_highlights = 0
 " Setting ale window
 let g:ale_open_list = 0
 
-let g:rust_clip_command = 'pbcopy'
+let g:coc_global_extensions = [
+    \'coc-json',
+    \'coc-tsserver',
+    \'coc-rust-analyzer',
+    \'coc-clangd',
+    \'coc-go',
+    \'coc-python',
+    \'coc-jedi'
+    \]
 
 " ============= Tagbar ===============
 " Set dropdown for tagbar
@@ -214,8 +235,6 @@ let test#strategy = {
   \ 'file':    'basic',
   \ 'suite':   'basic',
 \}
-
-let g:coc_enabled = 0
 
 autocmd BufWritePost * :silent! %s/\s\+$\| \+\zs\t//g
 
