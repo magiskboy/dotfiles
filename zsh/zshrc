@@ -10,6 +10,7 @@ plugins=(
   docker
   zsh-autosuggestions
   zsh-z
+  golang
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -22,6 +23,7 @@ alias md="mkdir"
 [[ $OS = "linux" ]] && alias fd="fdfind"
 alias ls="exa"
 alias ll="exa --long"
+alias lt="exa --tree"
 alias preview="[[ -d \$1 ]] && exa -T \$1 || bat \$1"
 alias cd="_f() {[[ -z \$@ ]] && {x=\$(FZF_DEFAULT_COMMAND='fd --type d' fzf);[[ \$? -eq 0 ]] && builtin cd \$x || true} || builtin cd \$@ }; _f \$@"
 alias open="_f() {[[ -z \$@ ]] && {x=\$(FZF_DEFAULT_COMMAND='fd' fzf); [[ \$? -eq 0 ]] && command open \$x || true } || { command open \$@ }}; _f \$@"

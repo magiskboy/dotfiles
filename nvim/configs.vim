@@ -5,8 +5,8 @@ set termguicolors
 
 set t_Co=256
 
-colorscheme onedark
-" colorscheme ayu
+colorscheme ayu
+
 let ayucolor="dark"
 
 syntime on
@@ -55,7 +55,7 @@ set noignorecase
 set incsearch
 
 " Do not redraw the screen while
-" set lazyredraw
+set lazyredraw
 
 " Hide mouse pointer while typing.
 set mousehide
@@ -63,7 +63,7 @@ set mousehide
 set mouse=a
 
 " Show line number.
-set number numberwidth=5
+set number numberwidth=5 relativenumber
 
 " Set border for window
 set fillchars+=vert:│
@@ -118,75 +118,49 @@ set regexpengine=1
 let g:python3_host_prog = expand('~/.pyenv/shims/python')
 let g:python_host_prog = expand('/usr/bin/python2')
 
-" ============= Ident line ==============
-" Set indent line guide character
+" ====================== Ident line =========================
 let g:indentLine_char = '│'
-
-" Set color for ident line
 let g:indentLine_color_term = 239
 
-" ============= NERD Tree ===============
+" ====================== NERD Tree ==========================
 " Ignore entries for NERDTree
-let NERDTreeIgnore = [
+let g:NERDTreeIgnore = [
     \'node_modules', 'bower_components', 'build', 'dist',
     \'env/', 'venv', '__pycache__', '.pytest_cache',
     \'*.class','*.egg-info/'
     \]
-
-let NERDTreeMinimalUI = 1
-
-" Move NERD to right side screen
+let g:NERDTreeMinimalUI = 1
 let g:NERDTreeWinPos = "right"
-
-" Hide the Nerdtree status line to avoid clutter
 let g:NERDTreeStatusline = ''
-
-" ============= Auto pair shortcut toggle ===========
 let g:AutoPairsShortcutToggle = ""
 
-" ============= Vim airline ==============
+" ======================= Vim Airline ========================
 let g:airline_extensions = ['branch', 'hunks', 'ale', 'coc', 'tabline']
-
 let g:airline#extensions#default#layout = [['a', 'b', 'c'], ['x', 'y', 'z', 'warning', 'error']]
-
 " Do not draw separators for empty sections (only for the active window) >
 let g:airline_skip_empty_sections = 1
-
-let g:airline_theme='onedark'
-
-" Disable vim-airline in preview mode
-let g:airline_exclude_preview = 1
-
-" Enable caching of syntax highlighting groups
+let g:airline_theme='ayu_dark'
 let g:airline_highlighting_cache = 1
-
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
-
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-
+let g:airline#extensions#tabline#formatter = 'default'
+let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
+let g:airline#extensions#tabline#show_tab_nr = 1
 let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#right_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = ' '
 let g:airline#extensions#tabline#right_alt_sep = ' '
 
-" Configure error/warning section to use ale.nvim
-let airline#extensions#ale = {
-    \'error_symbol': 'E:',
-    \'warning_synbol': 'W:'
-    \}
 "============== ALE ================
-" Define ALE linter
 let g:ale_linters = {
     \'javascript': ['eslint'],
     \'typescript': ['tslint'],
     \'python': ['pylint', 'mypy'],
     \'golang': ['golint'],
     \'rust': ['cargo'],
-    \'c': ['clangd', 'ccls'],
-    \'c++': ['clangd', 'ccls']
+    \'c': ['cc'],
+    \'cpp': ['cc']
     \}
-
 let g:ale_fixers = {
     \'javascript': ['prettier', 'eslint'],
     \'typescript': ['prettier'],
@@ -194,25 +168,17 @@ let g:ale_fixers = {
     \'golang': ['gofmt'],
     \'rust': ['rustfmt'],
     \'c': ['clang-format'],
-    \'c++': ['clang-format']
+    \'cpp': ['clang-format']
     \}
-
 let g:ale_fix_on_save = 1
-
-" Setting icon before error/warning ale
 let g:ale_sign_error = '•'
 let g:ale_sign_warning = '•'
-
-" Format ALE message
 let g:ale_python_pylint_use_msg_id = 1
 let g:ale_echo_msg_format = '[%linter%] [%code%] %s [%severity%]'
-
-" Disable ale warning/error in buffer
 let g:ale_set_highlights = 0
-
-" Setting ale window
 let g:ale_open_list = 0
 
+" ======================== coc.nvim ==========================
 let g:coc_global_extensions = [
     \'coc-json',
     \'coc-tsserver',
@@ -223,18 +189,16 @@ let g:coc_global_extensions = [
     \'coc-jedi'
     \]
 
-" ============= Tagbar ===============
+" ======================= Tagbar ============================
 " Set dropdown for tagbar
 let g:tagbar_iconchars = ['▸', '▾']
 
-let g:one_allow_italics = 1
-
-" ========== vim-test ============
+" ======================= vim-test ==========================
 let test#strategy = {
-  \ 'nearest': 'basic',
-  \ 'file':    'basic',
-  \ 'suite':   'basic',
-\}
+    \'nearest': 'basic',
+    \'file'   : 'basic',
+    \'suite'  : 'basic',
+    \}
 
 autocmd BufWritePost * :silent! %s/\s\+$\| \+\zs\t//g
 

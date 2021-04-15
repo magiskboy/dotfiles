@@ -18,7 +18,7 @@ function setup_base() {
         curl -fsSL https://starship.rs/install.sh | bash
     else
         brew install bat tldr ripgrep ctags htop git curl fzf pgcli mycli fd zsh tmux \
-            node npm starship git-delta exa
+            node npm starship git-delta exa zoxide
     fi
 
     # ================== VERSION MANAGER ===================

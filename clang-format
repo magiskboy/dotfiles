@@ -1,0 +1,28 @@
+---
+BasedOnStyle: LLVM
+IndentWidth: 4
+
+---
+Language: Cpp
+AlignConsecutiveAssignments: 'true'
+AlignConsecutiveDeclarations: 'false'
+AlignOperands: 'true'
+AllowShortBlocksOnASingleLine: 'true'
+AllowShortFunctionsOnASingleLine: Inline
+AllowShortIfStatementsOnASingleLine: Always
+AllowShortLambdasOnASingleLine: All
+AllowShortLoopsOnASingleLine: 'false'
+BreakStringLiterals: 'true'
+ColumnLimit: '80'
+NamespaceIndentation: All
+ReflowComments: 'true'
+SortIncludes: 'true'
+SpaceAfterTemplateKeyword: 'true'
+SpacesInAngles: 'false'
+SpacesInCStyleCastParentheses: 'false'
+SpacesInContainerLiterals: 'true'
+SpacesInParentheses: 'false'
+SpacesInSquareBrackets: 'false'
+Standard: Cpp11
+TabWidth: '4'
+UseTab: Never

@@ -35,9 +35,8 @@ Plug 'sheerun/vim-polyglot'
 
 " Plug 'rakr/vim-one'
 Plug 'ayu-theme/ayu-vim'
-Plug 'joshdick/onedark.vim'
 
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries'  }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 Plug 'rust-lang/rust.vim'
 
