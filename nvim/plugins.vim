@@ -11,6 +11,7 @@ Plug 'editorconfig/editorconfig-vim'
 
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
+Plug 'APZelos/blamer.nvim'
 
 Plug 'alvan/vim-closetag'
 
