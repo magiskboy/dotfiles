@@ -7,8 +7,6 @@ call plug#begin('~/.vim/bundle')
 " File explore
 Plug 'scrooloose/nerdtree'
 
-Plug 'editorconfig/editorconfig-vim'
-
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'APZelos/blamer.nvim'

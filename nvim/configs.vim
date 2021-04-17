@@ -119,6 +119,7 @@ let g:python3_host_prog = expand('~/.pyenv/shims/python')
 let g:python_host_prog = expand('/usr/bin/python2')
 
 " ====================== Ident line =========================
+let g:indentLine_enabled = 1
 let g:indentLine_char = '│'
 let g:indentLine_color_term = 239
 
@@ -203,7 +204,6 @@ let test#strategy = {
 " ====================== Gitlen ==============================
 let g:blamer_enabled = 1
 let g:blamer_show_in_visual_modes = 0
-let g:blamer_show_in_insert_modes = 0
 let g:blamer_show_in_insert_modes = 0
 let g:blamer_delay = 10
 let g:blamer_relative_time = 1

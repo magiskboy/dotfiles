@@ -1,45 +1,98 @@
 #!/bin/bash
 
+OS=$(uname -s | tr '[:upper:]' '[:lower:]')
 LOCAL=$HOME/.local
-MAVEN_VERSION=3.6.3
 GO_VERSION=1.14.2
 PY_VERSION=3.8.2
-OS=$(uname -s | tr '[:upper:]' '[:lower:]')
 
+
+COMMON_PACKAGES="
+    ripgrep
+    htop
+    bat
+    git
+    curl
+    fzf
+    pgcli
+    mycli
+    httpie
+    zsh
+    nodejs
+    npm
+    libffi-dev
+    zliglg-dev
+    libbz2-dev
+    libsqlite3-dev
+    exa
+"
+
+MACOS_PACKAGES="
+    starship
+    fd-find
+    exuberant-ctags
+    git-delta
+    docker
+    docker-compose
+"
+
+LINUX_PACKAGES="
+    tmux
+    fd
+    ctags
+    docker.io
+"
+
+[[ -d $LOCAL/bin ]] && mkdir $LOCAL/bin
+
+
+function _macos_installer() {
+    for pkg in $@; do
+        brew install $pkg > /dev/null 2>&1
+        if [[ $? != 0 ]]; then
+            echo "Can not install $pkg"
+        fi
+    done
+}
+
+function _linux_installer() {
+    for pkg in $@; do
+        sudo apt install -y $pkg > /dev/null 2>&1
+        if [[ $? != 0 ]]; then
+            echo "Can not install $pkg"
+        fi
+    done
+}
 
 function setup_base() {
-    # ==================== BASE PACKAGE ===================
-    [[ -d $LOCAL/bin ]] && mkdir $LOCAL/bin
     if [[ $OS == "linux" ]]; then
-        apt install -y tldr ripgrep exuberant-ctags htop git curl fzf pgcli mycli fd-find zsh tmux \
-            nodejs npm libffi-dev zlib1g-dev libbz2-dev libsqlite3-dev exa
-        BATURL=https://github.com/sharkdp/bat/releases/download/v0.11.0/bat_0.11.0_amd64.deb
-        curl -fLO $BATURL && dpkg -i $(basename $BATURL) && rm -f $(basename $BATURL)
+        _linux_installer $COMMON_PACKAGES
+        _linux_installer $LINUX_PACKAGES
         curl -fsSL https://starship.rs/install.sh | bash
+
+        docker_compose_url="https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)"
+        docker_compose_out=$LOCAL/bin/docker-compose
+        curl -Lo $docker_compose_url $docker_compose_out && chmod +x $docker_compose_out
+        groupadd -f docker && \
+        usermod -aG docker $USER && \
+        mkdir -p $HOME/.docker && \
+        chown "$USER":"$USER" $HOME/.docker -R && \
+        chmod g+rwx "$HOME/.docker" -R && \
+        systemctl restart docker
+
+        rm -rf $HOME/.tmux.conf && \
+        ln -sf $(pwd)/tmux/tmux.conf $HOME/.tmux.conf && \
+        ln -sf $(pwd)/tmux/tmux.theme.conf $HOME/.tmux.theme.conf
     else
-        brew install bat tldr ripgrep ctags htop git curl fzf pgcli mycli fd zsh tmux \
-            node npm starship git-delta exa zoxide
+
+        _macos_installer $COMMON_PACKAGES
+        _macos_installer $MACOS_PACKAGES
     fi
 
-    # ================== VERSION MANAGER ===================
-    ln -sf $(pwd)/python/pyenv $HOME/.pyenv && \
-    ln -sf $(pwd)/python/pyenv-virtualenv $HOME/.pyenv/plugins/pyenv-virtualenv
-
-    ln -sf $(pwd)/nodejs/nvm $HOME/.nvm && \
-    source $HOME/.nvm/nvm.sh
-
-    # ==================== RC FILES ====================
     rm -rf $HOME/.myclirc $HOME/.config/pgcli
     ln -sf `pwd`/dbcli/myclirc $HOME/.myclirc
     mkdir -p $HOME/.config/pgcli
     ln -sf `pwd`/dbcli/pgclirc $HOME/.config/pgcli/config
     ln -sf $(pwd)/gitconfig $HOME/.gitconfig
-
-    if [[ $OS = "linux" ]]; then
-        rm -rf $HOME/.tmux.conf && \
-        ln -sf $(pwd)/tmux/tmux.conf $HOME/.tmux.conf && \
-        ln -sf $(pwd)/tmux/tmux.theme.conf $HOME/.tmux.theme.conf
-    fi
 
     # ==================== SHELL ========================
     rm -rf $HOME/.zshrc $HOME/.oh-my-zsh $HOME/.zshrc $HOME/.zshenv $HOME/.zlogin $HOME/.zprofile && \
@@ -54,54 +107,17 @@ function setup_base() {
 
     rm -rf $HOME/.bashrc && ln -sf $(pwd)/bashrc $HOME/.bashrc
 
-    # ====================== SSH ========================
-    [[ ! -d $HOME/.ssh ]] && mkdir $HOME/.ssh
-    ln -sf $(pwd)/ssh-config $HOME/.ssh/config
-    ssh-keygen -f $HOME/.ssh/id_rsa
-
     ln -sf $(pwd)/starship.toml $HOME/.config/starship.toml
 }
 
-function setup_docker() {
-    if [[ $OS == "linux" ]]; then
-        apt install -y docker.io && \
-            groupadd -f docker && \
-            usermod -aG docker $USER && \
-            mkdir -p $HOME/.docker && \
-            chown "$USER":"$USER" $HOME/.docker -R && \
-            chmod g+rwx "$HOME/.docker" -R && \
-            systemctl restart docker
-        docker_compose_url="https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)"
-        docker_compose_out=$LOCAL/bin/docker-compose
-        curl -Lo $docker_compose_url $docker_compose_out && chmod +x $docker_compose_out
-    else
-        brew install docker docker-compose
-    fi
+function setup_python() {
+    ln -sf $(pwd)/python/pyenv $HOME/.pyenv && \
+    ln -sf $(pwd)/python/pyenv-virtualenv $HOME/.pyenv/plugins/pyenv-virtualenv
 }
 
-function setup_neovim() {
-    PY_PACKAGE="pynvim jedi pylint"
-    python -m pip install --user $PY_PACKAGE && \
-    python3 -m pip install --user $PY_PACKAGE
-    NODE_PACKAGE="dockerfile-language-server-nodejs bash-language-server"
-    if [[ $OS == "linux" ]]; then
-        npm i -g $NODE_PACKAGE
-    else
-        npm i -g $NODE_PACKAGE
-    fi
-    rm -rf $HOME/.vim $HOME/.config/nvim && \
-    curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    ln -sf $(pwd)/nvim $HOME/.config/nvim
-}
-
-function setup_java() {
-    MAVEN_URL=https://www-eu.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.zip
-    FILENAME=$(basename $MAVEN_URL)
-    curl -LO $MAVEN_URL && \
-    unzip $FILENAME -d $LOCAL && \
-    ln -sf $LOCAL/apache-maven-$MAVEN_VERSION/bin/mvn $LOCAL/bin/mvn
-    rm -f $FILENAME
+function setup_javascript() {
+    ln -sf $(pwd)/nodejs/nvm $HOME/.nvm && \
+    source $HOME/.nvm/nvm.sh
 }
 
 function setup_go() {
@@ -111,6 +127,22 @@ function setup_go() {
     tar -xzf $FILENAME -C $LOCAL && \
     rm -f $FILENAME
     curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+}
+
+function setup_neovim() {
+    PY_PACKAGE="pynvim jedi pylint black isort"
+    python -m pip install --user $PY_PACKAGE && \
+    python3 -m pip install --user $PY_PACKAGE
+    NODE_PACKAGES="dockerfile-language-server-nodejs bash-language-server"
+    if [[ $OS == "linux" ]]; then
+        sudo npm i -g $NODE_PACKAGES
+    else
+        npm i -g $NODE_PACKAGE
+    fi
+    rm -rf $HOME/.vim $HOME/.config/nvim && \
+    curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    ln -sf $(pwd)/nvim $HOME/.config/nvim
 }
 
 function setup_nvidia() {

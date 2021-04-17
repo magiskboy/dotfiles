@@ -13,15 +13,11 @@ This are my public dotfiles. They might not work for you, but feel free to steal
 
 
 #### Note
-
-In linux, you must install ccls from [https://github.com/MaskRay/ccls](source code). Following below commands:
-
 ```bash
 $ sudo apt install clang cmake libclang-dev llvm-dev rapidjson-dev
 $ cmake -H. -BRelease -DUSE_SYSTEM_RAPIDJSON=OFF
 $ cmake --build Release
 ```
-
 
 If you want install newest version neovim from [https://github.com/neovim/neovim](source), you follow bellow commands
 
@@ -34,3 +30,11 @@ $ # Compile and build executable
 $ make CMAKE_INSTALL_PREFIX=$HOME/.local CMAKE_BUILD_TYPE=RelWithDebInfo
 $ make install
 ```
+
+### Screenshot
+
+##### My prompt
+![My prompt](./screenshots/starship_zsh.gif.png)
+
+##### Neovim
+![My editor](./screenshots/neovim.gif)
