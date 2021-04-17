@@ -34,7 +34,7 @@ $ make install
 ### Screenshot
 
 ##### My prompt
-![My prompt](./screenshots/starship_zsh.gif.png)
+![My prompt](./screenshots/starship_zsh.gif)
 
 ##### Neovim
 ![My editor](./screenshots/neovim.gif)
