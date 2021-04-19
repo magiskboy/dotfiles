@@ -69,6 +69,10 @@ function setup_base() {
         _linux_installer $LINUX_PACKAGES
         curl -fsSL https://starship.rs/install.sh | bash
 
+        curl -Lo https://github.com/dandavison/delta/releases/download/0.7.1/git-delta_0.7.1_amd64.deb && \
+        sudo dpkg -i git-delta_0.7.1_amd64.deb && \
+        rm git-delta_0.7.1_amd64.deb
+
         docker_compose_url="https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)"
         docker_compose_out=$LOCAL/bin/docker-compose
         curl -Lo $docker_compose_url $docker_compose_out && chmod +x $docker_compose_out

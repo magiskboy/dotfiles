@@ -13,9 +13,6 @@ error_symbol = "[➜](bold red)"
 [cmd_duration]
 min_time = 150
 
-[kubernetes]
-disabled = true
-
 [directory]
 truncate_to_repo = false
 truncation_length = 6
