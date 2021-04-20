@@ -4,13 +4,11 @@
 export OS=$(uname -s | tr "[:upper:]" "[:lower:]")
 export PATH=$HOME/.local/go/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
-export PATH=$HOME/.local/bin:$PATH
 export PYTHONDONTWRITEBYTECODE=1
 export JAVA_HOME=$(java -XshowSettings:properties -version 2>&1 > /dev/null | grep 'java.home' | cut -d'=' -f2 | xargs)
 export PATH=$JAVA_HOME/bin:$PATH
-export GOPATH=$HOME/workspace/go
+export GOPATH=$HOME/Development/go
 export GOROOT=$HOME/.local/go
-export PATH=$HOME/.local/go/bin:$GOPATH:$GOPATH/bin:$PATH
 export TERM=screen-256color
 export TERMINFO=/usr/share/terminfo
 export PYENV_ROOT="$HOME/.pyenv"
@@ -27,6 +25,7 @@ if [[ $OS == "darwin" ]]; then
 else
     alias ls="ls --color=always"
 fi
+alias fd="fdfind"
 alias ll="ls -lh"
 alias g="git"
 alias ga="git add"

@@ -9,7 +9,6 @@ PY_VERSION=3.8.2
 COMMON_PACKAGES="
     ripgrep
     htop
-    bat
     git
     curl
     fzf
@@ -19,16 +18,18 @@ COMMON_PACKAGES="
     zsh
     nodejs
     npm
+
     libffi-dev
-    zliglg-dev
+    zlig1g-dev
     libbz2-dev
     libsqlite3-dev
-    exa
 "
 
 MACOS_PACKAGES="
     starship
+    bat
     fd-find
+    exa
     exuberant-ctags
     git-delta
     docker
@@ -36,8 +37,8 @@ MACOS_PACKAGES="
 "
 
 LINUX_PACKAGES="
+    fd-find
     tmux
-    fd
     ctags
     docker.io
 "
@@ -64,18 +65,24 @@ function _linux_installer() {
 }
 
 function setup_base() {
+    curl https://sh.rustup.rs -sSf | sh
+
     if [[ $OS == "linux" ]]; then
         _linux_installer $COMMON_PACKAGES
         _linux_installer $LINUX_PACKAGES
+
+        cargo install git-delta
+        cargo instal exa
+        cargo install --locked bat
+
         curl -fsSL https://starship.rs/install.sh | bash
 
         curl -Lo https://github.com/dandavison/delta/releases/download/0.7.1/git-delta_0.7.1_amd64.deb && \
         sudo dpkg -i git-delta_0.7.1_amd64.deb && \
         rm git-delta_0.7.1_amd64.deb
 
-        docker_compose_url="https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)"
-        docker_compose_out=$LOCAL/bin/docker-compose
-        curl -Lo $docker_compose_url $docker_compose_out && chmod +x $docker_compose_out
+        curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" \
+            -o $LOCAL/bin/docker-compose && chmod +x $LOCAL/bin/docker-compose
         groupadd -f docker && \
         usermod -aG docker $USER && \
         mkdir -p $HOME/.docker && \
@@ -87,7 +94,6 @@ function setup_base() {
         ln -sf $(pwd)/tmux/tmux.conf $HOME/.tmux.conf && \
         ln -sf $(pwd)/tmux/tmux.theme.conf $HOME/.tmux.theme.conf
     else
-
         _macos_installer $COMMON_PACKAGES
         _macos_installer $MACOS_PACKAGES
     fi
@@ -133,7 +139,22 @@ function setup_go() {
     curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 }
 
-function setup_neovim() {
+function setup_vim() {
+    # Build neovim from source
+    git clone https://github.com/neovim/neovim $HOME/Development/neovim && \
+        cd $HOME/Development/neovim
+
+    if [[ $OS == "linux" ]]; then
+        sudo apt install ninja-build gettext libtool autoconf automake cmake g++ pkg-config unzip
+    else
+        brew install ninja libtool automake cmake pkg-config gettext
+    fi
+
+    make CMAKE_BUILD_TYPE=Release CMAKE_INSTALL_PREFIX=$HOME/.local
+    make install
+
+
+    # Configuration
     PY_PACKAGE="pynvim jedi pylint black isort"
     python -m pip install --user $PY_PACKAGE && \
     python3 -m pip install --user $PY_PACKAGE
@@ -147,6 +168,8 @@ function setup_neovim() {
     curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     ln -sf $(pwd)/nvim $HOME/.config/nvim
+
+    ln -sf $(pwd)/nvim/vimrc $HOME/.vimrc
 }
 
 function setup_nvidia() {

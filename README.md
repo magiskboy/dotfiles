@@ -1,40 +1,37 @@
 # Dotfiles
----
-
-### How to install
-
-```bash
-$ ./install.sh base
-```
 
 Hey,
 
 This are my public dotfiles. They might not work for you, but feel free to steal from them.
 
-
-#### Note
-```bash
-$ sudo apt install clang cmake libclang-dev llvm-dev rapidjson-dev
-$ cmake -H. -BRelease -DUSE_SYSTEM_RAPIDJSON=OFF
-$ cmake --build Release
-```
-
-If you want install newest version neovim from [https://github.com/neovim/neovim](source), you follow bellow commands
-
-```bash
-$ sudo apt install gperf luajit luarocks libuv1-dev libluajit-5.1-dev libunibilium-dev libmsgpack-dev libtermkey-dev libvterm-dev libutf8proc-dev
-$ sudo luarocks build mpack
-$ sudo luarocks build lpeg
-$ sudo luarocks build inspect
-$ # Compile and build executable
-$ make CMAKE_INSTALL_PREFIX=$HOME/.local CMAKE_BUILD_TYPE=RelWithDebInfo
-$ make install
-```
-
 ### Screenshot
 
-##### My prompt
-![My prompt](./screenshots/starship_zsh.gif)
+<center>
 
-##### Neovim
-![My editor](./screenshots/neovim.gif)
+![My prompt](https://firebasestorage.googleapis.com/v0/b/myblog-e552f.appspot.com/o/screenshot%2Fstarship_zsh.gif?alt=media&token=640a195d-db2a-4e73-8145-aa915c688f22)
+
+![My editor](https://firebasestorage.googleapis.com/v0/b/myblog-e552f.appspot.com/o/screenshot%2Fneovim.gif?alt=media&token=f2629613-5de2-4a14-85ec-1d629cf8af23)
+
+</center>
+
+### Pre-requirement
+
+In Ubuntu
+
+```bash
+$ sudo apt install git
+```
+
+In MacOS
+```bash
+$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+$ brew install git
+```
+
+### How to install
+
+```bash
+$ git clone https://github.com/magiskboy/dotfiles $HOME/dotfiles
+$ cd $HOME/dotfiles
+$ ./install.sh base
+```

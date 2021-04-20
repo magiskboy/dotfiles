@@ -22,3 +22,4 @@ export ZSH_CONFIG=$HOME/dotfiles/zsh
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6eb579"
 export OPENSSL_CONF=/etc/ssl/           # fix: vagrant not found openssl lib
 source $HOME/.cargo/env
+source "$HOME/.cargo/env"

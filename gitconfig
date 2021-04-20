@@ -215,3 +215,6 @@
 [pull]
 	rebase = false
 	ff = only
+
+[url "ssh://git@gitlab.shopbase.dev/"]
+   insteadOf = https://gitlab.shopbase.dev/
