@@ -1,4 +1,7 @@
 #!/usr/bin/env zsh
+#
+
+head -n7 $HOME/dotfiles/README.md
 
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -29,6 +32,7 @@ alias open="_f() {[[ -z \$@ ]] && {x=\$(fzf); [[ \$? -eq 0 ]] && command open \$
 alias nvim="_f() {[[ -z \$@ ]] && {x=\$(fzf);[[ \$? -eq 0 ]] && command nvim \$x || true} || { command nvim \$@ } }; _f $@"
 alias rvim="x=\$(fzf --bind 'change:reload:rg --column --line-number --no-heading --color=always --smart-case {q} || true' --ansi --phony --query '');[[ \$? -eq 0 ]] && command nvim '\$(echo \$x|cut -d: -f1)' +':\$(echo $x| cut -d: -f2)' || true"
 alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias pt="poetry"
 
 autoload -Uz compinit
 
@@ -55,7 +59,3 @@ unset my_loader
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-eval "$(starship init zsh)"
-eval "$(pyenv init -)"
-eval "$(zoxide init zsh)"

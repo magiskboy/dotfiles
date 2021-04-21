@@ -122,7 +122,10 @@ function setup_base() {
 
 function setup_python() {
     ln -sf $(pwd)/python/pyenv $HOME/.pyenv && \
-    ln -sf $(pwd)/python/pyenv-virtualenv $HOME/.pyenv/plugins/pyenv-virtualenv
+    ln -sf $(pwd)/python/pyenv-virtualenv $HOME/.pyenv/plugins/pyenv-virtualenv && \
+    pyenv install 3.8.7 && \
+    pyenv global 3.8.7 && \
+    pip install poetry black isort pylint jedi pynvim
 }
 
 function setup_javascript() {
@@ -155,9 +158,6 @@ function setup_vim() {
 
 
     # Configuration
-    PY_PACKAGE="pynvim jedi pylint black isort"
-    python -m pip install --user $PY_PACKAGE && \
-    python3 -m pip install --user $PY_PACKAGE
     NODE_PACKAGES="dockerfile-language-server-nodejs bash-language-server"
     if [[ $OS == "linux" ]]; then
         sudo npm i -g $NODE_PACKAGES
