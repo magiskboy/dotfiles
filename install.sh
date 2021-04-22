@@ -18,6 +18,7 @@ COMMON_PACKAGES="
     zsh
     nodejs
     npm
+    cmake
 
     libffi-dev
     zlig1g-dev
@@ -74,12 +75,19 @@ function setup_base() {
         cargo install git-delta
         cargo instal exa
         cargo install --locked bat
+        cargo install zoxide
 
         curl -fsSL https://starship.rs/install.sh | bash
 
         curl -Lo https://github.com/dandavison/delta/releases/download/0.7.1/git-delta_0.7.1_amd64.deb && \
         sudo dpkg -i git-delta_0.7.1_amd64.deb && \
         rm git-delta_0.7.1_amd64.deb
+
+        git clone https://github.com/thewtex/tmux-mem-cpu-load $HOME/Development/tmux-mem-cpu-load && \
+            cd $HOME/Development/tmux-mem-cpu-load
+
+        cmake . && make
+        sudo make install
 
         curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" \
             -o $LOCAL/bin/docker-compose && chmod +x $LOCAL/bin/docker-compose
