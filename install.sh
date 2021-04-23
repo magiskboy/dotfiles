@@ -154,6 +154,8 @@ function setup_vim() {
     # Build neovim from source
     git clone https://github.com/neovim/neovim $HOME/Development/neovim && \
         cd $HOME/Development/neovim
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
     if [[ $OS == "linux" ]]; then
         sudo apt install ninja-build gettext libtool autoconf automake cmake g++ pkg-config unzip
