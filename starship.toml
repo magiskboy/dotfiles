@@ -24,7 +24,7 @@ disabled = true
 symbol = "☁️  "
 
 [battery]
-disabled = false
+disabled = true
 [battery.display]
 threshold = 60
 style = "bold red"
