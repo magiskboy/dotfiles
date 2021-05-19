@@ -2,7 +2,7 @@
 
 OS=$(uname -s | tr '[:upper:]' '[:lower:]')
 LOCAL=$HOME/.local
-GO_VERSION=1.14.2
+GO_VERSION=1.16
 PY_VERSION=3.8.2
 
 
@@ -73,7 +73,7 @@ function setup_base() {
         _linux_installer $LINUX_PACKAGES
 
         cargo install git-delta
-        cargo instal exa
+        cargo install exa
         cargo install --locked bat
         cargo install zoxide
 
