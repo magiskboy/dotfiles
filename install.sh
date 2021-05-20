@@ -158,7 +158,7 @@ function setup_vim() {
             https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
     if [[ $OS == "linux" ]]; then
-        sudo apt install ninja-build gettext libtool autoconf automake cmake g++ pkg-config unzip
+        sudo apt install ninja-build gettext libtool autoconf automake cmake g++ pkg-config unzip libtool-bin
     else
         brew install ninja libtool automake cmake pkg-config gettext
     fi
