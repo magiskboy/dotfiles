@@ -187,7 +187,8 @@ let g:coc_global_extensions = [
     \'coc-clangd',
     \'coc-go',
     \'coc-python',
-    \'coc-jedi'
+    \'coc-jedi',
+    \'coc-eslint'
     \]
 
 " ======================= Tagbar ============================
