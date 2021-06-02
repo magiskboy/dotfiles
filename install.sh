@@ -2,7 +2,7 @@
 
 OS=$(uname -s | tr '[:upper:]' '[:lower:]')
 LOCAL=$HOME/.local
-GO_VERSION=1.14.2
+GO_VERSION=1.16
 PY_VERSION=3.8.2
 
 
@@ -19,6 +19,8 @@ COMMON_PACKAGES="
     nodejs
     npm
     cmake
+    ctags
+    fd
 
     libffi-dev
     zlig1g-dev
@@ -29,9 +31,7 @@ COMMON_PACKAGES="
 MACOS_PACKAGES="
     starship
     bat
-    fd-find
     exa
-    exuberant-ctags
     git-delta
     docker
     docker-compose

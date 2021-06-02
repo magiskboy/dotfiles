@@ -63,7 +63,7 @@ set mousehide
 set mouse=a
 
 " Show line number.
-set number numberwidth=5 relativenumber
+set number numberwidth=5
 
 " Set border for window
 set fillchars+=vert:│
@@ -72,9 +72,9 @@ set fillchars+=vert:│
 set ruler
 
  " Limit syntax highlighting (this avoids the very slow redrawing when files contain long lines).
-set synmaxcol=200
+set synmaxcol=128
 
-syntax sync minlines=100
+syntax sync minlines=256
 
 " Set global <TAB> settings.
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
@@ -202,7 +202,7 @@ let test#strategy = {
     \}
 
 " ====================== Gitlen ==============================
-let g:blamer_enabled = 1
+let g:blamer_enabled = 0
 let g:blamer_show_in_visual_modes = 0
 let g:blamer_show_in_insert_modes = 0
 let g:blamer_delay = 10
