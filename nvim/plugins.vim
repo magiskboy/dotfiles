@@ -2,6 +2,7 @@ filetype off
 set rtp+=~/.config/nvim/bundle/vim-plug
 call plug#begin('~/.vim/bundle')
 
+Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree'
 Plug 'airblade/vim-gitgutter'
 Plug 'wakatime/vim-wakatime'
