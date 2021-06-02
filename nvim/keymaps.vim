@@ -24,14 +24,6 @@ nnoremap <c-l> <c-w><c-l>
 
 nmap <F2> :CocCommand document.renameCurrentWord<cr>
 
-augroup filetype_python
-    autocmd!
-    autocmd FileType python iabbrev iff if:<left>
-    autocmd FileType python iabbrev fof for i in range():<left><left>
-    autocmd FileType python iabbrev whf while:<left>
-    autocmd FileType python iabbrev imp import
-augroup END
-
 inoremap <expr><tab>  pumvisible() ? "\<c-n>" : "\<tab>"
 
 " Fast switch tabs
