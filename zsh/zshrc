@@ -12,6 +12,7 @@ plugins=(
   docker
   zsh-autosuggestions
   zsh-z
+  yarn
 )
 
 source $ZSH/oh-my-zsh.sh
