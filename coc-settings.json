@@ -1,0 +1,23 @@
+{
+  "languageserver": {},
+  "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/11.0.0/clangd_11.0.0/bin/clangd",
+  "diagnostic.errorSign": "•",
+  "diagnostic.warningSign": "•",
+  "python.formatting.provider": "black",
+  "coc.preferences.formatOnSaveFiletypes": [
+    "python",
+    "javascript",
+    "typescript",
+    "rust",
+    "go",
+    "typescriptreact",
+    "javascriptreact",
+    "markdown",
+    "json",
+    "html",
+    "cpp",
+    "c"
+  ],
+  "list.previewHighlightGroup": "Statement",
+  "explorer.position": "right"
+}

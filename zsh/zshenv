@@ -3,8 +3,8 @@
 export OS=$(uname -s | tr "[:upper:]" "[:lower:]")
 export PATH=$HOME/.local/bin:$PATH
 export PYTHONDONTWRITEBYTECODE=1
-export JAVA_HOME=$(java -XshowSettings:properties -version 2>&1 > /dev/null | grep 'java.home' | cut -d'=' -f2 | xargs)
-export PATH=$JAVA_HOME/bin:$PATH
+# export JAVA_HOME=$(java -XshowSettings:properties -version 2>&1 > /dev/null | grep 'java.home' | cut -d'=' -f2 | xargs)
+# export PATH=$JAVA_HOME/bin:$PATH
 export GOPATH=$HOME/Development/go
 export GOROOT=$HOME/.local/go
 export PATH=$HOME/.local/go/bin:$GOPATH:$GOPATH/bin:$PATH

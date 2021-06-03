@@ -19,18 +19,16 @@ truncation_length = 6
 truncation_symbol = "…/"
 style = "bold green"
 
-[gcloud]
-disabled = false
-symbol = "☁️  "
-format = 'on [$symbol$account(@$domain)]($style) '
-
 [battery]
 disabled = true
 [battery.display]
 threshold = 60
 style = "bold red"
 
+[gcloud]
+disabled = true
+
 [kubernetes]
-disabled = false
+disabled = true
 [kubernetes.context_aliases]
 "gke_teko-development_asia-southeast1-a_test-1" = "test-1"
