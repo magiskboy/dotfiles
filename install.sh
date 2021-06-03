@@ -44,7 +44,7 @@ LINUX_PACKAGES="
     docker.io
 "
 
-[[ -d $LOCAL/bin ]] && mkdir $LOCAL/bin
+[[ ! -d $LOCAL/bin ]] && mkdir $LOCAL/bin
 
 
 function _macos_installer() {
@@ -65,129 +65,62 @@ function _linux_installer() {
     done
 }
 
-function setup_base() {
-    curl https://sh.rustup.rs -sSf | sh
+if [[ $OS == "linux" ]]; then
+    # _linux_installer $COMMON_PACKAGES
+    # _linux_installer $LINUX_PACKAGES
 
-    if [[ $OS == "linux" ]]; then
-        _linux_installer $COMMON_PACKAGES
-        _linux_installer $LINUX_PACKAGES
+    # groupadd -f docker && \
+    # usermod -aG docker $USER && \
+    # mkdir -p $HOME/.docker && \
+    # chown "$USER":"$USER" $HOME/.docker -R && \
+    # chmod g+rwx "$HOME/.docker" -R && \
+    # systemctl restart docker
 
-        cargo install git-delta
-        cargo install exa
-        cargo install --locked bat
-        cargo install zoxide
+    rm -rf $HOME/.tmux.conf && \
+    ln -sf $(pwd)/tmux.conf $HOME/.tmux.conf && \
+    ln -sf $(pwd)/tmux.theme.conf $HOME/.tmux.theme.conf
+else
+    _macos_installer $COMMON_PACKAGES
+    _macos_installer $MACOS_PACKAGES
+fi
 
-        curl -fsSL https://starship.rs/install.sh | bash
+rm -rf $HOME/.myclirc $HOME/.config/pgcli
+ln -sf `pwd`/myclirc $HOME/.myclirc
+mkdir -p $HOME/.config/pgcli
+ln -sf `pwd`/pgclirc $HOME/.config/pgcli/config
+ln -sf $(pwd)/gitconfig $HOME/.gitconfig
 
-        curl -Lo https://github.com/dandavison/delta/releases/download/0.7.1/git-delta_0.7.1_amd64.deb && \
-        sudo dpkg -i git-delta_0.7.1_amd64.deb && \
-        rm git-delta_0.7.1_amd64.deb
+rm -rf $HOME/.zshrc $HOME/.oh-my-zsh $HOME/.zshrc $HOME/.zshenv $HOME/.zlogin $HOME/.zprofile && \
+ln -sf $(pwd)/oh-my-zsh $HOME/.oh-my-zsh && \
+ln -sf $(pwd)/zsh-autosuggestions $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions && \
+ln -sf $(pwd)/zsh-z $HOME/.oh-my-zsh/custom/plugins/zsh-z && \
+ln -sf $(pwd)/zsh/zshrc $HOME/.zshrc && \
+ln -sf $(pwd)/zsh/zlogin $HOME/.zlogin && \
+ln -sf $(pwd)/zsh/zprofile $HOME/.zprofile && \
+ln -sf $(pwd)/zsh/zshenv $HOME/.zshenv && \
+ln -sf $(pwd)/zsh/zshrc $HOME/.zshrc && \
+rm -rf $HOME/.bashrc && ln -sf $(pwd)/bashrc $HOME/.bashrc
+ln -sf $(pwd)/starship.toml $HOME/.config/starship.toml
 
-        git clone https://github.com/thewtex/tmux-mem-cpu-load $HOME/Development/tmux-mem-cpu-load && \
-            cd $HOME/Development/tmux-mem-cpu-load
+# curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+#     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# mkdir -p $HOME/.config/nvim && ln -sf $(pwd)/init.vim $HOME/.config/nvim/init.vim
+ln -sf $(pwd)/vimrc $HOME/.vimrc
 
-        cmake . && make
-        sudo make install
+# curl https://sh.rustup.rs -sSf | sh
 
-        curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" \
-            -o $LOCAL/bin/docker-compose && chmod +x $LOCAL/bin/docker-compose
-        groupadd -f docker && \
-        usermod -aG docker $USER && \
-        mkdir -p $HOME/.docker && \
-        chown "$USER":"$USER" $HOME/.docker -R && \
-        chmod g+rwx "$HOME/.docker" -R && \
-        systemctl restart docker
+ln -sf $(pwd)/pyenv $HOME/.pyenv && \
+ln -sf $(pwd)/pyenv-virtualenv $HOME/.pyenv/plugins/pyenv-virtualenv && \
+# pyenv install 3.8.7 && \
+# pyenv global 3.8.7 && \
+# pip install poetry black isort pylint jedi pynvim
 
-        rm -rf $HOME/.tmux.conf && \
-        ln -sf $(pwd)/tmux/tmux.conf $HOME/.tmux.conf && \
-        ln -sf $(pwd)/tmux/tmux.theme.conf $HOME/.tmux.theme.conf
-    else
-        _macos_installer $COMMON_PACKAGES
-        _macos_installer $MACOS_PACKAGES
-    fi
+ln -sf $(pwd)/nvm $HOME/.nvm && \
+source $HOME/.nvm/nvm.sh
 
-    rm -rf $HOME/.myclirc $HOME/.config/pgcli
-    ln -sf `pwd`/dbcli/myclirc $HOME/.myclirc
-    mkdir -p $HOME/.config/pgcli
-    ln -sf `pwd`/dbcli/pgclirc $HOME/.config/pgcli/config
-    ln -sf $(pwd)/gitconfig $HOME/.gitconfig
-
-    # ==================== SHELL ========================
-    rm -rf $HOME/.zshrc $HOME/.oh-my-zsh $HOME/.zshrc $HOME/.zshenv $HOME/.zlogin $HOME/.zprofile && \
-    ln -sf $(pwd)/zsh/zshrc $HOME/.zshrc && \
-    ln -sf $(pwd)/zsh/oh-my-zsh $HOME/.oh-my-zsh && \
-    ln -sf $(pwd)/zsh/zlogin $HOME/.zlogin && \
-    ln -sf $(pwd)/zsh/zprofile $HOME/.zprofile && \
-    ln -sf $(pwd)/zsh/zshenv $HOME/.zshenv && \
-    ln -sf $(pwd)/zsh/zshrc $HOME/.zshrc && \
-    ln -sf $(pwd)/zsh/zsh-z $HOME/.oh-my-zsh/custom/plugins/zsh-z && \
-    ln -sf $(pwd)/zsh/zsh-autosuggestions $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-
-    rm -rf $HOME/.bashrc && ln -sf $(pwd)/bashrc $HOME/.bashrc
-
-    ln -sf $(pwd)/starship.toml $HOME/.config/starship.toml
-}
-
-function setup_python() {
-    ln -sf $(pwd)/python/pyenv $HOME/.pyenv && \
-    ln -sf $(pwd)/python/pyenv-virtualenv $HOME/.pyenv/plugins/pyenv-virtualenv && \
-    pyenv install 3.8.7 && \
-    pyenv global 3.8.7 && \
-    pip install poetry black isort pylint jedi pynvim
-}
-
-function setup_javascript() {
-    ln -sf $(pwd)/nodejs/nvm $HOME/.nvm && \
-    source $HOME/.nvm/nvm.sh
-}
-
-function setup_go() {
-    GO_URL=https://dl.google.com/go/go$GO_VERSION.$OS-amd64.tar.gz
-    FILENAME=$(basename $GO_URL)
-    curl -LO $GO_URL && \
-    tar -xzf $FILENAME -C $LOCAL && \
-    rm -f $FILENAME
-    curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
-}
-
-function setup_vim() {
-    # Build neovim from source
-    git clone https://github.com/neovim/neovim $HOME/Development/neovim && \
-        cd $HOME/Development/neovim
-    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-    if [[ $OS == "linux" ]]; then
-        sudo apt install ninja-build gettext libtool autoconf automake cmake g++ pkg-config unzip libtool-bin
-    else
-        brew install ninja libtool automake cmake pkg-config gettext
-    fi
-
-    make CMAKE_BUILD_TYPE=Release CMAKE_INSTALL_PREFIX=$HOME/.local
-    make install
-
-
-    # Configuration
-    NODE_PACKAGES="dockerfile-language-server-nodejs bash-language-server"
-    if [[ $OS == "linux" ]]; then
-        sudo npm i -g $NODE_PACKAGES
-    else
-        npm i -g $NODE_PACKAGE
-    fi
-    rm -rf $HOME/.vim $HOME/.config/nvim && \
-    curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    ln -sf $(pwd)/nvim $HOME/.config/nvim
-
-    ln -sf $(pwd)/nvim/vimrc $HOME/.vimrc
-}
-
-function setup_nvidia() {
-    if [[ $OS == "linux" ]]; then
-        apt install linux-headers-$(uname -r) nvidia-legacy-390xx-driver
-    fi
-}
-
-for state in $@; do
-    eval "setup_$state"
-done
+# GO_URL=https://dl.google.com/go/go$GO_VERSION.$OS-amd64.tar.gz
+# FILENAME=$(basename $GO_URL)
+# curl -LO $GO_URL && \
+# tar -xzf $FILENAME -C $LOCAL && \
+# rm -f $FILENAME
+# curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh

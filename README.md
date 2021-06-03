@@ -42,3 +42,47 @@ $ git clone https://github.com/magiskboy/dotfiles $HOME/dotfiles
 $ cd $HOME/dotfiles
 $ ./install.sh base
 ```
+
+### Install by hand
+
+#### Pretty Rust tools
+```sh
+$ curl -fsSL https://starship.rs/install.sh | bash
+$ cargo install git-delta exa bat zoxide
+```
+
+#### CPU and memory tracking in status bar tmux
+```sh
+$ git clone https://github.com/thewtex/tmux-mem-cpu-load $HOME/Development/tmux-mem-cpu-load && \
+    cd $HOME/Development/tmux-mem-cpu-load
+$ cmake . && make
+$ sudo make install
+```
+
+#### docker-compose
+```sh
+$ curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" \
+    -o $LOCAL/bin/docker-compose && chmod +x $LOCAL/bin/docker-compose
+```
+
+#### Install neovim (latest)
+Clone and follow installation guide https://github.com/neovim/neovim
+
+Pre-requirement
+
+Linux
+```sh
+$ sudo apt install ninja-build gettext libtool autoconf automake cmake g++ pkg-config unzip libtool-bin
+```
+
+MacOS
+```sh
+$ brew install ninja libtool automake cmake pkg-config gettext
+```
+
+Compile and install to user local
+```sh
+$ make CMAKE_BUILD_TYPE=Release CMAKE_INSTALL_PREFIX=$HOME/.local
+$ make install
+```
+
