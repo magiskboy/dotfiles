@@ -11,7 +11,7 @@ success_symbol = "[➜](bold green)"
 error_symbol = "[➜](bold red)"
 
 [cmd_duration]
-min_time = 150
+min_time = 100
 
 [directory]
 truncate_to_repo = false
@@ -29,6 +29,7 @@ style = "bold red"
 disabled = true
 
 [kubernetes]
-disabled = true
+disabled = false
 [kubernetes.context_aliases]
 "gke_teko-development_asia-southeast1-a_test-1" = "test-1"
+"teko-dev-vnpaycloud" = "vnpaycloud-dev"
