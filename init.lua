@@ -1,3 +1,5 @@
+vim.cmd [[packadd packer.nvim]]
+
 vim.cmd([[
 filetype off
 set rtp+=~/.config/nvim/bundle/vim-plug
@@ -158,3 +160,23 @@ require'nvim-treesitter.configs'.setup {
         enable = true,
     }
 }
+
+return require('packer').startup(function()
+    use 'wbthomason/packer.nvim'
+    use 'morhetz/gruvbox'
+    use 'airblade/vim-gitgutter'
+    use 'tpope/vim-fugitive'
+    use 'alvan/vim-closetag'
+    use 'tpope/vim-eunuch'
+    use 'wakatime/vim-wakatime'
+    use 'Yggdroot/indentLine'
+    use 'vim-airline/vim-airline'
+    use 'neoclide/coc.nvim'
+    use 'fatih/vim-go'
+    use 'rust-lang/rust.vim'
+    use 'jiangmiao/auto-pairs'
+    use 'junegunn/fzf'
+    use 'junegunn/fzf.vim'
+    use 'tpope/vim-commentary'
+    use 'nvim-treesitter/nvim-treesitter'
+end)

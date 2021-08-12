@@ -1,0 +1,51 @@
+window:
+  decorations: none
+  startup_mode: Maximized
+  title: Alacritty
+  dynamic_title: true
+
+font:
+  normal:
+    family: MesloLGS NF
+    style: Regular
+
+  bold:
+    family: MesloLGS NF
+    style: Bold
+
+  italic:
+    family: MesloLGS NF
+    style: Italic
+
+  bold_italic:
+    family: MesloLGS NF
+    style: Bold Italic
+
+  size: 11.5
+
+colors:
+  primary:
+    background: '#1d1f21'
+    foreground: '#c5c8c6'
+    dim_foreground: '#828482'
+    bright_foreground: '#eaeaea'
+
+  cursor:
+    text: CellBackground
+    cursor: CellForeground
+
+  vi_mode_cursor:
+    text: CellBackground
+    cursor: CellForeground
+
+  search:
+    matches:
+      foreground: '#000000'
+      background: '#ffffff'
+    focused_match:
+      foreground: '#ffffff'
+      background: '#000000'
+
+    bar:
+      background: '#c5c8c6'
+      foreground: '#1d1f21'

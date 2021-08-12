@@ -19,5 +19,7 @@
     "c"
   ],
   "list.previewHighlightGroup": "Statement",
-  "explorer.position": "right"
+  "explorer.position": "right",
+  "explorer.icon.enableNerdfont": true,
+  "explorer.previewAction.onHover": "labeling"
 }
