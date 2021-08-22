@@ -8,6 +8,7 @@ return require('packer').startup(function()
     use 'alvan/vim-closetag'
     use 'tpope/vim-eunuch'
     use 'wakatime/vim-wakatime'
+    use 'tpope/vim-surround'
     use 'Yggdroot/indentLine'
     use 'honza/vim-snippets'
     use 'vim-airline/vim-airline'
