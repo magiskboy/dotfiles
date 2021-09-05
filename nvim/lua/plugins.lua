@@ -15,9 +15,9 @@ return require('packer').startup(function()
     use { 'neoclide/coc.nvim', branch = 'release' }
     use { 'fatih/vim-go', run = ':GoUpdateBinaries' }
     use 'rust-lang/rust.vim'
-    use 'jiangmiao/auto-pairs'
     use { 'junegunn/fzf', run = './install --all' }
     use 'junegunn/fzf.vim'
     use 'tpope/vim-commentary'
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+    use { 'voldikss/vim-floaterm' }
 end)

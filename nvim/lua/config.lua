@@ -43,6 +43,8 @@ vim.g.airline_left_sep = ''
 vim.g.airline_right_sep = ''
 vim.g.fzf_layout = { down = '~100%' }
 vim.g.coc_global_extensions = {
+    'coc-snippets',
+    'coc-pairs',
     'coc-json',
     'coc-tsserver',
     'coc-rust-analyzer',
@@ -56,6 +58,7 @@ vim.g.coc_global_extensions = {
     'coc-css',
     'coc-html'
 }
+vim.g.floaterm_autoclose = 2
 vim.api.nvim_set_var("airline#extensions#tabline#formatter", 'default')
 vim.api.nvim_set_var("airline#extensions#tabline#tab_nr_type", "1")
 vim.api.nvim_set_var("airline#extensions#tabline#show_tab_nr", "1")
@@ -66,12 +69,19 @@ vim.api.nvim_set_var("airline#extensions#tabline#right_alt_sep", ' ')
 vim.api.nvim_set_var('airline#extensions#default#layout', {{'a', 'b', 'c'}, {'x', 'y', 'z', 'warning', 'error'}})
 
 vim.cmd([[
-hi GitGutterAdd ctermbg=NONE guibg=NONE
+" hi GitGutterAdd ctermbg=NONE guibg=NONE
+hi link GitGutterAdd GruvboxGreen
 hi GitGutterDelete ctermbg=NONE guibg=NONE
 hi GitGutterChange ctermbg=NONE guibg=NONE 
 hi LineNr cterm=NONE ctermbg=NONE ctermfg=NONE gui=NONE guibg=NONE guifg=NONE
-hi SignColumn guibg=NONE
+hi SignColumn guibg=NONE ctermbg=NONE
 hi ColorColumn guibg=#30353b
+hi Visual guifg=NONE guibg=#928374 gui=NONE
+hi CocCursorRange guibg=#928374 guifg=NONE
+hi link CocWarningSign GruvboxOrange
+hi link CocErrorSign GruvboxRed
+hi link CocInfoSign GruvboxYellow
+hi link CocHintSign GruvboxBlue
 ]])
 
 vim.cmd([[
