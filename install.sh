@@ -42,6 +42,11 @@ LINUX_PACKAGES="
     tmux
     ctags
     docker.io
+    gedit-plugins
+    parallel
+    gnome-shell-extensions
+    dconf-editor
+    gnome-shell-extension-dash-to-panel
 "
 
 [[ ! -d $LOCAL/bin ]] && mkdir $LOCAL/bin

@@ -39,8 +39,8 @@ vim.g.AutoPairsShortcutToggle = ""
 vim.g.airline_skip_empty_sections = 1
 vim.g.airline_highlighting_cache = 1
 vim.g.airline_extensions = { 'branch', 'hunks', 'coc', 'tabline' }
-vim.g.airline_left_sep = ''
-vim.g.airline_right_sep = ''
+vim.g.airline_left_sep = ''
+vim.g.airline_right_sep = ''
 vim.g.fzf_layout = { down = '~100%' }
 vim.g.coc_global_extensions = {
     'coc-snippets',
@@ -59,13 +59,17 @@ vim.g.coc_global_extensions = {
     'coc-html'
 }
 vim.g.floaterm_autoclose = 2
+vim.api.nvim_set_var("airline#extensions#tabline#show_close_button", "0")
+vim.api.nvim_set_var("airline#extensions#tabline#show_buffers", "0")
+vim.api.nvim_set_var("airline#extensions#bufferline#enabled", "0")
 vim.api.nvim_set_var("airline#extensions#tabline#formatter", 'default')
 vim.api.nvim_set_var("airline#extensions#tabline#tab_nr_type", "1")
-vim.api.nvim_set_var("airline#extensions#tabline#show_tab_nr", "1")
-vim.api.nvim_set_var("airline#extensions#tabline#left_sep", '')
-vim.api.nvim_set_var("airline#extensions#tabline#right_sep", '')
-vim.api.nvim_set_var("airline#extensions#tabline#left_alt_sep", ' ')
-vim.api.nvim_set_var("airline#extensions#tabline#right_alt_sep", ' ')
+vim.api.nvim_set_var("airline#extensions#tabline#show_tab_nr", "0")
+vim.api.nvim_set_var("airline#extensions#tabline#left_sep", '')
+vim.api.nvim_set_var("airline#extensions#tabline#right_sep", '')
+vim.api.nvim_set_var("airline#extensions#tabline#left_alt_sep", '')
+vim.api.nvim_set_var("airline#extensions#tabline#right_alt_sep", '')
+vim.api.nvim_set_var("airline#extensions#tabline#fnamemod", ':t')
 vim.api.nvim_set_var('airline#extensions#default#layout', {{'a', 'b', 'c'}, {'x', 'y', 'z', 'warning', 'error'}})
 
 vim.cmd([[

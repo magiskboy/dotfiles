@@ -1,8 +1,10 @@
 window:
+  startup_mode: Windowed
   decorations: none
-  startup_mode: Maximized
-  title: Alacritty
-  dynamic_title: true
+
+  dimensions:
+    columns: 190
+    lines: 45
 
 font:
   normal:
@@ -23,29 +25,41 @@ font:
 
   size: 11.5
 
+shell:
+  program: /bin/zsh
+  args:
+    - -l
+    - -c
+    - "tmux attach || tmux"
+
+key_bindings:
+  - { key: Space,   mods: Control,           action: ToggleFullscreen }
+
+# Colors (Ayu Dark)
 colors:
+  # Default colors
   primary:
-    background: '#1d1f21'
-    foreground: '#c5c8c6'
-    dim_foreground: '#828482'
-    bright_foreground: '#eaeaea'
+    background: '#0A0E14'
+    foreground: '#B3B1AD'
 
-  cursor:
-    text: CellBackground
-    cursor: CellForeground
+  # Normal colors
+  normal:
+    black: '#01060E'
+    red: '#EA6C73'
+    green: '#91B362'
+    yellow: '#F9AF4F'
+    blue: '#53BDFA'
+    magenta: '#FAE994'
+    cyan: '#90E1C6'
+    white: '#C7C7C7'
 
-  vi_mode_cursor:
-    text: CellBackground
-    cursor: CellForeground
-
-  search:
-    matches:
-      foreground: '#000000'
-      background: '#ffffff'
-    focused_match:
-      foreground: '#ffffff'
-      background: '#000000'
-
-    bar:
-      background: '#c5c8c6'
-      foreground: '#1d1f21'
+  # Bright colors
+  bright:
+    black: '#686868'
+    red: '#F07178'
+    green: '#C2D94C'
+    yellow: '#FFB454'
+    blue: '#59C2FF'
+    magenta: '#FFEE99'
+    cyan: '#95E6CB'
+    white: '#FFFFFF'

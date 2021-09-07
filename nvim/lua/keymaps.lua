@@ -39,6 +39,7 @@ vim.api.nvim_set_keymap('n', 'U', ':redo<cr>', {})
 vim.api.nvim_set_keymap('n', 'nh', ':noh<cr>', {})
 vim.api.nvim_set_keymap('n', '<leader>h', ":call CocActionAsync('doHover')<cr>", {})
 
+vim.api.nvim_set_keymap('n', '<C-a>', 'ggVG', {})
 vim.api.nvim_set_keymap('', '<C-s>', ':write<cr>', {})
 vim.api.nvim_set_keymap('n', '<C-q>', ':quit<cr>', {})
 
