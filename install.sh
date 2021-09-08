@@ -60,7 +60,8 @@ rm -rf $HOME/.bashrc && \
 ln -sf $(pwd)/bashrc $HOME/.bashrc
 
 rm -rf $HOME/.tmux.conf && \
-ln -sf `pwd`/tmux.conf $HOME/.tmux.conf 
+ln -sf `pwd`/tmux.conf $HOME/.tmux.conf && \
+ln -sf `pwd`/tmux.theme.conf $HOME/.tmux.theme.conf 
 
 ln -sf `pwd`/gitconfig $HOME/.gitconfig
 
