@@ -47,6 +47,11 @@ LINUX_PACKAGES="
     gnome-shell-extensions
     dconf-editor
     gnome-shell-extension-dash-to-panel
+    gnome-tweak-tool
+    gir1.2-gtop-2.0
+    gir1.2-nm-1.0
+    gir1.2-clutter-1.0
+    gnome-system-monitor
 "
 
 [[ ! -d $LOCAL/bin ]] && mkdir $LOCAL/bin

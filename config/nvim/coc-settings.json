@@ -1,0 +1,33 @@
+{
+  "languageserver": {
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh"],
+      "ignoredRootPaths": ["~"]
+    }
+  },
+  "clangd.path": "/home/teko/.config/coc/extensions/coc-clangd-data/install/12.0.0/clangd_12.0.0/bin/clangd",
+  "diagnostic.errorSign": "•",
+  "diagnostic.warningSign": "•",
+  "python.formatting.provider": "black",
+  "coc.preferences.formatOnSaveFiletypes": [
+    "python",
+    "javascript",
+    "typescript",
+    "rust",
+    "go",
+    "typescriptreact",
+    "javascriptreact",
+    "markdown",
+    "json",
+    "html",
+    "cpp",
+    "c"
+  ],
+  "list.previewHighlightGroup": "Statement",
+  "explorer.position": "right",
+  "explorer.icon.enableNerdfont": true,
+  "explorer.previewAction.onHover": "labeling",
+  "sh.enable": true
+}
