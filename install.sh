@@ -1,139 +1,76 @@
 #!/bin/bash
 
-OS=$(uname -s | tr '[:upper:]' '[:lower:]')
 LOCAL=$HOME/.local
-GO_VERSION=1.16
-PY_VERSION=3.8.2
-
-
-COMMON_PACKAGES="
-    ripgrep
-    htop
-    git
-    curl
-    fzf
-    pgcli
-    mycli
-    httpie
-    zsh
-    nodejs
-    npm
-    cmake
-    jq
-    fd-find
-
-    libffi-dev
-    zlig1g-dev
-    libbz2-dev
-    libsqlite3-dev
-"
-
-MACOS_PACKAGES="
-    starship
-    bat
-    exa
-    exuberant-ctags
-    git-delta
-    docker
-    docker-compose
-"
-
-LINUX_PACKAGES="
-    tmux
-    ctags
-    docker.io
-    gedit-plugins
-    parallel
-    gnome-shell-extensions
-    dconf-editor
-    gnome-shell-extension-dash-to-panel
-    gnome-tweak-tool
-    gir1.2-gtop-2.0
-    gir1.2-nm-1.0
-    gir1.2-clutter-1.0
-    gnome-system-monitor
-"
-
 [[ ! -d $LOCAL/bin ]] && mkdir $LOCAL/bin
 
+DOCKER_CONFIG="$HOME/.docker"
+groupadd -f docker && \
+usermod -aG docker $USER && \
+[[ ! -d $DOCKER_CONFIG ]] && mkdir -p $DOCKER_CONFIG && \
+chown "$USER":"$USER" $DOCKER_CONFIG -R && \
+chmod g+rwx $DOCKER_CONFIG -R && \
+systemctl restart docker
 
-function _macos_installer() {
-    for pkg in $@; do
-        brew install $pkg > /dev/null 2>&1
-        if [[ $? != 0 ]]; then
-            echo "Can not install $pkg"
-        fi
-    done
-}
+# Install apt packages
+sudo apt update -y && sudo apt upgrade -y
 
-function _linux_installer() {
-    for pkg in $@; do
-        sudo apt install -y $pkg > /dev/null 2>&1
-        if [[ $? != 0 ]]; then
-            echo "Can not install $pkg"
-        fi
-    done
-}
+sudo apt install -y \
+    ripgrep \
+    htop \
+    git \
+    curl \
+    fzf \
+    pgcli \
+    mycli \
+    httpie \
+    zsh \
+    nodejs \
+    npm \
+    cmake \
+    jq \
+    fd-find \
+    libffi-dev \
+    zlig1g-dev \
+    libbz2-dev \
+    libsqlite3-dev \
+    tmux \
+    ctags \
+    docker.io \
+    gedit-plugins \
+    parallel \
+    gnome-shell-extensions \
+    dconf-editor \
+    gnome-shell-extension-dash-to-panel\
+    gnome-tweak-tool \
+    gir1.2-gtop-2.0 \
+    gir1.2-nm-1.0 \
+    gir1.2-clutter-1.0 \
+    gnome-system-monitor
 
-rm -rf $HOME/.myclirc $HOME/.config/pgcli
-ln -sf `pwd`/myclirc $HOME/.myclirc
-mkdir -p $HOME/.config/pgcli
-ln -sf `pwd`/pgclirc $HOME/.config/pgcli/config
-ln -sf $(pwd)/gitconfig $HOME/.gitconfig
-
+# Link dotfiles
 rm -rf $HOME/.zshrc $HOME/.oh-my-zsh $HOME/.zshrc $HOME/.zshenv $HOME/.zlogin $HOME/.zprofile && \
-ln -sf $(pwd)/oh-my-zsh $HOME/.oh-my-zsh && \
-ln -sf $(pwd)/zsh-autosuggestions $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions && \
-ln -sf $(pwd)/zsh-z $HOME/.oh-my-zsh/custom/plugins/zsh-z && \
-ln -sf $(pwd)/zsh/zshrc $HOME/.zshrc && \
-ln -sf $(pwd)/zsh/zlogin $HOME/.zlogin && \
-ln -sf $(pwd)/zsh/zprofile $HOME/.zprofile && \
-ln -sf $(pwd)/zsh/zshenv $HOME/.zshenv && \
-ln -sf $(pwd)/zsh/zshrc $HOME/.zshrc && \
-rm -rf $HOME/.bashrc && ln -sf $(pwd)/bashrc $HOME/.bashrc
-ln -sf $(pwd)/starship.toml $HOME/.config/starship.toml
+ln -sf `pwd`/oh-my-zsh $HOME/.oh-my-zsh && \
+ln -sf `pwd`/zsh/zshrc $HOME/.zshrc && \
+ln -sf `pwd`/zsh/zlogin $HOME/.zlogin && \
+ln -sf `pwd`/zsh/zprofile $HOME/.zprofile && \
+ln -sf `pwd`/zsh/zshenv $HOME/.zshenv && \
+ln -sf `pwd`/zsh/zshrc $HOME/.zshrc && \
 
-ln -sf $(pwd)/alacritty.yaml $HOME/.alacritty.yml
+rm -rf $HOME/.bashrc && \
+ln -sf $(pwd)/bashrc $HOME/.bashrc
 
-git clone https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim && ln -sf $(pwd)/nvim $HOME/.config/nvim
-ln -sf $(pwd)/vimrc $HOME/.vimrc
+rm -rf $HOME/.tmux.conf && \
+ln -sf `pwd`/tmux.conf $HOME/.tmux.conf 
+
+ln -sf `pwd`/gitconfig $HOME/.gitconfig
+
+git clone https://github.com/wbthomason/packer.nvim \
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
+ln -sf `pwd`/vimrc $HOME/.vimrc
 
 curl https://sh.rustup.rs -sSf | sh
 
-ln -sf $(pwd)/pyenv $HOME/.pyenv && \
-ln -sf $(pwd)/pyenv-virtualenv $HOME/.pyenv/plugins/pyenv-virtualenv && \
-# pyenv install 3.8.7 && \
-# pyenv global 3.8.7 && \
-# pip install poetry black isort pylint jedi pynvim
+ln -sf `pwd`/pyenv $HOME/.pyenv
 
-ln -sf $(pwd)/nvm $HOME/.nvm && \
-source $HOME/.nvm/nvm.sh
-
-GO_URL=https://dl.google.com/go/go$GO_VERSION.$OS-amd64.tar.gz
-FILENAME=$(basename $GO_URL)
-curl -LO $GO_URL && \
-tar -xzf $FILENAME -C $LOCAL && \
-rm -f $FILENAME
-curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
-
-
-if [[ $OS == "linux" ]]; then
-    _linux_installer $COMMON_PACKAGES
-    _linux_installer $LINUX_PACKAGES
-
-    groupadd -f docker && \
-    usermod -aG docker $USER && \
-    mkdir -p $HOME/.docker && \
-    chown "$USER":"$USER" $HOME/.docker -R && \
-    chmod g+rwx "$HOME/.docker" -R && \
-    systemctl restart docker
-
-    rm -rf $HOME/.tmux.conf && \
-    ln -sf $(pwd)/tmux.conf $HOME/.tmux.conf && \
-    ln -sf $(pwd)/tmux.theme.conf $HOME/.tmux.theme.conf
-else
-    _macos_installer $COMMON_PACKAGES
-    _macos_installer $MACOS_PACKAGES
-fi
-
+ln -sf `pwd`/nvm $HOME/.nvm

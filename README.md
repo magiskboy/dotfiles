@@ -11,56 +11,32 @@ Hey,
 
 This are my public dotfiles. They might not work for you, but feel free to steal from them.
 
-### Screenshot
+First, install base packages and link to dotfiles
 
-<center>
-
-![My prompt](https://firebasestorage.googleapis.com/v0/b/myblog-e552f.appspot.com/o/screenshot%2Fstarship_zsh.gif?alt=media&token=640a195d-db2a-4e73-8145-aa915c688f22)
-
-![My editor](https://firebasestorage.googleapis.com/v0/b/myblog-e552f.appspot.com/o/screenshot%2Fneovim.gif?alt=media&token=f2629613-5de2-4a14-85ec-1d629cf8af23)
-
-</center>
-
-### Pre-requirement
-
-In Ubuntu
-
-```bash
-$ sudo apt install git
+```
+./install.sh
 ```
 
-In MacOS
-```bash
-$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-$ brew install git
+### Post setup
+
+Change default shell to zsh
+
+```
+sudo chsh -s $(which zsh)
 ```
 
-### How to install
+Setup for python/javascript development and neovim
 
-```bash
-$ git clone https://github.com/magiskboy/dotfiles $HOME/dotfiles
-$ cd $HOME/dotfiles
-$ ./install.sh base
+```
+pyenv install 3.8.7
+pyenv global 3.8.7
+pip install poetry black isort pylint jedi pynvim
+nvm use 14.17
+sudo npm i -g neovim
 ```
 
-### Install by hand
+Install some packages, which isn't available in apt repo
 
-#### Pretty Rust tools
-```sh
-$ curl -fsSL https://starship.rs/install.sh | bash
-$ cargo install git-delta exa bat zoxide
 ```
-
-#### CPU and memory tracking in status bar tmux
-```sh
-$ git clone https://github.com/thewtex/tmux-mem-cpu-load $HOME/Development/tmux-mem-cpu-load && \
-    cd $HOME/Development/tmux-mem-cpu-load
-$ cmake . && make
-$ sudo make install
-```
-
-#### docker-compose
-```sh
-$ curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" \
-    -o $LOCAL/bin/docker-compose && chmod +x $LOCAL/bin/docker-compose
+cargo install alacritty
 ```
