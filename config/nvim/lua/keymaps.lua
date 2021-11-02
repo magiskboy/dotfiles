@@ -1,7 +1,8 @@
 vim.g.mapleader = ','
 
-vim.api.nvim_set_keymap('n', '!', '^', {})   -- go to the start line
-vim.api.nvim_set_keymap('n', '@', '$', {})   -- go to the end line
+vim.api.nvim_set_keymap('n', '1', '^', {})   -- go to the start line
+vim.api.nvim_set_keymap('n', '0', '$', {})   -- go to the end line
+vim.api.nvim_set_keymap('n', '<F2>', '@:<cr>', {})   -- re-run last command
 
 vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', {})
 vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', {})
@@ -32,11 +33,11 @@ vim.api.nvim_set_keymap('n', 'gr', '<Plug>(coc-references)', { silent = true })
 vim.api.nvim_set_keymap('n', '[g', '<Plug>(coc-diagnostic-prev)', { silent = true })
 vim.api.nvim_set_keymap('n', ']g', '<Plug>(coc-diagnostic-next)', { silent = true })
 
-vim.api.nvim_set_keymap('n', 'F', ':Files<cr>', {})
+vim.api.nvim_set_keymap('n', '<C-p>', ':Files<cr>', {})
 vim.api.nvim_set_keymap('n', '<C-f>', ':Rg<cr>', {})
 
 vim.api.nvim_set_keymap('n', 'U', ':redo<cr>', {})
-vim.api.nvim_set_keymap('n', 'nh', ':noh<cr>', {})
+vim.api.nvim_set_keymap('n', '\\', ':noh<cr>', {})
 vim.api.nvim_set_keymap('n', '<leader>h', ":call CocActionAsync('doHover')<cr>", {})
 
 vim.api.nvim_set_keymap('n', '<C-a>', 'ggVG', {})

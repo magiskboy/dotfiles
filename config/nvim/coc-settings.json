@@ -26,8 +26,9 @@
     "c"
   ],
   "list.previewHighlightGroup": "Statement",
-  "explorer.position": "right",
+  "explorer.position": "floating",
   "explorer.icon.enableNerdfont": true,
   "explorer.previewAction.onHover": "labeling",
-  "sh.enable": true
+  "sh.enable": true,
+  "typescript.suggestionActions.enabled": false
 }

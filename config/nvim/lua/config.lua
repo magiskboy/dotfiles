@@ -7,7 +7,7 @@ syntax on
 syntime on
 ]])
 
-vim.o.shell = "/bin/bash"
+vim.o.shell = "/bin/zsh"
 vim.o.wrap = true
 vim.o.showcmd = false 
 vim.o.autoindent = true
@@ -47,17 +47,18 @@ vim.g.coc_global_extensions = {
     'coc-pairs',
     'coc-json',
     'coc-tsserver',
-    'coc-rust-analyzer',
     'coc-clangd',
+    -- 'coc-rust-analyzer',
     'coc-go',
-    'coc-python',
-    'coc-jedi',
+    'coc-pyright',
     'coc-eslint',
     'coc-prettier',
     'coc-explorer',
     'coc-css',
     'coc-html'
 }
+vim.g.mergetool_layout = 'mr'
+vim.g.mergetool_prefer_revision = 'local'
 vim.g.floaterm_autoclose = 2
 vim.api.nvim_set_var("airline#extensions#tabline#show_close_button", "0")
 vim.api.nvim_set_var("airline#extensions#tabline#show_buffers", "0")

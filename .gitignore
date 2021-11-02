@@ -3,4 +3,8 @@ tags
 *.zwc
 *.old
 .DS_Store
-./config/nvim/plugin/packer_compiled.lua
+config/nvim/plugin/packer_compiled.lua
+config/pgcli/*
+config/mycli/*
+!config/pgcli/config
+!config/mycli/config
