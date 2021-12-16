@@ -21,4 +21,5 @@ return require('packer').startup(function()
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use { 'voldikss/vim-floaterm' }
     use 'samoshkin/vim-mergetool'
+    use 'vim-scripts/ebnf.vim'
 end)

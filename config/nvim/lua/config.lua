@@ -7,7 +7,7 @@ syntax on
 syntime on
 ]])
 
-vim.o.shell = "/bin/zsh"
+vim.o.shell = "/bin/bash"
 vim.o.wrap = true
 vim.o.showcmd = false 
 vim.o.autoindent = true

@@ -139,7 +139,7 @@
 
 [delta]
     syntax-theme = Monokai Extended
-    side-by-side = true
+    side-by-side = false
     navigate = true
 
 [interactive]
