@@ -14,15 +14,15 @@ vim.api.nvim_set_keymap('n', 'J', '5j', {})
 vim.api.nvim_set_keymap('n', 'K', '5k', {})
 vim.api.nvim_set_keymap('n', 'L', '4l', {})
 
-vim.api.nvim_set_keymap('n', '<leader>1', '<Plug>AirlineSelectTab1', {})
-vim.api.nvim_set_keymap('n', '<leader>2', '<Plug>AirlineSelectTab2', {})
-vim.api.nvim_set_keymap('n', '<leader>3', '<Plug>AirlineSelectTab3', {})
-vim.api.nvim_set_keymap('n', '<leader>4', '<Plug>AirlineSelectTab4', {})
-vim.api.nvim_set_keymap('n', '<leader>5', '<Plug>AirlineSelectTab5', {})
-vim.api.nvim_set_keymap('n', '<leader>6', '<Plug>AirlineSelectTab6', {})
-vim.api.nvim_set_keymap('n', '<leader>7', '<Plug>AirlineSelectTab7', {})
-vim.api.nvim_set_keymap('n', '<leader>8', '<Plug>AirlineSelectTab8', {})
-vim.api.nvim_set_keymap('n', '<leader>9', '<Plug>AirlineSelectTab9', {})
+vim.api.nvim_set_keymap('n', '<leader>1', '1gt', {})
+vim.api.nvim_set_keymap('n', '<leader>2', '2gt', {})
+vim.api.nvim_set_keymap('n', '<leader>3', '3gt', {})
+vim.api.nvim_set_keymap('n', '<leader>4', '4gt', {})
+vim.api.nvim_set_keymap('n', '<leader>5', '5gt', {})
+vim.api.nvim_set_keymap('n', '<leader>6', '6gt', {})
+vim.api.nvim_set_keymap('n', '<leader>7', '7gt', {})
+vim.api.nvim_set_keymap('n', '<leader>8', '8gt', {})
+vim.api.nvim_set_keymap('n', '<leader>9', '9gt', {})
 
 vim.api.nvim_set_keymap('i', '<tab>', 'pumvisible() ? "<c-n>" : "<tab>"', { expr = true })
 
@@ -33,8 +33,10 @@ vim.api.nvim_set_keymap('n', 'gr', '<Plug>(coc-references)', { silent = true })
 vim.api.nvim_set_keymap('n', '[g', '<Plug>(coc-diagnostic-prev)', { silent = true })
 vim.api.nvim_set_keymap('n', ']g', '<Plug>(coc-diagnostic-next)', { silent = true })
 
-vim.api.nvim_set_keymap('n', '<C-p>', ':Files<cr>', {})
-vim.api.nvim_set_keymap('n', '<C-f>', ':Rg<cr>', {})
+vim.api.nvim_set_keymap('n', '<C-p>', ':Telescope find_files<cr>', {})
+vim.api.nvim_set_keymap('n', '<C-f>', ':Telescope live_grep<cr>', {})
+
+vim.api.nvim_set_keymap('n', '<C-g>', ':LazyGit<cr>', {})
 
 vim.api.nvim_set_keymap('n', 'U', ':redo<cr>', {})
 vim.api.nvim_set_keymap('n', '\\', ':noh<cr>', {})
@@ -48,7 +50,7 @@ vim.api.nvim_set_keymap('n', '<C-c>', '<Plug>(coc-cursors-position)', { silent =
 vim.api.nvim_set_keymap('n', '<C-d>', '<Plug>(coc-cursors-word)', { silent = true })
 vim.api.nvim_set_keymap('x', '<C-d>', '<Plug>(coc-cursors-range)', { silent = true })
 
-vim.api.nvim_set_keymap('n', '<C-e>', ':CocCommand explorer --toggle<cr>', {})
+vim.api.nvim_set_keymap('n', '<C-e>', ':NvimTreeToggle<cr>', {})
 vim.api.nvim_set_keymap('n', '<C-r>', '<Plug>(coc-rename)', { silent = true })
 
 vim.api.nvim_set_keymap('n', '<leader>t', ':FloatermSend', {})

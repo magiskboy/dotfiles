@@ -14,7 +14,8 @@ success_symbol = "[➜](bold green)"
 error_symbol = "[➜](bold red)"
 
 [cmd_duration]
-min_time = 200
+min_time = 100
+show_milliseconds = false
 
 [directory]
 truncate_to_repo = false
