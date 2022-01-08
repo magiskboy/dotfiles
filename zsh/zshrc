@@ -17,7 +17,6 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-[ -f ~/.fzf.zsh  ] && source ~/.fzf.zsh
 
 alias genssl="openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout cert.key -out cert.crt"
 alias genmacaddr="openssl rand -hex 6 | sed 's/\(..\)/\1:/g;s/.$//'"
@@ -62,8 +61,6 @@ unset my_loader
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-bindkey -s '^p' 'nvim $(fzf)^M'
 
 eval "$(starship init zsh)"
 eval "$(pyenv init -)"

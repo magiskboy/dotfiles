@@ -36,39 +36,15 @@ vim.g.indentLine_enabled = 1
 vim.g.indentLine_char = '│'
 vim.g.indentLine_color_term = 239
 vim.g.AutoPairsShortcutToggle = ""
-vim.g.fzf_layout = { down = '~100%' }
-vim.g.coc_global_extensions = {
-    'coc-snippets',
-    'coc-pairs',
-    'coc-json',
-    'coc-tsserver',
-    'coc-clangd',
-    -- 'coc-rust-analyzer',
-    'coc-go',
-    'coc-pyright',
-    'coc-eslint',
-    'coc-prettier',
-    'coc-css',
-    'coc-html'
-}
-vim.g.mergetool_layout = 'mr'
-vim.g.mergetool_prefer_revision = 'local'
 vim.g.floaterm_autoclose = 2
 
 vim.cmd([[
 hi LineNr cterm=NONE ctermbg=NONE ctermfg=NONE gui=NONE guibg=NONE guifg=NONE
 hi SignColumn guibg=NONE ctermbg=NONE
-hi ColorColumn guibg=#30353b
 hi Visual guifg=NONE guibg=#928374 gui=NONE
-hi CocCursorRange guibg=#928374 guifg=NONE
-hi link CocWarningSign GruvboxOrange
-hi link CocErrorSign GruvboxRed
-hi link CocInfoSign GruvboxYellow
-hi link CocHintSign GruvboxBlue
 ]])
 
 vim.cmd([[
 autocmd FileType json let g:indentLine_setConceal = 0
 autocmd FileType javascript,typescript,jsx,xml,yaml,json,html,css,sass,scss,less,jinja,htmldjango setlocal ts=2 sts=2 sw=2
-autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
 ]])

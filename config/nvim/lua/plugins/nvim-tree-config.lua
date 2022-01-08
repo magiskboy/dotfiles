@@ -5,6 +5,8 @@ vim.g.nvim_tree_show_icons = {
     folder_arrows = 0
 }
 
+vim.g.nvim_tree_git_hl = 1;
+
 vim.api.nvim_exec(
     [[
         function! DisableST()
@@ -33,6 +35,8 @@ require'nvim-tree'.setup {
         { key = "h",                         cb = tree_cb("close_node") },
         { key = "dd",                        cb = tree_cb("cut") },
         { key = "yy",                        cb = tree_cb("copy") },
+        { key = "x",                         cb = tree_cb("remove") },
+        { key = "?",                         cb = tree_cb("toggle_help") }
       }
     },
   },

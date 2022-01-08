@@ -12,40 +12,40 @@ chmod g+rwx $DOCKER_CONFIG -R && \
 systemctl restart docker
 
 # Install apt packages
-sudo apt update -y && sudo apt upgrade -y
+# sudo apt update -y && sudo apt upgrade -y
 
-sudo apt install -y \
-    ripgrep \
-    htop \
-    git \
-    curl \
-    fzf \
-    pgcli \
-    mycli \
-    httpie \
-    zsh \
-    nodejs \
-    npm \
-    cmake \
-    jq \
-    fd-find \
-    libffi-dev \
-    zlig1g-dev \
-    libbz2-dev \
-    libsqlite3-dev \
-    tmux \
-    ctags \
-    docker.io \
-    gedit-plugins \
-    parallel \
-    gnome-shell-extensions \
-    dconf-editor \
-    gnome-shell-extension-dash-to-panel\
-    gnome-tweak-tool \
-    gir1.2-gtop-2.0 \
-    gir1.2-nm-1.0 \
-    gir1.2-clutter-1.0 \
-    gnome-system-monitor
+# sudo apt install -y \
+#     ripgrep \
+#     htop \
+#     git \
+#     curl \
+#     fzf \
+#     pgcli \
+#     mycli \
+#     httpie \
+#     zsh \
+#     nodejs \
+#     npm \
+#     cmake \
+#     jq \
+#     fd-find \
+#     libffi-dev \
+#     zlig1g-dev \
+#     libbz2-dev \
+#     libsqlite3-dev \
+#     tmux \
+#     ctags \
+#     docker.io \
+#     gedit-plugins \
+#     parallel \
+#     gnome-shell-extensions \
+#     dconf-editor \
+#     gnome-shell-extension-dash-to-panel\
+#     gnome-tweak-tool \
+#     gir1.2-gtop-2.0 \
+#     gir1.2-nm-1.0 \
+#     gir1.2-clutter-1.0 \
+#     gnome-system-monitor
 
 # Link dotfiles
 rm -rf $HOME/.zshrc $HOME/.oh-my-zsh $HOME/.zshrc $HOME/.zshenv $HOME/.zlogin $HOME/.zprofile && \
