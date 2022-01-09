@@ -2,7 +2,7 @@ vim.cmd([[
 filetype plugin indent on
 set termguicolors
 set t_Co=256
-colorscheme gruvbox
+colorscheme gruvbox-material
 syntax on
 syntime on
 ]])
@@ -39,12 +39,14 @@ vim.g.AutoPairsShortcutToggle = ""
 vim.g.floaterm_autoclose = 2
 
 vim.cmd([[
+hi RedSign guibg=NONE
+hi AquaSign guibg=NONE
+hi YellowSign guibg=NONE
+hi BlueSign guibg=NONE
 hi LineNr cterm=NONE ctermbg=NONE ctermfg=NONE gui=NONE guibg=NONE guifg=NONE
 hi SignColumn guibg=NONE ctermbg=NONE
-hi Visual guifg=NONE guibg=#928374 gui=NONE
 ]])
 
 vim.cmd([[
-autocmd FileType json let g:indentLine_setConceal = 0
 autocmd FileType javascript,typescript,jsx,xml,yaml,json,html,css,sass,scss,less,jinja,htmldjango setlocal ts=2 sts=2 sw=2
 ]])

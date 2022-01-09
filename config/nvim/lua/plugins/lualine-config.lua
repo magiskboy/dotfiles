@@ -8,11 +8,11 @@ require('lualine').setup {
     always_divide_middle = true,
   },
   sections = {
-    lualine_a = {'diagnostics'},
+    lualine_a = {},
     lualine_b = {'branch', 'diff'},
     lualine_c = {'filename', 'lsp_progress'},
-    lualine_x = {'filetype'},
-    lualine_y = {'progress'},
+    lualine_x = {'diagnostics'},
+    lualine_y = {'filetype'},
     lualine_z = {'location'}
   },
   inactive_sections = {
@@ -24,12 +24,12 @@ require('lualine').setup {
     lualine_z = {}
   },
   tabline = {
-    lualine_a = {'filename'},
+    lualine_a = {},
     lualine_b = {},
-    lualine_c = {},
-    lualine_x = {},
-    lualine_y = {'buffers'},
-    lualine_z = {'tabs'}
+    lualine_c = { require'tabline'.tabline_buffers },
+    lualine_x = { require'tabline'.tabline_tabs },
+    lualine_y = {},
+    lualine_z = {},
   },
   extensions = {}
 }

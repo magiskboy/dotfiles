@@ -41,7 +41,6 @@ alias gf="git fetch"
 alias gst="git status"
 # eval "$(starship init bash)"
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 source "$HOME/.cargo/env"
 
 export NVM_DIR="$HOME/.nvm"

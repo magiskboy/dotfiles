@@ -4,6 +4,9 @@ hi GitSignsDelete guibg=NONE guifg=#e0364a
 hi GitSignsChange guibg=NONE guifg=#52d9ff
 ]])
 
+
+vim.api.nvim_set_keymap('n', '<C-b>', '<cmd>Gitsigns blame_line<CR>', { silent = true })
+
 require('gitsigns').setup {
   signs = {
     add          = {hl = 'GitSignsAdd'   , text = '│', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},

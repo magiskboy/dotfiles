@@ -31,13 +31,17 @@ require'nvim-tree'.setup {
     mappings = {
       custom_only = false,
       list = {
-        { key = {"l", "o", "<2-LeftMouse>"}, cb = tree_cb("edit") },
+        { key = {"l", "<2-LeftMouse>"}, cb = tree_cb("edit") },
         { key = "h",                         cb = tree_cb("close_node") },
         { key = "dd",                        cb = tree_cb("cut") },
         { key = "yy",                        cb = tree_cb("copy") },
         { key = "x",                         cb = tree_cb("remove") },
-        { key = "?",                         cb = tree_cb("toggle_help") }
+        { key = "?",                         cb = tree_cb("toggle_help") },
+        { key = "t",                         cb = tree_cb("tabnew") }
       }
     },
   },
 }
+
+
+vim.api.nvim_set_keymap('n', '<C-e>', '<cmd>NvimTreeToggle<cr>', {})

@@ -1,16 +1,10 @@
 window:
   startup_mode: Windowed
-  # startup_mode: Maximized
   decorations: none
 
   position:
     x: 0
     y: 0
-
-  dimensions:
-    columns: 100
-    # columns: 190
-    lines: 55
 
 font:
   normal:

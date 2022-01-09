@@ -10,7 +10,13 @@ require('plugins/nvim-treesitter-config')
 require('plugins/telescope-config')
 require('plugins/nvim-cmp-config')
 require('plugins/lsp_signature-config')
+require('plugins/barbar-config')
+require('plugins/toggleterm-config')
+require('plugins/indent-blankline-config')
+require('plugins/lsp-config')
+require('plugins/nvim-treesitter-context-config')
 
 -- LSP configurations
 -- docs: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 require('lsp/javascript-lsp')
+

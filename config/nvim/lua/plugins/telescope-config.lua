@@ -30,3 +30,7 @@ require('telescope').setup {
   }
 }
 require('telescope').load_extension('fzf')
+
+
+vim.api.nvim_set_keymap('n', '<C-p>', '<cmd>Telescope find_files<cr>', {})
+vim.api.nvim_set_keymap('n', '<C-f>', '<cmd>Telescope live_grep<cr>', {})
