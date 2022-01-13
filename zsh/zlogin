@@ -1,5 +1,4 @@
 #!/usr/bin/env zsh
-
 (
     # <https://github.com/zimfw/zimfw/blob/master/login_init.zsh>
     setopt LOCAL_OPTIONS EXTENDED_GLOB

@@ -6,5 +6,6 @@ tags
 config/nvim/plugin/packer_compiled.lua
 config/pgcli/*
 config/mycli/*
+config/i3/*
 !config/pgcli/config
 !config/mycli/config

@@ -34,7 +34,6 @@ alias lt="exa --tree"
 alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias pt="poetry"
 alias v="nvim"
-alias cl="clear"
 
 autoload -Uz compinit
 

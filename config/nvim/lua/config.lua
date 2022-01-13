@@ -46,7 +46,3 @@ hi BlueSign guibg=NONE
 hi LineNr cterm=NONE ctermbg=NONE ctermfg=NONE gui=NONE guibg=NONE guifg=NONE
 hi SignColumn guibg=NONE ctermbg=NONE
 ]])
-
-vim.cmd([[
-autocmd FileType javascript,typescript,jsx,xml,yaml,json,html,css,sass,scss,less,jinja,htmldjango setlocal ts=2 sts=2 sw=2
-]])
