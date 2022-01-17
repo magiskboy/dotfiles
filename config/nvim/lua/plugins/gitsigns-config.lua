@@ -4,7 +4,6 @@ hi GitSignsDelete guibg=NONE guifg=#e0364a
 hi GitSignsChange guibg=NONE guifg=#52d9ff
 ]])
 
-
 vim.api.nvim_set_keymap('n', '<C-b>', '<cmd>Gitsigns blame_line<CR>', { silent = true })
 
 require('gitsigns').setup {
@@ -46,11 +45,11 @@ require('gitsigns').setup {
     follow_files = true
   },
   attach_to_untracked = true,
-  current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
+  current_line_blame = true,
   current_line_blame_opts = {
     virt_text = true,
     virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
-    delay = 1000,
+    delay = 500,
     ignore_whitespace = false,
   },
   current_line_blame_formatter_opts = {

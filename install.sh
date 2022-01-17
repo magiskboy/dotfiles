@@ -11,34 +11,18 @@ chown "$USER":"$USER" $DOCKER_CONFIG -R && \
 chmod g+rwx $DOCKER_CONFIG -R && \
 systemctl restart docker
 
-# Install apt packages
-sudo apt update -y && sudo apt upgrade -y
-
-sudo apt install -y \
+sudo pacman -Sy i3-gaps i3status-rust alsa-utils wpa_supplicant wireless_tools
+ 
+sudo pacman -Sy \
     ripgrep \
     htop \
-    git \
-    curl \
     fzf \
     pgcli \
     mycli \
     httpie \
     zsh \
-    nodejs \
-    npm \
-    cmake \
     jq \
-    fd-find \
-    libffi-dev \
-    zlig1g-dev \
-    libbz2-dev \
-    libsqlite3-dev \
-    tmux \
-    ctags \
-    docker.io \
-    parallel \
-
-sudo apt install -y i3 i3-gaps i3lock
+    docker.io
 
 # Link dotfiles
 rm -rf $HOME/.zshrc $HOME/.oh-my-zsh $HOME/.zshrc $HOME/.zshenv $HOME/.zlogin $HOME/.zprofile && \
@@ -52,10 +36,6 @@ ln -sf `pwd`/zsh/zshrc $HOME/.zshrc && \
 rm -rf $HOME/.bashrc && \
 ln -sf $(pwd)/bashrc $HOME/.bashrc
 
-rm -rf $HOME/.tmux.conf && \
-ln -sf `pwd`/tmux.conf $HOME/.tmux.conf && \
-ln -sf `pwd`/tmux.theme.conf $HOME/.tmux.theme.conf 
-
 ln -sf `pwd`/gitconfig $HOME/.gitconfig
 
 git clone https://github.com/wbthomason/packer.nvim \
@@ -63,8 +43,10 @@ git clone https://github.com/wbthomason/packer.nvim \
 
 ln -sf `pwd`/vimrc $HOME/.vimrc
 
-curl https://sh.rustup.rs -sSf | sh
-
 ln -sf `pwd`/pyenv $HOME/.pyenv
 
 ln -sf `pwd`/nvm $HOME/.nvm
+
+# curl https://sh.rustup.rs -sSf | sh
+
+sudo cp -R `pwd`/fonts /usr/share/fonts/Meslo

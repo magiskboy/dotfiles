@@ -2,8 +2,10 @@ set $mod Mod4
 set $alt Mod1
 
 exec_always --no-startup-id autotiling
-
-font pango:monospace 8
+exec_always --no-startup-id flameshot
+exec_always --no-startup-id ibus-daemon -d
+exec_always --no-startup-id xinput --set-prop 12 'libinput Accel Speed' -0.9
+exec_always --no-startup-id picom -b --experimental-backends --config ~/.config/picom/picom.conf
 
 smart_gaps on
 smart_borders on
@@ -20,16 +22,8 @@ gaps outer $outer_gaps
 
 # gaps inner all set 20
 
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
-
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
-
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -80,7 +74,7 @@ bindsym $mod+v split v
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
-bindsym $alt+l i3lock -i ~/Downloads/1151373.png
+bindsym $alt+l exec i3lock -t -i ~/Pictures/background.png
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -177,6 +171,7 @@ bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+    font pango:MesloLGS NF 9
     status_command i3status-rs
     position top
 }

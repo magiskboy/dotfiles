@@ -22,7 +22,6 @@ return require('packer').startup(function()
     use 'akinsho/toggleterm.nvim'
     use "lukas-reineke/indent-blankline.nvim"
     use 'romgrk/nvim-treesitter-context'
-    use 'f-person/git-blame.nvim'
     use 'stevearc/dressing.nvim'
     use 'sainnhe/gruvbox-material'
     use {
