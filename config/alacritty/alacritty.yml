@@ -1,13 +1,5 @@
 window:
   startup_mode: Windowed
-
-  position:
-    x: 0
-    y: 0
-
-  padding:
-    x: 0
-    y: 0
   dynamic_padding: true
 
 font:
@@ -31,10 +23,6 @@ font:
 
 shell:
   program: /bin/zsh
-  # args:
-  #   - -l
-  #   - -c
-  #   - "tmux attach || tmux"
 
 key_bindings:
   - { key: Space,   mods: Control,           action: ToggleFullscreen }

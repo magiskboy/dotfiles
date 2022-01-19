@@ -22,3 +22,4 @@ require('plugins/null-ls-config')
 -- docs: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 require('lsp/javascript-lsp')
 require('lsp/jedi-lsp')
+require('lsp/lua-lsp')
