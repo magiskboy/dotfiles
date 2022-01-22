@@ -6,6 +6,7 @@ export OPENSSL_CONF=/etc/ssl/           # fix: vagrant not found openssl lib
 export OS=$(uname -s | tr "[:upper:]" "[:lower:]")
 
 export TERMINFO=/usr/share/terminfo
+export TERM=screen-256color
 
 export JAVA_HOME=$(java -XshowSettings:properties -version 2>&1 > /dev/null | grep 'java.home' | cut -d'=' -f2 | xargs)
 export PATH=$JAVA_HOME/bin:$PATH
