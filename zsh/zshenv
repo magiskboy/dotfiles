@@ -7,16 +7,15 @@ export OS=$(uname -s | tr "[:upper:]" "[:lower:]")
 
 export TERMINFO=/usr/share/terminfo
 
-if [[ $OS -eq "darwin" ]]; then
-    export TERM=screen-256color
-fi
+# if [[ $OS -eq "darwin" ]]; then
+#     export TERM=screen-256color
+# fi
 
 export JAVA_HOME=$(java -XshowSettings:properties -version 2>&1 > /dev/null | grep 'java.home' | cut -d'=' -f2 | xargs)
 export PATH=$JAVA_HOME/bin:$PATH
 
-# export GOPATH=$HOME/Development/go
-# export GOROOT=$HOME/.local/go
-# export PATH=$HOME/.local/go/bin:$GOPATH:$GOPATH/bin:$PATH
+export GOPATH=$HOME/Development/go
+export PATH=$GOPATH/bin:$PATH
 
 export PYTHONDONTWRITEBYTECODE=1
 export VIRTUAL_ENV_DISABLE_PROMPT=1

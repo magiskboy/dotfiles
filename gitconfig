@@ -218,3 +218,6 @@
 
 [url "ssh://git@gitlab.shopbase.dev/"]
    insteadOf = https://gitlab.shopbase.dev/
+
+[url "ssh://git@git.teko.vn"]
+	insteadOf = https://git.teko.vn

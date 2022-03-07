@@ -7,11 +7,11 @@ syntax on
 syntime on
 ]])
 
-vim.o.shell = "/bin/bash"
+vim.o.shell = "/bin/zsh"
 vim.o.wrap = true
-vim.o.showcmd = false 
+vim.o.showcmd = false
 vim.o.autoindent = true
-vim.o.cursorline = false
+vim.o.cursorline = true
 vim.o.ignorecase = false
 vim.o.lazyredraw = true
 vim.o.mouse = "a"
@@ -24,11 +24,14 @@ vim.o.expandtab = true
 vim.o.undofile = true
 vim.swapfile = true
 vim.backup = true
-vim.o.undodir = "/tmp"
+vim.o.undodir = "/tmp/nvim"
 vim.o.wildmenu = true
+-- vim.o.wildignore = vim.o.wildignore .. ",*/node_modules/*"
+-- vim.o.wildignore = vim.o.wildignore .. ",*/dist/*"
 vim.o.foldmethod = "indent"
 vim.o.foldlevel = 99
 vim.o.laststatus = 2
+vim.o.path = vim.o.path .. "**"
 
 vim.g.python3_host_prog = vim.api.nvim_eval("expand('~/.pyenv/shims/python')")
 vim.g.python_host_prog = vim.api.nvim_eval("expand('/usr/bin/python2')")
@@ -45,4 +48,10 @@ hi YellowSign guibg=NONE
 hi BlueSign guibg=NONE
 hi LineNr cterm=NONE ctermbg=NONE ctermfg=NONE gui=NONE guibg=NONE guifg=NONE
 hi SignColumn guibg=NONE ctermbg=NONE
+
+let g:test#javascript#runner = 'jest'
+
+command! JsonBeauty %!jq .
+command! JsonMinify %!jq -c .
+command! GoRun !go run %
 ]])

@@ -10,14 +10,18 @@ require('telescope').setup {
       "--line-number",
       "--column",
       "--smart-case",
-      "--trim" 
+      "--trim"
     },
     mappings = {
         i = {
             ["<C-j>"] = actions.move_selection_next,
             ["<C-k>"] = actions.move_selection_previous
         }
-    }
+    },
+    layout_config = {
+      prompt_position = "top"
+    },
+    sorting_strategy = "ascending"
   },
   extensions = {
     fzf = {

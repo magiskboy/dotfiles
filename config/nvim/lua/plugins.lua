@@ -21,7 +21,6 @@ return require('packer').startup(function()
     use 'jose-elias-alvarez/null-ls.nvim'
     use 'akinsho/toggleterm.nvim'
     use "lukas-reineke/indent-blankline.nvim"
-    use 'romgrk/nvim-treesitter-context'
     use 'stevearc/dressing.nvim'
     use 'sainnhe/gruvbox-material'
     use {
@@ -31,6 +30,8 @@ return require('packer').startup(function()
         },
     }
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+
+    use 'vim-test/vim-test'
 
     -- use 'hrsh7th/nvim-compe'
     use 'hrsh7th/vim-vsnip'

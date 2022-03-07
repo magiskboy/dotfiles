@@ -14,6 +14,11 @@ null_ls.setup({
         end
     end,
     sources = {
-        formatting.prettier
+        formatting.black,
+        formatting.isort,
+        formatting.prettier,
+        formatting.gofmt,
+        formatting.golines,
+        formatting.gofumpt
     },
 })
