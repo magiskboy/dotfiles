@@ -9,3 +9,5 @@
 !/i3status-rust
 !/picom
 !/polybar
+!/lite-xl
+/lite-xl/ws/*

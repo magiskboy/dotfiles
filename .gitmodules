@@ -7,3 +7,12 @@
 [submodule "nodejs/nvm"]
 	path = nvm
 	url = https://github.com/nvm-sh/nvm.git
+[submodule "config/lite-xl/plugins/lsp"]
+	path = config/lite-xl/plugins/lsp
+	url = git@github.com:lite-xl/lite-xl-lsp
+[submodule "config/lite-xl/widget"]
+	path = config/lite-xl/widget
+	url = git@github.com:lite-xl/lite-xl-widgets
+[submodule "config/lite-xl/lintplus"]
+	path = config/lite-xl/lintplus
+	url = git@github.com:liquidev/lintplus
