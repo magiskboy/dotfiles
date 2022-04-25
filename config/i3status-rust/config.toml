@@ -1,7 +1,7 @@
 icons = "material"
 
 [theme]
-name = "semi-native"
+name = "gruvbox-dark"
 
 [[block]]
 block = "disk_space"
