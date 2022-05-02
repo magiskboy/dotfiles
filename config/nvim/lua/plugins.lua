@@ -31,8 +31,6 @@ return require('packer').startup(function()
     }
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
-    use 'vim-test/vim-test'
-
     use 'hrsh7th/vim-vsnip'
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'

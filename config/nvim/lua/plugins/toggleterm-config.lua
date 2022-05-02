@@ -40,7 +40,7 @@ local Terminal  = require('toggleterm.terminal').Terminal
 vim.api.nvim_set_keymap("n", "<C-t>", "<cmd>ToggleTerm<CR>", {noremap = true, silent = true})
 
 local _lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
-function git() 
+function lazygit() 
     _lazygit:toggle()
 end
 

@@ -26,12 +26,11 @@ vim.swapfile = true
 vim.backup = true
 vim.o.undodir = "/tmp/nvim"
 vim.o.wildmenu = true
--- vim.o.wildignore = vim.o.wildignore .. ",*/node_modules/*"
--- vim.o.wildignore = vim.o.wildignore .. ",*/dist/*"
 vim.o.foldmethod = "indent"
 vim.o.foldlevel = 99
 vim.o.laststatus = 2
 vim.o.path = vim.o.path .. "**"
+vim.o.updatetime = 250
 
 vim.g.python3_host_prog = vim.api.nvim_eval("expand('~/.pyenv/shims/python')")
 vim.g.python_host_prog = vim.api.nvim_eval("expand('/usr/bin/python2')")
@@ -49,9 +48,29 @@ hi BlueSign guibg=NONE
 hi LineNr cterm=NONE ctermbg=NONE ctermfg=NONE gui=NONE guibg=NONE guifg=NONE
 hi SignColumn guibg=NONE ctermbg=NONE
 
-let g:test#javascript#runner = 'jest'
-
 command! JsonBeauty %!jq .
 command! JsonMinify %!jq -c .
 command! GoRun !go run %
 ]])
+
+vim.diagnostic.config({
+  virtual_text = false
+})
+
+vim.api.nvim_create_autocmd("CursorHold,CursorHoldI", {
+    callback = function(args) 
+        vim.diagnostic.open_float(nil, {focus=false})
+    end
+})
+
+vim.api.nvim_create_user_command("Python", function (args)
+    python()
+end, {})
+
+vim.api.nvim_create_user_command("Node", function (args)
+    node()
+end, {})
+
+vim.api.nvim_create_user_command("Htop", function (args)
+    htop()
+end, {})
