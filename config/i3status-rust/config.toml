@@ -1,15 +1,8 @@
-icons = "material"
-
 [theme]
 name = "gruvbox-dark"
 
-[[block]]
-block = "disk_space"
-path = "/"
-alias = "/"
-info_type = "available"
-unit = "GB"
-interval = 20
+[icons]
+name = "material-nf"
 
 [[block]]
 block = "memory"
