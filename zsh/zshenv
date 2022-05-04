@@ -7,10 +7,6 @@ export OS=$(uname -s | tr "[:upper:]" "[:lower:]")
 
 export TERMINFO=/usr/share/terminfo
 
-# if [[ $OS -eq "darwin" ]]; then
-#     export TERM=screen-256color
-# fi
-
 export JAVA_HOME=$(java -XshowSettings:properties -version 2>&1 > /dev/null | grep 'java.home' | cut -d'=' -f2 | xargs)
 export PATH=$JAVA_HOME/bin:$PATH
 
@@ -33,3 +29,5 @@ export FZF_DEFAULT_OPTS='--preview "preview {}" --reverse'
 export ZSH_CONFIG=$HOME/dotfiles/zsh
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6eb579"
 . "$HOME/.cargo/env"
+
+export BAT_THEME="Visual Studio Dark+"

@@ -1,7 +1,8 @@
-@theme "gruvbox-dark"
+@theme "nord"
 
 configuration {
 	show-icons: false;
+    sidebar-mode: true;
 /*	modi: "window,run,ssh";*/
 /*	font: "mono 12";*/
 /*	location: 0;*/
@@ -28,7 +29,6 @@ configuration {
 /*	sorting-method: "normal";*/
 /*	case-sensitive: false;*/
 /*	cycle: true;*/
-/* sidebar-mode: true; */
 /*	hover-select: false;*/
 /*	eh: 1;*/
 /*	auto-select: false;*/

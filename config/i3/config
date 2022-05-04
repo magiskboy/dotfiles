@@ -165,16 +165,16 @@ bar {
     font pango:MesloLGS NF 9
     position top
   colors {
-    separator #928374
-    background #282828
-    statusline #ebdbb2
-    focused_workspace #689d6a #689d6a #282828 
-    active_workspace #1d2021 #1d2021 #928374 
-    inactive_workspace #32302f #32302f #928374 
-    urgent_workspace #cc241d #cc241d #ebdbb2 
+    separator #7d7d7d
+    background #141414
+    statusline #00b0ef
+    focused_workspace #00b0ef #141414 #00b0ef #ffffff
+    active_workspace #141414 #141414 #00b0ef #ffffff
+    inactive_workspace #141414 #141414 #7d7d7d #aea79f
+    urgent_workspace #ff7066 #141414 #ff7066 #ffffff
   }
 }
-client.focused #689d6a #689d6a #282828 #282828
-client.focused_inactive #1d2021 #1d2021 #928374 #282828
-client.unfocused #32302f #32302f #928374 #282828
-client.urgent #cc241d #cc241d #ebdbb2 #282828
+client.focused #00b0ef #00b0ef #141414 #ff7066
+client.focused_inactive #141414 #141414 #00b0ef #472b2a
+client.unfocused #141414 #141414 #7d7d7d #141414
+client.urgent #ff7066 #ff7066 #141414 #ff7066

@@ -2,7 +2,7 @@ vim.cmd([[
 filetype plugin indent on
 set termguicolors
 set t_Co=256
-colorscheme gruvbox-material
+colorscheme vscode
 syntax on
 syntime on
 ]])
@@ -32,6 +32,7 @@ vim.o.laststatus = 2
 vim.o.path = vim.o.path .. "**"
 vim.o.updatetime = 250
 
+
 vim.g.python3_host_prog = vim.api.nvim_eval("expand('~/.pyenv/shims/python')")
 vim.g.python_host_prog = vim.api.nvim_eval("expand('/usr/bin/python2')")
 vim.g.indentLine_enabled = 1
@@ -39,6 +40,9 @@ vim.g.indentLine_char = '│'
 vim.g.indentLine_color_term = 239
 vim.g.AutoPairsShortcutToggle = ""
 vim.g.floaterm_autoclose = 2
+vim.g.vscode_style = "dark"
+vim.o.background = 'dark'
+
 
 vim.cmd([[
 hi RedSign guibg=NONE

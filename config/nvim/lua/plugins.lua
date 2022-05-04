@@ -1,6 +1,7 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function()
+    use 'ap/vim-css-color'
     use 'wbthomason/packer.nvim'
     use 'neovim/nvim-lspconfig'
     use 'alvan/vim-closetag'
@@ -23,6 +24,7 @@ return require('packer').startup(function()
     use "lukas-reineke/indent-blankline.nvim"
     use 'stevearc/dressing.nvim'
     use 'sainnhe/gruvbox-material'
+    use 'Mofiqul/vscode.nvim'
     use {
         'nvim-telescope/telescope.nvim',
         requires = { 
