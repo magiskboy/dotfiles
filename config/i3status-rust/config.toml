@@ -1,5 +1,5 @@
 [theme]
-name = "nord-dark"
+file = "/home/nkthanh/.config/i3status-rust/vscode.toml"
 
 [icons]
 name = "material-nf"

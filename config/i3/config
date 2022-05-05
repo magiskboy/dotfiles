@@ -6,7 +6,6 @@ exec_always --no-startup-id flameshot
 exec_always --no-startup-id ibus-daemon -d
 exec_always --no-startup-id xinput --set-prop 12 'libinput Accel Speed' -0.9
 # exec_always --no-startup-id picom -b --experimental-backends --config ~/.config/picom/picom.conf
-# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id nm-applet
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -165,16 +164,16 @@ bar {
     font pango:MesloLGS NF 9
     position top
   colors {
-    separator #7d7d7d
-    background #141414
-    statusline #00b0ef
-    focused_workspace #00b0ef #141414 #00b0ef #ffffff
-    active_workspace #141414 #141414 #00b0ef #ffffff
-    inactive_workspace #141414 #141414 #7d7d7d #aea79f
-    urgent_workspace #ff7066 #141414 #ff7066 #ffffff
+    separator #1e1e1e
+    background #1e1e1e
+    statusline #1e1e1e
+    focused_workspace #1e1e1e #569cd6 #d4d4d4 #d4d4d4
+    active_workspace #1e1e1e #1e1e1e #d4d4d4 #d4d4d4
+    inactive_workspace #1e1e1e #1e1e1e #569cd6 #569cd6
+    urgent_workspace #1e1e1e #f44747 #569cd6 #569cd6
   }
 }
-client.focused #00b0ef #00b0ef #141414 #ff7066
-client.focused_inactive #141414 #141414 #00b0ef #472b2a
-client.unfocused #141414 #141414 #7d7d7d #141414
-client.urgent #ff7066 #ff7066 #141414 #ff7066
+client.focused #c678dd #569cd6 #d4d4d4 #d4d4d4
+client.focused_inactive #1e1e1e #569cd6 #d4d4d4 #1e1e1e
+client.unfocused #1e1e1e #1e1e1e #d4d4d4 #569cd6
+client.urgent #f44747 #1e1e1e #d4d4d4 #569cd6
