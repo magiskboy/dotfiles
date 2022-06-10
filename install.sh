@@ -22,7 +22,8 @@ sudo pacman -Sy \
     httpie \
     zsh \
     jq \
-    docker.io
+    docker.io \
+    dunst
 
 # Link dotfiles
 rm -rf $HOME/.zshrc $HOME/.oh-my-zsh $HOME/.zshrc $HOME/.zshenv $HOME/.zlogin $HOME/.zprofile && \

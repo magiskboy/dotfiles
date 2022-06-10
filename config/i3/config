@@ -4,9 +4,9 @@ set $alt Mod4
 exec_always --no-startup-id autotiling
 exec_always --no-startup-id flameshot
 exec_always --no-startup-id ibus-daemon -d
-exec_always --no-startup-id xinput --set-prop 12 'libinput Accel Speed' -0.9
-# exec_always --no-startup-id picom -b --experimental-backends --config ~/.config/picom/picom.conf
+exec --no-startup-id dunst
 exec --no-startup-id nm-applet
+exec_always --no-startup-id bash /home/nkthanh/.config/i3/script.sh
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod

@@ -4,6 +4,8 @@ head -n7 $HOME/dotfiles/README.md
 
 export ZSH="$HOME/.oh-my-zsh"
 
+export THEME="vscode"
+
 plugins=(
   git
   jsontools

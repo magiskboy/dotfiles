@@ -22,8 +22,6 @@ return require('packer').startup(function()
     use 'jose-elias-alvarez/null-ls.nvim'
     use 'akinsho/toggleterm.nvim'
     use "lukas-reineke/indent-blankline.nvim"
-    use 'stevearc/dressing.nvim'
-    use 'sainnhe/gruvbox-material'
     use 'Mofiqul/vscode.nvim'
     use {
         'nvim-telescope/telescope.nvim',
@@ -32,11 +30,14 @@ return require('packer').startup(function()
         },
     }
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-
-    use 'hrsh7th/vim-vsnip'
-    use 'hrsh7th/cmp-nvim-lsp'
-    use 'hrsh7th/cmp-buffer'
-    use 'hrsh7th/cmp-path'
-    use 'hrsh7th/cmp-cmdline'
-    use 'hrsh7th/nvim-cmp'
+    use {
+        'hrsh7th/nvim-cmp',
+        requires = {
+            { 'hrsh7th/vim-vsnip' },
+            { 'hrsh7th/cmp-nvim-lsp' },
+            { 'hrsh7th/cmp-buffer' },
+            { 'hrsh7th/cmp-path' },
+            { 'hrsh7th/cmp-cmdline' }
+        }
+    }
 end)

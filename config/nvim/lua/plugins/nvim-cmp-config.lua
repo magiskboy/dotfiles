@@ -34,6 +34,7 @@ cmp.setup({
     { name = 'nvim_lsp' },
     { name = 'vsnip' },
     { name = 'path' },
+    { name = 'buffer' }
   })
 })
 
@@ -42,4 +43,3 @@ cmp.setup.cmdline(':', {
         { name = 'cmdline' }
     }
 });
-
