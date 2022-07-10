@@ -7,6 +7,10 @@
 
 # Dotfiles
 
+```
+git clone --recurse-submodules -j8 git@github.com:magiskboy/dotfiles.git
+```
+
 Hey,
 
 This are my public dotfiles. They might not work for you, but feel free to steal from them.

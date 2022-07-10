@@ -1,25 +1,37 @@
 #!/bin/bash
 
 LOCAL=$HOME/.local
-[[ ! -d $LOCAL/bin ]] && mkdir $LOCAL/bin
+mkdir -p $LOCAL/bin
 
-sudo pacman -Sy --noconfirm
+sudo pacman -Syu --noconfirm && sudo pacman-db-upgrade
 
 sudo pacman -S --noconfirm \
     git \
     base-devel \
+    starship \
+    exa \
+    alacritty \
     ripgrep \
     htop \
     fzf \
     pgcli \
-    mycli \
     zsh \
     bat \
     jq \
     yq \
     tmux \
-    docker.io \
+    docker \
     dunst \
+    rofi \
+    polybar \
+    k9s \
+    kubectl \
+    ccls \
+    lua \
+    luarocks \
+    rust \
+    rustup \
+    cargo \
     i3-gaps \
     i3status-rust \
     alsa-utils \
@@ -119,3 +131,5 @@ ln -sf `pwd`/nvm $HOME/.nvm
 
 sudo mkdir -f /usr/share/fonts && \
 sudo cp -R `pwd`/fonts /usr/share/fonts/Meslo
+
+sudo chsh -s $(which zsh)
