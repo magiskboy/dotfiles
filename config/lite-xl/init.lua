@@ -6,7 +6,6 @@ local core = require "core"
 local keymap = require "core.keymap"
 local config = require "core.config"
 local style = require "core.style"
-local lspconfig = require "plugins.lsp.config"
 
 ------------------------------ Themes ----------------------------------------
 
@@ -18,9 +17,12 @@ local lspconfig = require "plugins.lsp.config"
 -- key binding:
 -- keymap.add { ["ctrl+escape"] = "core:quit" }
 
+
 ------------------------------- Fonts ----------------------------------------
 
 -- customize fonts:
+-- style.font = renderer.font.load(DATADIR .. "/fonts/FiraSans-Regular.ttf", 14 * SCALE)
+-- style.code_font = renderer.font.load(DATADIR .. "/fonts/JetBrainsMono-Regular.ttf", 14 * SCALE)
 --
 -- font names used by lite:
 -- style.font          : user interface
@@ -28,13 +30,21 @@ local lspconfig = require "plugins.lsp.config"
 -- style.icon_font     : icons
 -- style.icon_big_font : toolbar icons
 -- style.code_font     : code
+--
+-- the function to load the font accept a 3rd optional argument like:
+--
+-- {antialiasing="grayscale", hinting="full"}
+--
+-- possible values are:
+-- antialiasing: grayscale, subpixel
+-- hinting: none, slight, full
 
-local font_size = 10
-local big_font_size = 13
-style.font = renderer.font.load(DATADIR .. "/fonts/FiraSans-Regular.ttf", font_size * SCALE)
-style.big_font = style.font:copy(big_font_size * SCALE)
-style.icon_font = renderer.font.load(DATADIR .. "/fonts/icons.ttf", font_size * SCALE, {antialiasing="grayscale", hinting="full"})
-style.icon_big_font = style.icon_font:copy(big_font_size * SCALE)
-style.code_font = renderer.font.load(DATADIR .. "/fonts/JetBrainsMono-Regular.ttf", font_size * SCALE)
+------------------------------ Plugins ----------------------------------------
 
-lspconfig.tsserver.setup()
+-- enable or disable plugin loading setting config entries:
+
+-- enable plugins.trimwhitespace, otherwise it is disable by default:
+-- config.plugins.trimwhitespace = true
+--
+-- disable detectindent, otherwise it is enabled by default
+-- config.plugins.detectindent = false

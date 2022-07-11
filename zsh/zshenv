@@ -11,7 +11,11 @@ export JAVA_HOME=$(java -XshowSettings:properties -version 2>&1 > /dev/null | gr
 export PATH=$JAVA_HOME/bin:$PATH
 
 export GOPATH=$HOME/Development/go
-export PATH=$GOPATH/bin:$PATH
+export GO111MODULE=on
+export GOROOT=/usr/local/go
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
+
+export PATH="$PATH:/usr/local/bin/mockery"
 
 export PYTHONDONTWRITEBYTECODE=1
 export VIRTUAL_ENV_DISABLE_PROMPT=1

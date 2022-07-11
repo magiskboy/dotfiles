@@ -3,21 +3,25 @@ set $alt Mod4
 
 exec_always --no-startup-id autotiling
 exec_always --no-startup-id flameshot
-exec_always --no-startup-id ibus-daemon -d
-exec --no-startup-id dunst
-exec --no-startup-id nm-applet
-exec_always --no-startup-id bash /home/nkthanh/.config/i3/script.sh
+exec_always --no-startup-id dunst
+exec_always --no-startup-id nm-applet
+exec_always --no-startup-id ibus-daemon
+exec_always --no-startup-id xrandr --output HDMI-1 --same-as eDP-1
+exec_always --no-startup-id picom --config /home/nkthanh/.config/picom/picom.conf
+exec_always --no-startup-id bash /home/nkthanh/.config/polybar/launch.sh
+exec_always --no-startup-id bash /home/nkthanh/.config/i3/scripts/setup_mouse.sh
+exec_always --no-startup-id feh --bg-center /home/nkthanh/dotfiles/images/wallpaper-1.png
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-for_window [class="^.*"] border pixel 1
+set $inner_gaps 10
+set $outer_gaps 0
+for_window [class="^.*"] border pixel 0
 gaps inner $inner_gaps
 gaps outer $outer_gaps
 smart_gaps on
-set $inner_gaps 10
-set $outer_gaps 0
-smart_borders on
+smart_borders no_gaps
 
 # start a terminal
 bindsym $mod+Return exec alacritty
@@ -25,8 +29,8 @@ bindsym $mod+Return exec alacritty
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start dmenu (a program launcher)
-bindsym $mod+space exec rofi -show run
+# start launcher
+bindsym $mod+space exec $HOME/.config/rofi/bin/launcher_text
 
 # change focus
 bindsym $mod+h focus left
@@ -40,18 +44,6 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
-
 # split in horizontal orientation
 bindsym $mod+m split h
 
@@ -61,7 +53,8 @@ bindsym $mod+n split v
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
-bindsym $alt+l exec i3lock -t -i ~/Pictures/background.png
+bindsym $alt+l exec $HOME/.config/i3/scripts/lockscreen.sh
+bindsym $alt+p exec $HOME/.config/rofi/bin/powermenu 
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -76,9 +69,6 @@ bindsym $alt+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
-
-# focus the child container
-#bindsym $mod+d focus child
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -128,22 +118,10 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
         bindsym h resize shrink width 10 px or 10 ppt
         bindsym j resize grow height 10 px or 10 ppt
         bindsym k resize shrink height 10 px or 10 ppt
         bindsym l resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
@@ -153,26 +131,27 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-bindsym XF86AudioRaiseVolume exec "amixer -q sset Master,0 1+ unmute"
-bindsym XF86AudioLowerVolume exec "amixer -q sset Master,0 1- unmute"
+bindsym XF86AudioRaiseVolume exec "amixer -q sset Master,0 5+ unmute"
+bindsym XF86AudioLowerVolume exec "amixer -q sset Master,0 5- unmute"
 bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-    status_command i3status-rs
-    font pango:MesloLGS NF 9
-    position top
-  colors {
-    separator #1e1e1e
-    background #1e1e1e
-    statusline #1e1e1e
-    focused_workspace #1e1e1e #569cd6 #d4d4d4 #d4d4d4
-    active_workspace #1e1e1e #1e1e1e #d4d4d4 #d4d4d4
-    inactive_workspace #1e1e1e #1e1e1e #569cd6 #569cd6
-    urgent_workspace #1e1e1e #f44747 #569cd6 #569cd6
-  }
-}
+# bar {
+#     status_command i3status-rs
+#     font pango:MesloLGS NF 10
+#     position top
+#     colors {
+#         separator #1e1e1e
+#         background #1e1e1e
+#         statusline #1e1e1e
+#         focused_workspace #1e1e1e #569cd6 #d4d4d4 #d4d4d4
+#         active_workspace #1e1e1e #1e1e1e #d4d4d4 #d4d4d4
+#         inactive_workspace #1e1e1e #1e1e1e #569cd6 #569cd6
+#         urgent_workspace #1e1e1e #f44747 #569cd6 #569cd6
+#     }
+# }
+
 client.focused #c678dd #569cd6 #d4d4d4 #d4d4d4
 client.focused_inactive #1e1e1e #569cd6 #d4d4d4 #1e1e1e
 client.unfocused #1e1e1e #1e1e1e #d4d4d4 #569cd6

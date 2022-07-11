@@ -19,7 +19,6 @@ vim.api.nvim_exec(
 
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 require'nvim-tree'.setup {
-  auto_close          = true,
   open_on_tab         = true,
   hijack_cursor       = true,
   view = {

@@ -8,6 +8,7 @@ sudo pacman -Syu --noconfirm && sudo pacman-db-upgrade
 sudo pacman -S --noconfirm \
     git \
     base-devel \
+    blueman \
     starship \
     exa \
     alacritty \
