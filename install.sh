@@ -3,9 +3,9 @@
 LOCAL=$HOME/.local
 mkdir -p $LOCAL/bin
 
-sudo pacman -Syu --noconfirm && sudo pacman-db-upgrade
+sudo pacman-db-upgrade
 
-sudo pacman -S --noconfirm \
+sudo pacman -Syu --noconfirm \
     git \
     base-devel \
     blueman \

@@ -16,3 +16,6 @@
 [submodule "config/lite-xl/lintplus"]
 	path = config/lite-xl/lintplus
 	url = git@github.com:liquidev/lintplus
+[submodule "config/rofi/network-manager"]
+	path = config/rofi/network-manager
+	url = git@github.com:P3rf/rofi-network-manager

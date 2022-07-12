@@ -10,29 +10,27 @@ exec_always --no-startup-id xrandr --output HDMI-1 --same-as eDP-1
 exec_always --no-startup-id picom --config /home/nkthanh/.config/picom/picom.conf
 exec_always --no-startup-id bash /home/nkthanh/.config/polybar/launch.sh
 exec_always --no-startup-id bash /home/nkthanh/.config/i3/scripts/setup_mouse.sh
-exec_always --no-startup-id feh --bg-center /home/nkthanh/dotfiles/images/wallpaper-1.png
+exec_always --no-startup-id feh --bg-fill /home/nkthanh/dotfiles/images/wallpaper-2.jpg
 
-# Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 set $inner_gaps 10
 set $outer_gaps 0
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 1
 gaps inner $inner_gaps
 gaps outer $outer_gaps
 smart_gaps on
-smart_borders no_gaps
+smart_borders on
 
-# start a terminal
+bindsym Print exec flameshot full -p $HOME/Pictures
+bindsym Shift+Print exec flameshot gui
+
 bindsym $mod+Return exec alacritty
 
-# kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
-# start launcher
 bindsym $mod+space exec $HOME/.config/rofi/bin/launcher_text
 
-# change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
@@ -44,17 +42,15 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-# split in horizontal orientation
 bindsym $mod+m split h
 
-# split in vertical orientation
 bindsym $mod+n split v
 
-# enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
-bindsym $alt+l exec $HOME/.config/i3/scripts/lockscreen.sh
-bindsym $alt+p exec $HOME/.config/rofi/bin/powermenu 
+bindsym $mod+Shift+q exec $HOME/.config/i3/scripts/lockscreen.sh
+
+bindsym $mod+Shift+p exec $HOME/.config/rofi/bin/powermenu 
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -135,24 +131,7 @@ bindsym XF86AudioRaiseVolume exec "amixer -q sset Master,0 5+ unmute"
 bindsym XF86AudioLowerVolume exec "amixer -q sset Master,0 5- unmute"
 bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-# bar {
-#     status_command i3status-rs
-#     font pango:MesloLGS NF 10
-#     position top
-#     colors {
-#         separator #1e1e1e
-#         background #1e1e1e
-#         statusline #1e1e1e
-#         focused_workspace #1e1e1e #569cd6 #d4d4d4 #d4d4d4
-#         active_workspace #1e1e1e #1e1e1e #d4d4d4 #d4d4d4
-#         inactive_workspace #1e1e1e #1e1e1e #569cd6 #569cd6
-#         urgent_workspace #1e1e1e #f44747 #569cd6 #569cd6
-#     }
-# }
-
-client.focused #c678dd #569cd6 #d4d4d4 #d4d4d4
-client.focused_inactive #1e1e1e #569cd6 #d4d4d4 #1e1e1e
-client.unfocused #1e1e1e #1e1e1e #d4d4d4 #569cd6
-client.urgent #f44747 #1e1e1e #d4d4d4 #569cd6
+client.focused #c678dd #6D8895 #d4d4d4 #d4d4d4
+client.focused_inactive #1e1e1e #6D8895 #d4d4d4 #1e1e1e
+client.unfocused #1e1e1e #1e1e1e #d4d4d4 #6D8895
+client.urgent #f44747 #1e1e1e #d4d4d4 #6D8895

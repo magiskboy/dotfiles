@@ -9,7 +9,7 @@
 }
 
 configuration {
-	font:							"MesloLGS NF Regular 12";
+	font:							"Hack Nerd Font 12";
     show-icons:                     false;
 	icon-theme: 					"Papirus";
     drun-display-format:            "{name}";
