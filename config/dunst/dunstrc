@@ -22,7 +22,7 @@
     # Width of frame around window
     frame_width = 1
     # Color of frame around window
-    frame_color = "#4287f5"
+    frame_color = "#3F5360"
     # Sort messages by urgency
     sort = yes
     # Idle seconds
@@ -115,8 +115,8 @@
 [urgency_normal]
 
     # Normal urgency notifications
-    background = "#202632"
-    foreground = "#ffffff"
+    background = "#212B30"
+    foreground = "#C4C7C5"
     timeout = 5
 
 [urgency_critical]

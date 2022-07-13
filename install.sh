@@ -8,6 +8,8 @@ sudo pacman-db-upgrade
 sudo pacman -Syu --noconfirm \
     git \
     base-devel \
+    ranger \
+    w3m \
     blueman \
     starship \
     exa \
