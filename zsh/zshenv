@@ -35,3 +35,5 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6eb579"
 . "$HOME/.cargo/env"
 
 export BAT_THEME="Visual Studio Dark+"
+
+export EDITOR=nvim

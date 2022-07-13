@@ -23,6 +23,7 @@ return require('packer').startup(function()
     use 'akinsho/toggleterm.nvim'
     use "lukas-reineke/indent-blankline.nvim"
     use 'Mofiqul/vscode.nvim'
+    use 'nvim-pack/nvim-spectre'
     use {
         'nvim-telescope/telescope.nvim',
         requires = { 
