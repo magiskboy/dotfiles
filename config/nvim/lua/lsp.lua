@@ -46,6 +46,8 @@ lsp.gopls.setup{
 
 lsp.clangd.setup{}
 
+lsp.jdtls.setup{}
+
 -- setup formatter
 lsp.diagnosticls.setup {
   on_attach = on_attach,
