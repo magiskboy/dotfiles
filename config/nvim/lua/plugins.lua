@@ -19,7 +19,7 @@ return require('packer').startup(function()
     use 'romgrk/barbar.nvim'
     use 'kdheepak/tabline.nvim'
     use 'ray-x/lsp_signature.nvim'
-    use 'jose-elias-alvarez/null-ls.nvim'
+    use 'williamboman/nvim-lsp-installer'
     use 'akinsho/toggleterm.nvim'
     use "lukas-reineke/indent-blankline.nvim"
     use 'Mofiqul/vscode.nvim'

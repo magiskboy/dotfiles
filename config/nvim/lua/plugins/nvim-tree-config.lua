@@ -1,12 +1,3 @@
-vim.g.nvim_tree_show_icons = {
-    git = 0,
-    folders = 1,
-    files = 1,
-    folder_arrows = 0
-}
-
-vim.g.nvim_tree_git_hl = 1;
-
 vim.api.nvim_exec(
     [[
         function! DisableST()
@@ -21,12 +12,27 @@ local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 require'nvim-tree'.setup {
   open_on_tab         = true,
   hijack_cursor       = true,
+  renderer = {
+      icons = {
+          show = {
+            folder = true,
+            file = true,
+            folder_arrow = false,
+            git = false
+          }
+      },
+      highlight_git = true
+  },
+  actions = {
+      open_file = {
+          resize_window = true
+      }
+  },
   view = {
     width = 40,
     height = 30,
     hide_root_folder = true,
     side = 'right',
-    auto_resize = true,
     mappings = {
       custom_only = false,
       list = {

@@ -36,7 +36,7 @@ pyenv install 3.8.7
 pyenv global 3.8.7
 pip install poetry black isort pylint jedi pynvim
 nvm use 14.17
-sudo npm i -g neovim
+sudo npm i -g neovim typescript-language-server diagnostic-languageserver eslint_d prettier_d_slim
 ```
 
 Install some packages, which isn't available in apt repo

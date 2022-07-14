@@ -15,12 +15,5 @@ require('plugins/toggleterm-config')
 require('plugins/indent-blankline-config')
 require('plugins/lsp-config')
 require('plugins/git-blame-config')
-require('plugins/null-ls-config')
 
--- LSP configurations
--- docs: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-require('lsp/javascript-lsp')
-require('lsp/jedi-lsp')
-require('lsp/lua-lsp')
-require('lsp/clangd-lsp')
-require('lsp/go-lsp')
+require('lsp')
