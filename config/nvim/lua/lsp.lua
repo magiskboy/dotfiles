@@ -16,24 +16,6 @@ end
 
 lsp.jedi_language_server.setup{}
 
-lsp.sumneko_lua.setup {
-    cmd = { "/bin/lua-language-server" },
-    settings = {
-        Lua = {
-            runtime = {
-                version = 'LuaJIT',
-                path = vim.split(package.path, ';')
-            },
-            diagnostics = {
-                globals = {'vim'}
-            },
-            workspace = {
-                library = {[vim.fn.expand('$VIMRUNTIME/lua')] = true, [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true}
-            }
-        }
-    }
-}
-
 lsp.tsserver.setup({
     on_attach = function (client)
         client.server_capabilities.document_formatting = true
@@ -45,8 +27,6 @@ lsp.gopls.setup{
 }
 
 lsp.clangd.setup{}
-
-lsp.jdtls.setup{}
 
 -- setup formatter
 lsp.diagnosticls.setup {

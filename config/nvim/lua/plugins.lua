@@ -1,8 +1,10 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function()
-    use 'ap/vim-css-color'
     use 'wbthomason/packer.nvim'
+    use 'lewis6991/impatient.nvim'
+    use 'williamboman/nvim-lsp-installer'
+    use 'ap/vim-css-color'
     use 'neovim/nvim-lspconfig'
     use 'alvan/vim-closetag'
     use 'tpope/vim-eunuch'
@@ -19,7 +21,6 @@ return require('packer').startup(function()
     use 'romgrk/barbar.nvim'
     use 'kdheepak/tabline.nvim'
     use 'ray-x/lsp_signature.nvim'
-    use 'williamboman/nvim-lsp-installer'
     use 'akinsho/toggleterm.nvim'
     use "lukas-reineke/indent-blankline.nvim"
     use 'Mofiqul/vscode.nvim'

@@ -32,3 +32,4 @@ vim.api.nvim_set_keymap('n', '<C-a>', 'ggVG', {})
 vim.api.nvim_set_keymap('', '<C-s>', '<cmd>write<cr>', {})
 vim.api.nvim_set_keymap('n', '<C-q>', '<cmd>quit<cr>', {})
 
+vim.api.nvim_set_keymap('n', '<C-h>', '<cmd>lua require("spectre").open()<cr>', {})

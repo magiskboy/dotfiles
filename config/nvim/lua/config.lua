@@ -1,3 +1,5 @@
+require('impatient')
+
 vim.cmd([[
 filetype plugin indent on
 set termguicolors
