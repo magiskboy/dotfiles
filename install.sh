@@ -6,6 +6,7 @@ mkdir -p $LOCAL/bin
 sudo pacman-db-upgrade
 
 sudo pacman -Syu --noconfirm \
+    nerd-fonts-hack \
     git \
     base-devel \
     ranger \
@@ -109,9 +110,14 @@ chown "$USER":"$USER" $DOCKER_CONFIG -R && \
 chmod g+rwx $DOCKER_CONFIG -R && \
 systemctl restart docker
 
+git clone --depth 1 https://github.com/ohmyzsh/ohmyzsh $HOME/.ohmyzsh && \
+git clone --depth 1 https://github.com/zsh-users/zsh-autosuggestions $HOME/.ohmyzsh/custom/plugins/zsh-autosuggestions && \
+git clone --depth 1 https://github.com/zsh-users/zsh-syntax-highlighting $HOME/.ohmyzsh/custom/plugins/zsh-syntax-highlighting && \
+git clone --depth 1 https://github.com/Aloxaf/fzf-tab $HOME/.ohmyzsh/custom/plugins/fzf-tab && \
+git clone --depth 1 https://github.com/agkozak/zsh-z $HOME/.phmyzsh/custom/plugins/zsh-z
+
 # Link dotfiles
-rm -rf $HOME/.zshrc $HOME/.oh-my-zsh $HOME/.zshrc $HOME/.zshenv $HOME/.zlogin $HOME/.zprofile && \
-ln -sf `pwd`/oh-my-zsh $HOME/.oh-my-zsh && \
+rm -rf $HOME/.zshrc $HOME/.zshrc $HOME/.zshenv $HOME/.zlogin $HOME/.zprofile && \
 ln -sf `pwd`/zsh/zshrc $HOME/.zshrc && \
 ln -sf `pwd`/zsh/zlogin $HOME/.zlogin && \
 ln -sf `pwd`/zsh/zprofile $HOME/.zprofile && \
@@ -127,10 +133,6 @@ git clone https://github.com/wbthomason/packer.nvim \
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
 ln -sf `pwd`/vimrc $HOME/.vimrc
-
-ln -sf `pwd`/pyenv $HOME/.pyenv
-
-ln -sf `pwd`/nvm $HOME/.nvm
 
 sudo mkdir -f /usr/share/fonts && \
 sudo cp -R `pwd`/fonts /usr/share/fonts/Meslo

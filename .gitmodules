@@ -1,3 +1,0 @@
-[submodule "config/rofi/network-manager"]
-	path = config/rofi/network-manager
-	url = git@github.com:P3rf/rofi-network-manager

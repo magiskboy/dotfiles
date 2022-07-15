@@ -28,7 +28,7 @@ source $HOME/.cargo/env
 
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git --exclude venv'
 export FZF_COMPLETION_OPTS='+c -x'
-export FZF_DEFAULT_OPTS='--preview "preview {}" --reverse'
+# export FZF_DEFAULT_OPTS='--preview "preview {}" --reverse'
 
 export ZSH_CONFIG=$HOME/dotfiles/zsh
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6eb579"
