@@ -4,8 +4,6 @@ head -n7 $HOME/dotfiles/README.md
 
 export ZSH="$HOME/.oh-my-zsh"
 
-export THEME="vscode"
-
 plugins=(
   git
   jsontools
@@ -48,9 +46,7 @@ if [[ $OS == "darwin" ]]; then
     fi
 fi
 
-my_loader=$ZSH_CONFIG/autoloaded
 fpath=(
-    $my_loader
     $fpath
 )
 if [[ -d $my_loader ]]; then
@@ -64,6 +60,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+eval "$(pyenv init - --no-rehash)"
+eval "$(pyenv virtualenv-init -)"
 eval "$(starship init zsh)"
-eval "$(pyenv init -)"
 eval "$(zoxide init zsh)"

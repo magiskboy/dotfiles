@@ -11,7 +11,3 @@ path=(
     /usr/local/{bin,sbin}
     $path
 )
-
-eval "$(starship init zsh)"
-eval "$(pyenv init -)"
-eval "$(zoxide init zsh)"

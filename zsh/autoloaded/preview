@@ -1,8 +1,0 @@
-#!/bin/zsh
-
-
-if [[ -d $@ ]]; then
-    exa -T $@ --level 2 $@
-else
-    bat --color=always $@
-fi
