@@ -23,7 +23,6 @@ sudo pacman -Syu --noconfirm \
     bat \
     jq \
     yq \
-    tmux \
     docker \
     dunst \
     rofi \
