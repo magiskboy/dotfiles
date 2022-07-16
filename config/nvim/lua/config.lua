@@ -58,6 +58,7 @@ autocmd FileType javascript,typescript,typescriptreact,javascriptreact,xml,yaml,
 command! JsonBeauty %!jq .
 command! JsonMinify %!jq -c .
 command! GoRun !go run %
+command! Replace lua require("spectre").open()<cr>
 ]])
 
 vim.diagnostic.config({
@@ -81,3 +82,4 @@ end, {})
 vim.api.nvim_create_user_command("Htop", function (args)
     htop()
 end, {})
+

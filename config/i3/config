@@ -10,7 +10,7 @@ exec_always --no-startup-id xrandr --output HDMI-1 --same-as eDP-1
 exec_always --no-startup-id picom --config /home/nkthanh/.config/picom/picom.conf
 exec_always --no-startup-id bash /home/nkthanh/.config/polybar/launch.sh
 exec_always --no-startup-id bash /home/nkthanh/.config/i3/scripts/setup_mouse.sh
-exec_always --no-startup-id feh --bg-fill /home/nkthanh/dotfiles/images/wallpaper-2.jpg
+exec_always --no-startup-id feh --bg-fill /home/nkthanh/dotfiles/images/wallpaper-2.png
 
 floating_modifier $mod
 
@@ -48,9 +48,9 @@ bindsym $mod+n split v
 
 bindsym $mod+f fullscreen toggle
 
-bindsym $mod+Shift+q exec $HOME/.config/i3/scripts/lockscreen.sh
+bindsym $mod+p exec $HOME/.config/rofi/bin/powermenu 
 
-bindsym $mod+Shift+p exec $HOME/.config/rofi/bin/powermenu 
+bindsym $mod+Shift+q exec $HOME/.config/i3/scripts/lockscreen.sh
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -130,8 +130,3 @@ bindsym $mod+r mode "resize"
 bindsym XF86AudioRaiseVolume exec "amixer -q sset Master,0 5+ unmute"
 bindsym XF86AudioLowerVolume exec "amixer -q sset Master,0 5- unmute"
 bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
-
-client.focused #c678dd #6D8895 #d4d4d4 #d4d4d4
-client.focused_inactive #1e1e1e #6D8895 #d4d4d4 #1e1e1e
-client.unfocused #1e1e1e #1e1e1e #d4d4d4 #6D8895
-client.urgent #f44747 #1e1e1e #d4d4d4 #6D8895

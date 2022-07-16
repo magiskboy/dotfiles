@@ -47,7 +47,7 @@ k9s:
         - shop-front
         - default
       view:
-        active: pods
+        active: deploy
       featureGates:
         nodeShell: false
       shellPod:
