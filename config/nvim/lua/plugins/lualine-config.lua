@@ -1,3 +1,14 @@
+local tabline = require('tabline');
+
+tabline.setup({
+    enable = true,
+    options = {
+        section_separators = {'', ''},
+        component_separators = {'', ''}
+    }
+});
+
+
 require('lualine').setup {
   options = {
     icons_enabled = true,
@@ -26,8 +37,8 @@ require('lualine').setup {
   tabline = {
     lualine_a = {},
     lualine_b = {},
-    lualine_c = { require'tabline'.tabline_buffers },
-    lualine_x = { require'tabline'.tabline_tabs },
+    lualine_c = { tabline.tabline_buffers },
+    lualine_x = { tabline.tabline_tabs },
     lualine_y = {},
     lualine_z = {},
   },
