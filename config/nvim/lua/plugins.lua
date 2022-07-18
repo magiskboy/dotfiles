@@ -19,7 +19,6 @@ return require('packer').startup(function()
     use 'kyazdani42/nvim-tree.lua'
     use 'lewis6991/gitsigns.nvim'
     use 'nvim-lualine/lualine.nvim'
-    use 'romgrk/barbar.nvim'
     use 'kdheepak/tabline.nvim'
     use 'ray-x/lsp_signature.nvim'
     use 'akinsho/toggleterm.nvim'

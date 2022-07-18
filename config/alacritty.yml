@@ -4,6 +4,7 @@ window:
 
 font:
   normal:
+    family: MesloLGS NF
     family: Hack Nerd Font
     style: Regular
 
