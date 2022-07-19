@@ -101,6 +101,8 @@ cd /tmp/yay && \
 makepkg -si && \
 cd -
 
+sudo yay -S fnm-bin --noconfirm
+
 DOCKER_CONFIG="$HOME/.docker"
 groupadd -f docker && \
 usermod -aG docker $USER && \
@@ -132,8 +134,5 @@ git clone https://github.com/wbthomason/packer.nvim \
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
 ln -sf `pwd`/vimrc $HOME/.vimrc
-
-sudo mkdir -f /usr/share/fonts && \
-sudo cp -R `pwd`/fonts /usr/share/fonts/Meslo
 
 sudo chsh -s $(which zsh)

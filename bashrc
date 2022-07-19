@@ -18,14 +18,7 @@ export PIPENV_PYTHON="$PYENV_ROOT/shims/python"
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 export OPENSSL_CONF=/etc/ssl/           # fix: vagrant not found openssl lib
 
-
 # =============================== Alias =====================================
-if [[ $OS == "darwin" ]]; then
-    alias ls="ls -G"
-else
-    alias ls="ls --color=always"
-fi
-alias fd="fdfind"
 alias ll="ls -lh"
 alias g="git"
 alias ga="git add"
@@ -39,13 +32,8 @@ alias gd="git diff"
 alias gco="git checkout"
 alias gf="git fetch"
 alias gst="git status"
-# eval "$(starship init bash)"
 
 source "$HOME/.cargo/env"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 . "$HOME/.cargo/env"
 
 # The next line updates PATH for the Google Cloud SDK.

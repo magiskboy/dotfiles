@@ -25,9 +25,6 @@ font:
 shell:
   program: /bin/zsh
 
-key_bindings:
-  - { key: Space, mods: Control, action: ToggleFullscreen }
-
 colors:
   primary:
     background: "#1e1e1e"

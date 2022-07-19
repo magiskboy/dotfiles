@@ -3,14 +3,12 @@
 head -n7 $HOME/dotfiles/README.md
 
 export ZSH="$HOME/.ohmyzsh"
+export DOTFILES=$HOME/dotfiles
 
 plugins=(
   git
-  jsontools
-  gcloud
   kubectl
   docker
-  yarn
   vi-mode
   zsh-autosuggestions
   zsh-syntax-highlighting
@@ -23,43 +21,21 @@ alias genssl="openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout cert.k
 alias genmacaddr="openssl rand -hex 6 | sed 's/\(..\)/\1:/g;s/.$//'"
 alias reload="exec \"$SHELL\""
 alias md="mkdir"
-if [[ $OS = "linux" ]]; then
-   alias fd="fdfind"
-   alias open="xdg-open"
-   alias pbcopy="xclip -sel clip"
-   alias pbpaste="xclip -o -sel clip"
-fi
+alias fd="fdfind"
+alias open="xdg-open"
+alias pbcopy="xclip -sel clip"
+alias pbpaste="xclip -o -sel clip"
 alias ls="exa"
 alias ll="exa --long"
 alias lt="exa --tree"
 alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias pt="poetry"
-alias v="nvim"
 
 autoload -Uz compinit
+for dump in ~/.zcompdump(N.mh+24); do
+  compinit
+done
+compinit -C
 
-if [[ $OS == "darwin" ]]; then
-    if [ $(date +'%j') != $(/usr/bin/stat -f '%Sm' -t '%j' ${ZDOTDIR:-$HOME}/.zcompdump) ]; then
-        compinit;
-    else
-        compinit -C;
-    fi
-fi
-
-fpath=(
-    $fpath
-)
-if [[ -d $my_loader ]]; then
-    for func in $my_loader/*; do
-        autoload -Uz ${func:t}
-    done
-fi
-unset my_loader
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-eval "$(pyenv init - --no-rehash)"
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
+eval "$(fnm env --use-on-cd)"

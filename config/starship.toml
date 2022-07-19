@@ -1,20 +1,14 @@
 add_newline = false
 
-[package]
-disabled = true
-
 [python]
 pyenv_version_name = true
-
-[username]
-disabled = true
 
 [character]
 success_symbol = "[➜](bold green)"
 error_symbol = "[➜](bold red)"
 
 [cmd_duration]
-min_time = 100
+min_time = 200
 show_milliseconds = true
 
 [directory]
@@ -22,12 +16,6 @@ truncate_to_repo = false
 truncation_length = 6
 truncation_symbol = "…/"
 style = "bold green"
-
-[battery]
-disabled = true
-[battery.display]
-threshold = 60
-style = "bold red"
 
 [gcloud]
 disabled = true
