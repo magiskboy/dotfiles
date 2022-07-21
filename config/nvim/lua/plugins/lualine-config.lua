@@ -5,7 +5,7 @@ tabline.setup({
     options = {
         section_separators = {'', ''},
         component_separators = {'', ''},
-        show_devicons = true,
+        show_devicons = false,
         show_filename_only = true
     }
 });
