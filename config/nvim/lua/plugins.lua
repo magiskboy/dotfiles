@@ -25,6 +25,7 @@ return require('packer').startup(function()
     use "lukas-reineke/indent-blankline.nvim"
     use 'Mofiqul/vscode.nvim'
     use 'nvim-pack/nvim-spectre'
+    use 'simrat39/symbols-outline.nvim'
     use {
         'nvim-telescope/telescope.nvim',
         requires = { 
