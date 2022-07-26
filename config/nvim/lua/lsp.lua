@@ -3,18 +3,7 @@ local lsp = require('lspconfig');
 
 require("nvim-lsp-installer").setup {}
 
-local roundedBorder = {
-    {"╭", "FloatBorder"},
-    {"─", "FloatBorder"},
-    {"╮", "FloatBorder"},
-    {"│", "FloatBorder"},
-    {"╯", "FloatBorder"},
-    {"─", "FloatBorder"},
-    {"╰", "FloatBorder"},
-    {"│", "FloatBorder"},
-}
-
-local singleBorder = {
+local border = {
     {"┌", "FloatBorder"},
     {"─", "FloatBorder"},
     {"┐", "FloatBorder"},
@@ -24,8 +13,6 @@ local singleBorder = {
     {"└", "FloatBorder"},
     {"│", "FloatBorder"},
 }
-
-local border = singleBorder
 
 -- LSP settings (for overriding per client)
 local handlers =  {
@@ -99,12 +86,12 @@ lsp.diagnosticls.setup {
         args = { '--stdin', '--stdin-filename', '%filename', '--fix-to-stdout' },
         rootPatterns = { '.git' },
       },
-      -- prettier = {
-      --   command = 'prettier_d_slim',
-      --   rootPatterns = { '.git' },
-      --   -- requiredFiles: { 'prettier.config.js' },
-      --   args = { '--stdin', '--stdin-filepath', '%filename' }
-      -- }
+      prettier = {
+        command = 'prettier_d_slim',
+        rootPatterns = { '.git' },
+        -- requiredFiles: { 'prettier.config.js' },
+        args = { '--stdin', '--stdin-filepath', '%filename' }
+      }
     },
     formatFiletypes = {
       css = 'prettier',

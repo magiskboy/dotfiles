@@ -22,6 +22,7 @@ vim.api.nvim_set_keymap('n', 'gr', ':Telescope ls_references<CR>', opts)
 vim.api.nvim_set_keymap('n', 'gi', ':Telescope lsp_implementations<CR>', opts)
 vim.api.nvim_set_keymap('n', 'gt', ':Telescope lsp_type_definitions<CR>', opts)
 vim.api.nvim_set_keymap('n', '<C-j>', ':Telescope buffers<CR>', opts)
+vim.api.nvim_set_keymap('n', '<C-i>', ':lua vim.lsp.buf.format()<cr>', opts)
 
 vim.api.nvim_set_keymap('n', 'H', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
 vim.api.nvim_set_keymap('n', '<C-r>', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
