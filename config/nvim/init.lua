@@ -17,5 +17,6 @@ require('plugins/indent-blankline-config')
 require('plugins/lsp-config')
 require('plugins/git-blame-config')
 require('plugins/symbol-outline-config')
+require('plugins/bufferline-config')
 
 require('lsp')

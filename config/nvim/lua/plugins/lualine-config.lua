@@ -1,15 +1,3 @@
-local tabline = require('tabline');
-
-tabline.setup({
-    enable = false,
-    options = {
-        section_separators = {'', ''},
-        component_separators = {'', ''},
-        show_devicons = false,
-        show_filename_only = true
-    }
-});
-
 local colors = {
   yellow = '#ECBE7B',
   cyan = '#008080',
@@ -81,7 +69,7 @@ require('lualine').setup {
   tabline = {
     lualine_a = {},
     lualine_b = {},
-    lualine_c = {tabline.tabline_buffers},
+    lualine_c = {},
     lualine_x = {},
     lualine_y = {},
     lualine_z = {},

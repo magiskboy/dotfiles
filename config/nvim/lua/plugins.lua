@@ -20,8 +20,8 @@ return require('packer').startup(function()
     use 'lewis6991/gitsigns.nvim'
     use {
         'nvim-lualine/lualine.nvim',
-        requires = {
-            'kdheepak/tabline.nvim'
+        requires = { 
+            {'akinsho/bufferline.nvim', tag = "v2.*"}
         }
     }
     use 'ray-x/lsp_signature.nvim'
