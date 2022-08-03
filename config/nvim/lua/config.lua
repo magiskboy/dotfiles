@@ -7,6 +7,8 @@ syntax on
 syntime on
 ]])
 
+vim.notify = require("notify")
+
 vim.o.shell = "/bin/zsh"
 vim.o.wrap = true
 vim.o.showcmd = false

@@ -18,5 +18,6 @@ require('plugins/lsp-config')
 require('plugins/git-blame-config')
 require('plugins/symbol-outline-config')
 require('plugins/bufferline-config')
+require('plugins/notify-config')
 
 require('lsp')

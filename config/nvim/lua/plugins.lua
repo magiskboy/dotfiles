@@ -13,11 +13,11 @@ return require('packer').startup(function()
     use 'tpope/vim-surround'
     use 'jiangmiao/auto-pairs'
     use 'tpope/vim-commentary'
-    use 'arkav/lualine-lsp-progress'
     use 'nvim-lua/plenary.nvim'
     use 'kyazdani42/nvim-web-devicons'
     use 'kyazdani42/nvim-tree.lua'
     use 'lewis6991/gitsigns.nvim'
+    use 'rcarriga/nvim-notify'
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 
