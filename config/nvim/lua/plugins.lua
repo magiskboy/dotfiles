@@ -21,13 +21,14 @@ return require('packer').startup(function()
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 
-            {'akinsho/bufferline.nvim', tag = "v2.*"}
+            {'akinsho/bufferline.nvim', tags = '2.*'},
         }
     }
     use 'ray-x/lsp_signature.nvim'
     use 'akinsho/toggleterm.nvim'
     use "lukas-reineke/indent-blankline.nvim"
     use 'Mofiqul/vscode.nvim'
+    use 'lifepillar/vim-solarized8'
     use 'nvim-pack/nvim-spectre'
     use 'simrat39/symbols-outline.nvim'
     use {

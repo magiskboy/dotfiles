@@ -2,7 +2,6 @@ set $mod Mod1
 set $alt Mod4
 
 exec_always --no-startup-id autotiling
-exec_always --no-startup-id flameshot
 exec_always --no-startup-id dunst
 exec_always --no-startup-id nm-applet
 exec_always --no-startup-id ibus-daemon

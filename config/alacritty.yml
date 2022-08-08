@@ -20,7 +20,7 @@ font:
     family: Hack Nerd Font
     style: Bold Italic
 
-  size: 14
+  size: 12
 
 shell:
   program: /bin/zsh

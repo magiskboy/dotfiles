@@ -43,8 +43,8 @@ vim.g.indentLine_char = '│'
 vim.g.indentLine_color_term = 239
 vim.g.AutoPairsShortcutToggle = ""
 vim.g.floaterm_autoclose = 2
-vim.g.vscode_style = "dark"
 vim.o.background = 'dark'
+vim.g.vscode_style = "dark"
 
 
 vim.cmd([[

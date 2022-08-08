@@ -46,5 +46,5 @@ require('lualine').setup {
     lualine_y = {},
     lualine_z = {},
   },
-  extensions = {}
+  extensions = { 'nvim-tree', 'fugitive', 'toggleterm', 'quickfix' }
 }
