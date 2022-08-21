@@ -1,15 +1,14 @@
 set $mod Mod1
 set $alt Mod4
 
-exec_always --no-startup-id autotiling
-exec_always --no-startup-id dunst
-exec_always --no-startup-id nm-applet
-exec_always --no-startup-id ibus-daemon
 exec_always --no-startup-id xrandr --output HDMI-1 --same-as eDP-1
-exec_always --no-startup-id picom --config /home/nkthanh/.config/picom/picom.conf
 exec_always --no-startup-id bash /home/nkthanh/.config/polybar/launch.sh
+exec_always --no-startup-id autotiling
+exec_always --no-startup-id nm-applet
+exec_always --no-startup-id picom --config /home/nkthanh/.config/picom/picom.conf
 exec_always --no-startup-id bash /home/nkthanh/.config/i3/scripts/setup_mouse.sh
 exec_always --no-startup-id feh --bg-fill /home/nkthanh/dotfiles/images/wallpaper-2.png
+exec_always --no-startup-id dunst
 
 floating_modifier $mod
 

@@ -5,9 +5,8 @@ set t_Co=256
 colorscheme vscode
 syntax on
 syntime on
+au VimLeave * set guicursor=a:ver100
 ]])
-
-vim.notify = require("notify")
 
 vim.o.shell = "/bin/zsh"
 vim.o.wrap = true

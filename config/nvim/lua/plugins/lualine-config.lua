@@ -1,15 +1,4 @@
-local colors = {
-  yellow = '#ECBE7B',
-  cyan = '#008080',
-  darkblue = '#081633',
-  green = '#98be65',
-  orange = '#FF8800',
-  violet = '#a9a1e1',
-  magenta = '#c678dd',
-  blue = '#51afef',
-  red = '#ec5f67'
-}
-
+local lsp_progress_config = require('plugins/lualine-lsp-progress-config');
 
 require('lualine').setup {
   options = {
@@ -25,6 +14,7 @@ require('lualine').setup {
     lualine_b = {'branch', 'diff'},
     lualine_c = {
         { 'filename', path = 1 },
+        lsp_progress_config,
     },
     lualine_x = {'diagnostics'},
     lualine_y = {'filetype'},

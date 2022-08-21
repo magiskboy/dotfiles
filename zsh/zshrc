@@ -38,6 +38,8 @@ alias ls="exa"
 alias ll="exa --long"
 alias lt="exa --tree"
 alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias gnew="google-chrome-stable --disable-web-security --user-data-dir=/tmp/guest"
+alias vim="nvim"
 
 autoload -Uz compinit
 for dump in ~/.zcompdump(N.mh+24); do
@@ -50,3 +52,5 @@ eval "$(fnm env --use-on-cd)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+export TERM=xterm-256color

@@ -3,10 +3,6 @@ local lsp = require('lspconfig');
 
 require("nvim-lsp-installer").setup {}
 
-function notify(message, level)
-    vim.notify(message, level, { title = 'Language Server Protocol', timeout = 1000 })
-end
-
 local border = {
     {"┌", "FloatBorder"},
     {"─", "FloatBorder"},
@@ -86,16 +82,10 @@ lsp.diagnosticls.setup {
       typescriptreact = 'eslint',
     },
     formatters = {
-      eslint_d = {
-        command = 'eslint_d',
-        args = { '--stdin', '--stdin-filename', '%filename', '--fix-to-stdout' },
-        rootPatterns = { '.git' },
-      },
       prettier = {
-        command = 'prettier_d_slim',
+        command = 'prettierd',
         rootPatterns = { '.git' },
-        requiredFiles = { 'prettier.config.js' },
-        args = { '--stdin', '--stdin-filepath', '%filename' }
+        requiredFiles = { 'prettier.config.js', '.prettierrc' }
       }
     },
     formatFiletypes = {
@@ -111,39 +101,3 @@ lsp.diagnosticls.setup {
   }
 }
 
-vim.lsp.handlers["$/progress"] = function(err, result, ctx)
-    if not err then
-        local notification = ''
-        local kind = result.value.kind
-        local client = vim.lsp.get_client_by_id(ctx.client_id)
-        
-        if kind == 'begin' then
-            notification = string.format('%s is starting...', client.name)
-        end
-
-        if kind == 'end' then
-            notification = string.format('%s is ready', client.name)
-        end
-
-        notify(notification, 'info')
-    else
-        notify(string.format('%s starting is failed', client.name), 'error')
-    end
-end
-
-vim.lsp.handlers['window/showMessage'] = function(_, result, ctx)
-  local client = vim.lsp.get_client_by_id(ctx.client_id)
-  local lvl = ({
-    'ERROR',
-    'WARN',
-    'INFO',
-    'DEBUG',
-  })[result.type]
-  vim.notify({ result.message }, lvl, {
-    title = 'LSP | ' .. client.name,
-    timeout = 10000,
-    keep = function()
-      return lvl == 'ERROR' or lvl == 'WARN'
-    end,
-  })
-end
