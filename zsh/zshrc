@@ -54,3 +54,4 @@ eval "$(fnm env --use-on-cd)"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export TERM=xterm-256color
+

@@ -6,6 +6,7 @@ mkdir -p $LOCAL/bin
 sudo pacman-db-upgrade
 
 sudo pacman -Syu --noconfirm \
+    pavucontrol \
     nerd-fonts-hack \
     git \
     base-devel \
