@@ -2,12 +2,12 @@ local lsp_progress_config = require('plugins/lualine-lsp-progress-config');
 
 require('lualine').setup {
   options = {
-    icons_enabled = true,
-    theme = 'auto',
-    component_separators = { left = ' ', right = ' '},
-    section_separators = { left = '', right = ''},
+    icons_enabled = false,
+    component_separators = { left = '', right = ''},
+    section_separators = { left = '', right = ''},
     disabled_filetypes = {},
     always_divide_middle = true,
+    -- theme = 'solarized_dark'
   },
   sections = {
     lualine_a = {},

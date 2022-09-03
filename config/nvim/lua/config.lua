@@ -2,7 +2,7 @@ vim.cmd([[
 filetype plugin indent on
 set termguicolors
 set t_Co=256
-colorscheme vscode
+colorscheme solarized8_flat
 syntax on
 syntime on
 au VimLeave * set guicursor=a:ver100
@@ -38,7 +38,7 @@ vim.g.did_load_filetypes = 1
 vim.g.python3_host_prog = vim.api.nvim_eval("expand('/usr/bin/python3')")
 vim.g.python_host_prog = vim.api.nvim_eval("expand('/usr/bin/python2')")
 vim.g.indentLine_enabled = 1
-vim.g.indentLine_char = '│'
+vim.g.indentLine_char = ''
 vim.g.indentLine_color_term = 239
 vim.g.AutoPairsShortcutToggle = ""
 vim.g.floaterm_autoclose = 2
@@ -53,6 +53,7 @@ hi YellowSign guibg=NONE
 hi BlueSign guibg=NONE
 hi LineNr cterm=NONE ctermbg=NONE ctermfg=NONE gui=NONE guibg=NONE guifg=NONE
 hi SignColumn guibg=NONE ctermbg=NONE
+hi NonText cterm=NONE ctermfg=242 gui=NONE guifg=#4c5b63
 
 autocmd FileType javascript,typescript,typescriptreact,javascriptreact,xml,yaml,json,html,css,sass,scss,less,jinja,htmldjango setlocal ts=2 sts=2 sw=2
 
