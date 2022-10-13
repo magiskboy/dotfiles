@@ -139,7 +139,7 @@
     pager = delta
 
 [delta]
-    syntax-theme = Monokai Extended
+    syntax-theme = Solarized
     side-by-side = false
     navigate = true
 
@@ -225,6 +225,13 @@
 [safe]
 	directory = /home/nkthanh/Development/teko-web/builds/0/project-0
 	directory = /home/nkthanh/Development/teko-web/builds/0/project-0
+	directory = /home/nkthanh/Development/teko-web/builds/0/project-0
+	directory = /home/nkthanh/Development/teko-web/builds/0/project-0
+	directory = /home/nkthanh/Development/teko-web/builds/0/project-0
+	directory = /home/nkthanh/Development/teko-web/builds/0/project-0
+	directory = /home/nkthanh/Development/teko-web/builds/0/project-0
+	directory = /home/nkthanh/Development/teko-web/builds/0/project-0
+	directory = 0/project-0
 	directory = /home/nkthanh/Development/teko-web/builds/0/project-0
 	directory = /home/nkthanh/Development/teko-web/builds/0/project-0
 	directory = /home/nkthanh/Development/teko-web/builds/0/project-0

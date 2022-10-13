@@ -2,6 +2,7 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function()
     use 'wbthomason/packer.nvim'
+    use 'vim-test/vim-test'
     use "nathom/filetype.nvim"
     use 'lewis6991/impatient.nvim'
     use 'williamboman/nvim-lsp-installer'

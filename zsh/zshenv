@@ -33,5 +33,5 @@ export FZF_COMPLETION_OPTS='+c -x'
 # export FZF_DEFAULT_OPTS='--preview "preview {}" --reverse'
 #
 . "$HOME/.cargo/env"
-export BAT_THEME="Visual Studio Dark+"
+export BAT_THEME="Solarized (dark)"
 export EDITOR=nvim

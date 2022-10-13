@@ -45,6 +45,11 @@ vim.g.floaterm_autoclose = 2
 vim.o.background = 'dark'
 vim.g.vscode_style = "dark"
 
+vim.cmd([[
+let g:test#javascript#runner = 'jest'
+let g:test#javascript#jest#file_pattern = '.*\.(js|jsx|ts|tsx)$'
+let test#javascript#jest#executable = 'yarn jest'
+]])
 
 vim.cmd([[
 hi RedSign guibg=NONE

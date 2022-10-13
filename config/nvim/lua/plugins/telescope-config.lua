@@ -1,6 +1,11 @@
 local actions = require "telescope.actions"
 
 require('telescope').setup {
+  pickers = {
+    find_files = {
+      disable_devicons = true
+    },
+  },
   defaults = {
     vimgrep_arguments = {
       "rg",
