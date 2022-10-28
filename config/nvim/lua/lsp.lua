@@ -55,7 +55,7 @@ lsp.diagnosticls.setup {
   init_options = {
     linters = {
       eslint = {
-        command = 'eslint_d',
+        command = 'eslint',
         rootPatterns = { '.git' },
         debounce = 100,
         args = { '--stdin', '--stdin-filename', '%filepath', '--format', 'json' },
@@ -83,7 +83,7 @@ lsp.diagnosticls.setup {
     },
     formatters = {
       prettier = {
-        command = 'prettierd',
+        command = 'prettier',
         rootPatterns = { '.git' },
         requiredFiles = { 'prettier.config.js', '.prettierrc' }
       }
