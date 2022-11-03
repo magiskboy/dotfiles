@@ -8,3 +8,4 @@ config/pgcli/*
 config/mycli/*
 !config/pgcli/config
 !config/mycli/config
+!config/lazygit/config.yml

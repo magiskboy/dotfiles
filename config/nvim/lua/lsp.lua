@@ -48,6 +48,8 @@ lsp.gopls.setup{
 
 lsp.clangd.setup{ handlers = handlers }
 
+lsp.rust_analyzer.setup{}
+
 -- setup formatter
 lsp.diagnosticls.setup {
   -- on_attach = on_attach,
@@ -55,9 +57,8 @@ lsp.diagnosticls.setup {
   init_options = {
     linters = {
       eslint = {
-        command = 'eslint',
-        rootPatterns = { '.git' },
-        debounce = 100,
+        command = 'eslint_d',
+        rootPatterns = { 'package.json' },
         args = { '--stdin', '--stdin-filename', '%filepath', '--format', 'json' },
         sourceName = 'eslint_d',
         parseJson = {
@@ -67,7 +68,7 @@ lsp.diagnosticls.setup {
           endLine = 'endLine',
           endColumn = 'endColumn',
           message = '[eslint] ${message} [${ruleId}]',
-          security = 'severity'
+          security = 'warning'
         },
         securities = {
           [2] = 'error',
@@ -83,8 +84,8 @@ lsp.diagnosticls.setup {
     },
     formatters = {
       prettier = {
-        command = 'prettier',
-        rootPatterns = { '.git' },
+        command = 'prettierd',
+        rootPatterns = { 'package.json' },
         requiredFiles = { 'prettier.config.js', '.prettierrc' }
       }
     },
