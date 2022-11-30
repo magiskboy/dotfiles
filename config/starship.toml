@@ -1,4 +1,4 @@
-add_newline = false
+add_newline = true
 
 [python]
 pyenv_version_name = true

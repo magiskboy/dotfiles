@@ -10,7 +10,7 @@ vim.api.nvim_exec(
 
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 require'nvim-tree'.setup {
-  open_on_tab         = true,
+  open_on_tab         = false,
   hijack_cursor       = true,
   renderer = {
       icons = {
@@ -18,7 +18,7 @@ require'nvim-tree'.setup {
             folder = true,
             file = true,
             folder_arrow = false,
-            git = false
+            git = true
           }
       },
       highlight_git = true
@@ -29,24 +29,29 @@ require'nvim-tree'.setup {
       }
   },
   view = {
-    width = 40,
-    height = 30,
+    width = '100%',
+    height = 60,
     hide_root_folder = true,
+    signcolumn = "no",
     side = 'right',
     mappings = {
       custom_only = false,
       list = {
-        { key = {"l", "<2-LeftMouse>"}, cb = tree_cb("edit") },
+        { key = {"l", "<2-LeftMouse>"},      cb = tree_cb("edit") },
         { key = "h",                         cb = tree_cb("close_node") },
         { key = "dd",                        cb = tree_cb("cut") },
         { key = "yy",                        cb = tree_cb("copy") },
         { key = "x",                         cb = tree_cb("remove") },
         { key = "?",                         cb = tree_cb("toggle_help") },
-        { key = "t",                         cb = tree_cb("tabnew") }
+        { key = "t",                         cb = tree_cb("tabnew") },
+        { key = "<C-e>",                     cb = nil, action = "" }
       }
     },
+    float = {
+        enable = true
+    }
   },
 }
 
 
-vim.api.nvim_set_keymap('n', '<tab>', '<cmd>NvimTreeToggle<cr>', {})
+vim.api.nvim_set_keymap('n', '<C-e>', '<cmd>NvimTreeToggle<cr>', {})

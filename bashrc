@@ -41,3 +41,7 @@ if [ -f '/home/nkthanh/.local/google-cloud-sdk/path.bash.inc' ]; then . '/home/n
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/nkthanh/.local/google-cloud-sdk/completion.bash.inc' ]; then . '/home/nkthanh/.local/google-cloud-sdk/completion.bash.inc'; fi
+
+# >>>> Vagrant command completion (start)
+. /opt/vagrant/embedded/gems/2.3.2/gems/vagrant-2.3.2/contrib/bash/completion.sh
+# <<<<  Vagrant command completion (end)

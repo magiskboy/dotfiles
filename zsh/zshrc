@@ -1,17 +1,11 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 #!/usr/bin/env zsh
 
-# head -n7 $HOME/dotfiles/README.md
+head -n7 $HOME/dotfiles/README.md
+# fortune -n50 | cowsay
+
 
 export ZSH="$HOME/.ohmyzsh"
 export DOTFILES=$HOME/dotfiles
-ZSH_THEME="powerlevel10k/powerlevel10k"
 
 plugins=(
   git
@@ -22,6 +16,7 @@ plugins=(
   zsh-syntax-highlighting
   zsh-z
   yarn
+  fzf
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -35,7 +30,7 @@ alias open="xdg-open"
 alias pbcopy="xclip -sel clip"
 alias pbpaste="xclip -o -sel clip"
 alias ls="exa"
-alias ll="exa --long"
+alias ll="exa --long --time-style long-iso"
 alias lt="exa --tree"
 alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias gnew="google-chrome-stable --disable-web-security --user-data-dir=/home/nkthanh/thanh.nk"
@@ -46,6 +41,12 @@ alias -s {mp4,MP4,mov,MOV}='background vlc'
 alias -s {zip,ZIP}="unzip -l"
 alias -s {ts,js,tsx,jsx,c,cpp,h,lua,vim,java,conf,json}="bat"
 alias -s git="git clone"
+alias cp="xcp"
+alias cat="bat"
+alias fd="findfd"
+
+bindkey '^P' fzf-file-widget
+bindkey '^H' fzf-history-widget
 
 autoload -Uz compinit
 for dump in ~/.zcompdump(N.mh+24); do
@@ -55,9 +56,4 @@ compinit -C
 
 eval "$(zoxide init zsh)"
 eval "$(fnm env --use-on-cd)"
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-export TERM=xterm-256color
-
+eval "$(starship init zsh)"

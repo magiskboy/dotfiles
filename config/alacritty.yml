@@ -33,27 +33,31 @@ shell:
   program: /bin/zsh
 
 colors:
-  # solzrized8
   primary:
-    background: '#002b36'
-    foreground: '#839496'
+    background: '0x0d1117'
+    foreground: '0xecf2f8'
+  cursor:
+    text: '0xecf2f8'
+    cursor: '0x89929b'
 
+  # Normal colors
   normal:
-    black:   '#073642'
-    red:     '#dc322f'
-    green:   '#859900'
-    yellow:  '#b58900'
-    blue:    '#268bd2'
-    magenta: '#d33682'
-    cyan:    '#2aa198'
-    white:   '#eee8d5'
+    black:   '0x0d1117'
+    red:     '0xfa7970'
+    green:   '0x7ce38b'
+    yellow:  '0xfeff00'
+    blue:    '0x77bdfb'
+    magenta: '0xcc00ff'
+    cyan:    '0x06d6c5'
+    white:   '0xecf2f8'
 
+  # Bright colors
   bright:
-    black:   '#002b36'
-    red:     '#cb4b16'
-    green:   '#586e75'
-    yellow:  '#657b83'
-    blue:    '#839496'
-    magenta: '#6c71c4'
-    cyan:    '#93a1a1'
-    white:   '#fdf6e3'
+    black:   '0x808080'
+    red:     '0xfe0100'
+    green:   '0x33ff00'
+    yellow:  '0xfeff00'
+    blue:    '0x0066ff'
+    magenta: '0xcc00ff'
+    cyan:    '0x00ffff'
+    white:   '0xFFFFFF'

@@ -28,10 +28,10 @@ export PATH=$PYENV_ROOT/shims:$PATH
 
 source $HOME/.cargo/env
 
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git --exclude venv'
-export FZF_COMPLETION_OPTS='+c -x'
+# export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git --exclude venv'
+# export FZF_COMPLETION_OPTS='+c -x'
 # export FZF_DEFAULT_OPTS='--preview "preview {}" --reverse'
-#
+
 . "$HOME/.cargo/env"
-export BAT_THEME="Solarized (dark)"
+export BAT_THEME="Coldark-Dark"
 export EDITOR=nvim

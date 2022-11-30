@@ -2,7 +2,7 @@ vim.cmd([[
 filetype plugin indent on
 set termguicolors
 set t_Co=256
-colorscheme solarized8_flat
+colorscheme ghdark
 syntax on
 syntime on
 au VimLeave * set guicursor=a:ver100

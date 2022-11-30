@@ -31,6 +31,8 @@ return require('packer').startup(function()
     use "lukas-reineke/indent-blankline.nvim"
     use 'Mofiqul/vscode.nvim'
     use 'lifepillar/vim-solarized8'
+    use 'vv9k/vim-github-dark'
+    use 'cormacrelf/vim-colors-github'
     use 'nvim-pack/nvim-spectre'
     use 'simrat39/symbols-outline.nvim'
     use {
