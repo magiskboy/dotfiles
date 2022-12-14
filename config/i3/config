@@ -7,7 +7,7 @@ exec_always --no-startup-id autotiling
 exec_always --no-startup-id nm-applet
 exec_always --no-startup-id picom --config /home/nkthanh/.config/picom/picom.conf
 exec_always --no-startup-id bash /home/nkthanh/.config/i3/scripts/setup_mouse.sh
-exec_always --no-startup-id feh --bg-fill /home/nkthanh/dotfiles/images/wallpaper-1.png
+exec_always --no-startup-id feh --bg-fill /home/nkthanh/dotfiles/images/arch-saver.png
 exec_always --no-startup-id dunst
 
 floating_modifier $mod
@@ -17,7 +17,7 @@ set $outer_gaps 0
 for_window [class="^.*"] border pixel 1
 gaps inner $inner_gaps
 gaps outer $outer_gaps
-# smart_gaps on
+smart_gaps on
 smart_borders on
 
 bindsym Print exec flameshot full -p $HOME/Pictures
@@ -28,6 +28,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+q kill
 
 bindsym $mod+space exec $HOME/.config/rofi/bin/launcher_text
+bindsym $mod+p exec $HOME/.config/rofi/bin/powermenu 
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -45,8 +46,6 @@ bindsym $mod+m split h
 bindsym $mod+n split v
 
 bindsym $mod+f fullscreen toggle
-
-bindsym $mod+p exec $HOME/.config/rofi/bin/powermenu 
 
 bindsym $mod+Shift+q exec $HOME/.config/i3/scripts/lockscreen.sh
 
