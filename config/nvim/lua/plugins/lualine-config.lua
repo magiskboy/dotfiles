@@ -7,7 +7,6 @@ require('lualine').setup {
     section_separators = { left = '', right = ''},
     disabled_filetypes = {},
     always_divide_middle = true,
-    -- theme = 'solarized_dark'
   },
   sections = {
     lualine_a = {},
@@ -27,14 +26,6 @@ require('lualine').setup {
     lualine_x = {'location'},
     lualine_y = {},
     lualine_z = {}
-  },
-  tabline = {
-    lualine_a = {},
-    lualine_b = {},
-    lualine_c = {},
-    lualine_x = {},
-    lualine_y = {},
-    lualine_z = {},
   },
   extensions = { 'nvim-tree', 'fugitive', 'toggleterm', 'quickfix' }
 }

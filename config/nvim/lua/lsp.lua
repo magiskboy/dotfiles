@@ -1,7 +1,6 @@
 local util = require'lspconfig'.util
 local lsp = require('lspconfig');
-
-require("nvim-lsp-installer").setup {}
+local null_ls = require("null-ls")
 
 local border = {
     {"┌", "FloatBorder"},
@@ -34,10 +33,7 @@ end
 lsp.jedi_language_server.setup{ handlers = handlers }
 
 lsp.tsserver.setup({
-    on_attach = function (client)
-        on_attach(client)
-        client.server_capabilities.document_formatting = true
-    end,
+    root_dir = util.root_pattern("*.js", "*.ts", "*.tsx", "*.jsx"),
     handlers = handlers
 })
 
@@ -46,59 +42,32 @@ lsp.gopls.setup{
     handlers = handlers
 }
 
-lsp.clangd.setup{ handlers = handlers }
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.offsetEncoding = { "utf-16" }
+lsp.clangd.setup{ handlers = handlers, capabilities = capabilities }
 
 lsp.rust_analyzer.setup{}
 
--- setup formatter
-lsp.diagnosticls.setup {
-  -- on_attach = on_attach,
-  filetypes = { 'javascript', 'javascriptreact', 'json', 'typescript', 'typescriptreact', 'css', 'less', 'scss' },
-  init_options = {
-    linters = {
-      eslint = {
-        command = 'eslint_d',
-        rootPatterns = { 'package.json' },
-        args = { '--stdin', '--stdin-filename', '%filepath', '--format', 'json' },
-        sourceName = 'eslint_d',
-        parseJson = {
-          errorsRoot = '[0].messages',
-          line = 'line',
-          column = 'column',
-          endLine = 'endLine',
-          endColumn = 'endColumn',
-          message = '[eslint] ${message} [${ruleId}]',
-          security = 'warning'
-        },
-        securities = {
-          [2] = 'error',
-          [1] = 'warning'
-        }
-      },
-    },
-    filetypes = {
-      javascript = 'eslint',
-      javascriptreact = 'eslint',
-      typescript = 'eslint',
-      typescriptreact = 'eslint',
-    },
-    formatters = {
-      prettier = {
-        command = 'prettierd',
-        rootPatterns = { 'package.json' },
-        requiredFiles = { 'prettier.config.js', '.prettierrc' }
+lsp.yamlls.setup{
+    settings = {
+        yaml = {
+            schemas = {
+                ["https://raw.githubusercontent.com/instrumenta/kubernetes-json-schema/master/v1.18.0-standalone-strict/all.json"] = "/*.k8s.yaml"
+            },
       }
-    },
-    formatFiletypes = {
-      css = 'prettier',
-      javascript = 'prettier',
-      javascriptreact = 'prettier',
-      json = 'prettier',
-      scss = 'prettier',
-      less = 'prettier',
-      typescript = 'prettier',
-      typescriptreact = 'prettier',
     }
-  }
 }
 
+null_ls.setup({
+    sources = {
+        -- python
+        null_ls.builtins.formatting.black,
+        -- javascript
+        null_ls.builtins.formatting.prettierd,
+        null_ls.builtins.formatting.eslint_d,
+        -- golang
+        null_ls.builtins.formatting.gofmt,
+        -- clang
+        null_ls.builtins.formatting.clang_format,
+    },
+})
