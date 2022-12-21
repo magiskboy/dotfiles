@@ -61,8 +61,10 @@ lsp.yamlls.setup{
 null_ls.setup({
     sources = {
         -- python
+        null_ls.builtins.diagnostics.pylint,
         null_ls.builtins.formatting.black,
         -- javascript
+        null_ls.builtins.diagnostics.eslint,
         null_ls.builtins.formatting.prettierd,
         null_ls.builtins.formatting.eslint_d,
         -- golang
