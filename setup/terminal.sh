@@ -2,28 +2,10 @@
 
 source ./_utils.sh
 
-pkgs=$(install_if_unavailable \
-    nerd-fonts-hack \
-    starship \
-    exa \
-    alacritty \
-    ripgrep \
-    htop \ 
-    fzf \
-    pgcli \
-    zsh \
-    bat \
-    jq \
-    yq\
-)
-
-if [[ $pkgs == "" ]]; then
-    echo "Installing $pkgs"
-    sudo pacman -S --noconfirm $pkgs 1>/dev/null
-fi
+install_if_unavailable "nerd-fonts-hack starship exa alacritty ripgrep htop fzf pgcli zsh bat jq yq"
 
 if [[ ! -d $HOME/.ohmyzsh ]]; then
-    echo "Install oh-my-zsh"
+    echo "Installing oh-my-zsh..."
     git clone --depth 1 https://github.com/ohmyzsh/ohmyzsh $HOME/.ohmyzsh && \
     git clone --depth 1 https://github.com/zsh-users/zsh-autosuggestions $HOME/.ohmyzsh/custom/plugins/zsh-autosuggestions && \
     git clone --depth 1 https://github.com/zsh-users/zsh-syntax-highlighting $HOME/.ohmyzsh/custom/plugins/zsh-syntax-highlighting && \

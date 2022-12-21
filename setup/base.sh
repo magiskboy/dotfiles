@@ -7,7 +7,7 @@ mkdir -p $LOCAL/bin
 
 sudo pacman-db-upgrade
 
-pkgs=$(install_if_unavailable \
+install_if_unavailable \ "
     pavucontrol \
     git \
     base-devel \
@@ -79,17 +79,14 @@ pkgs=$(install_if_unavailable \
     usb_modeswitch \
     usbmuxd \
     usbutils \
-    wireless-regdb
-)
-
-echo "Installing $pkgs"
-sudo pacman -Syu --noconfirm $pkgs
+    wireless-regdb \
+"
 
 which yay 1>/dev/null
 if [[ $? != 0 ]]; then
     echo "Installing yay"
-    git clone https://aur.archlinux.org/yay-bin.git /tmp/yay && \
-    cd /tmp/yay && \
+    git clone https://aur.archlinux.org/yay-bin.gitgtmp/yay && \
+    cdgtmp/yay && \
     makepkg -si && \
     cd -
 fi

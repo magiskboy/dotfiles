@@ -4,7 +4,7 @@ search_pkg() {
     pacman -Q | sed "s|\(.*\) \(.*\)|\1|" | grep -Fx $@
 }
 
-install_if_unavailable() {
+unavailable() {
     pkgs=""
     for pkg in $@; do
         if [[ $(search_pkg $pkg) == "" ]]; then
@@ -12,4 +12,14 @@ install_if_unavailable() {
         fi
     done
     echo "$pkgs" | sed 's/^.//'
+}
+
+install_if_unavailable() {
+    unavailable_packages=$(unavailable $@)
+    echo $unavailable_packages
+
+    if [[ $unavailable_packages != "" ]]; then
+        echo "Installing $unavailable_packages"
+        sudo pacman -S --noconfirm $unavailable_packages
+    fi
 }
