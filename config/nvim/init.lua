@@ -13,7 +13,6 @@ require('plugins/telescope-config')
 require('plugins/nvim-cmp-config')
 require('plugins/lsp_signature-config')
 require('plugins/toggleterm-config')
-require('plugins/lsp-config')
 require('plugins/git-blame-config')
 require('plugins/symbol-outline-config')
 require('plugins/git-conflict-config');

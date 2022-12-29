@@ -11,6 +11,9 @@ error_symbol = "[➜](bold red)"
 min_time = 200
 show_milliseconds = true
 
+[battery]
+disabled = true
+
 [directory]
 truncate_to_repo = false
 truncation_length = 6
@@ -22,4 +25,3 @@ disabled = true
 
 [kubernetes]
 disabled = false
-[kubernetes.context_aliases]

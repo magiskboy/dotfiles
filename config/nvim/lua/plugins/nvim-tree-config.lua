@@ -12,6 +12,11 @@ local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 require'nvim-tree'.setup {
   open_on_tab         = false,
   hijack_cursor       = true,
+  filters = {
+      custom = {
+          ".git"
+      }
+  },
   renderer = {
       icons = {
           show = {
