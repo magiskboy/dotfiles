@@ -21,7 +21,21 @@ return require('packer').startup(function()
     use 'ray-x/lsp_signature.nvim'
     use 'akinsho/toggleterm.nvim'
     use "lukas-reineke/indent-blankline.nvim"
-    use 'vv9k/vim-github-dark'
+    use ({
+        'projekt0n/github-nvim-theme',
+        requires = {
+            {
+                'akinsho/git-conflict.nvim',
+                tag = "*",
+                config = function()
+                    require('git-conflict').setup()
+                end
+            }
+        },
+        config = function()
+            require('github-theme').setup({})
+        end
+    })
     use {
         'nvim-telescope/telescope.nvim',
         requires = { 
