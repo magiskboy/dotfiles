@@ -7,7 +7,6 @@ require('keymaps')
 -- Plugin configurations
 require('plugins/lualine-config')
 require('plugins/bufferline-config')
-require('plugins/nvim-tree-config')
 require('plugins/gitsigns-config')
 require('plugins/telescope-config')
 require('plugins/nvim-cmp-config')

@@ -16,7 +16,7 @@ return require('packer').startup(function()
     use 'tpope/vim-commentary'
     use 'nvim-lua/plenary.nvim'
     use 'kyazdani42/nvim-web-devicons'
-    use 'kyazdani42/nvim-tree.lua'
+    use 'kevinhwang91/rnvimr'
     use 'lewis6991/gitsigns.nvim'
     use 'ray-x/lsp_signature.nvim'
     use 'akinsho/toggleterm.nvim'

@@ -56,8 +56,6 @@ install_if_unavailable \ "
     hdparm \
     hyperv \
     intel-ucode \
-    ipw2100-fw \
-    ipw2200-fw \
     iw \
     iwd \
     libusb-compat \
@@ -85,8 +83,8 @@ install_if_unavailable \ "
 which yay 1>/dev/null
 if [[ $? != 0 ]]; then
     echo "Installing yay"
-    git clone https://aur.archlinux.org/yay-bin.gitgtmp/yay && \
-    cdgtmp/yay && \
+    git clone https://aur.archlinux.org/yay-bin.git /tmp/yay && \
+    cd /tmp/yay && \
     makepkg -si && \
     cd -
 fi

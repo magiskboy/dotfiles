@@ -8,10 +8,6 @@ set undodir=/tmp
 set laststatus=2
 set background=dark
 
-command! Maketags %!ctags -R .
-command! JsonMinify %!jq -c .
-command! JsonBeauty %!jq .
-
 augroup indent_file
   autocmd FileType xml,yaml,json setlocal ts=2 sts=2 sw=2
   autocmd FileType javascript,typescript,jsx setlocal ts=2 sts=2 sw=2
