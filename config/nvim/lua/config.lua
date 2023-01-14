@@ -61,11 +61,6 @@ hi SignColumn guibg=NONE ctermbg=NONE
 hi NonText cterm=NONE ctermfg=242 gui=NONE guifg=#4c5b63
 
 autocmd FileType javascript,typescript,typescriptreact,javascriptreact,xml,yaml,json,html,css,sass,scss,less,jinja,htmldjango setlocal ts=2 sts=2 sw=2
-
-command! JsonBeauty %!jq .
-command! JsonMinify %!jq -c .
-command! GoRun !go run %
-command! Replace lua require("spectre").open()<cr>
 ]])
 
 vim.diagnostic.config({

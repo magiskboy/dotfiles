@@ -10,7 +10,7 @@
     font = Hack Nerd Font 10
     line-height = 0
     markup = full
-    format = "<b>%a</b>\n<i>%s</i>\n%b"
+    format = "<b>%s</b>\n%b"
     alignment = center
     vertical_alignment = center
     show_age_threshold = -1
@@ -22,12 +22,19 @@
     show_indicators = no
     icon_position = on
 
+[urgency_low]
+    background = "#24283b"
+    foreground = "#a9b1d6"
+    frame_color = "#444b6a"
+    timeout = 5
+
 [urgency_normal]
     background = "#212B30"
     foreground = "#C4C7C5"
     timeout = 5
 
 [urgency_critical]
-    background = "#212B30"
-    foreground = "#db0101"
+    background = "#900000"
+    foreground = "#ffffff"
+    frame_color = "#ff0000"
     timeout = 0

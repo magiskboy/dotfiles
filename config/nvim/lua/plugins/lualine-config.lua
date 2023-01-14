@@ -14,7 +14,7 @@ require('lualine').setup {
     lualine_c = {lsp_progress_config},
     lualine_x = {'diagnostics'},
     lualine_y = {'filetype'},
-    lualine_z = {'location'}
+    lualine_z = {'%p%%', 'location'}
   },
   inactive_sections = {
     lualine_a = {},
