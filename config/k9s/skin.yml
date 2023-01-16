@@ -1,18 +1,18 @@
 k9s:
   body:
-    fgColor: "#97979b"
-    bgColor: "#212b30"
+    fgColor: "#ecf2f8"
+    bgColor: "#0d1117"
     logoColor: "#5af78e"
   prompt:
-    fgColor: "#97979b"
-    bgColor: "#212b30"
+    fgColor: "#ecf2f8"
+    bgColor: "#0d1117"
     suggestColor: "#5af78e"
   info:
-    fgColor: white
+    fgColor: "#ecf2f8"
     sectionColor: "#5af78e"
   dialog:
-    fgColor: "#97979b"
-    bgColor: "#212b30"
+    fgColor: "#ecf2f8"
+    bgColor: "#0d1117"
     buttonFgColor: "#97979b"
     buttonBgColor: "#212b30"
     buttonFocusFgColor: "#97979b"
@@ -24,7 +24,7 @@ k9s:
       fgColor: "#5af78e"
       focusColor: "#5af78e"
     menu:
-      fgColor: white
+      fgColor: "#ecf2f8"
       keyColor: "#57c7ff"
       numKeyColor: "#ff6ac1"
     crumbs:
@@ -41,14 +41,14 @@ k9s:
       completedColor: gray
     title:
       fgColor: "#5af78e"
-      bgColor: "#212b30"
+      bgColor: "#0d1117"
       highlightColor: white
       counterColor: white
       filterColor: "#57c7ff"
   views:
     # Charts skins...
     charts:
-      bgColor: default
+      bgColor: "#0d1117"
       defaultDialColors:
         - "#57c7ff"
         - "#ff5c57"
@@ -57,11 +57,11 @@ k9s:
         - "#ff5c57"
     table:
       fgColor: "#57c7ff"
-      bgColor: "#212b30"
       markColor: darkgoldenrod
+      bgColor: "#0d1117"
       header:
         fgColor: white
-        bgColor: "#212b30"
+        bgColor: "#0d1117"
         sorterColor: orange
     xray:
       fgColor: "#57c7ff"
@@ -75,7 +75,7 @@ k9s:
       valueColor: "#f3f99d"
     logs:
       fgColor: white
-      bgColor: "#212b30"
+      bgColor: "#0d1117"
       indicator:
         fgColor: white
-        bgColor: "#212b30"
+        bgColor: "#0d1117"
