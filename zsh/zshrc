@@ -12,6 +12,8 @@ plugins=(
   zsh-syntax-highlighting
   zsh-z
   fzf
+  vagrant
+  gcloud
 )
 
 source $ZSH/oh-my-zsh.sh

@@ -2,8 +2,6 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function()
     use 'wbthomason/packer.nvim'
-    use 'vim-test/vim-test'
-    use "nathom/filetype.nvim"
     use 'lewis6991/impatient.nvim'
     use 'ap/vim-css-color'
     use 'neovim/nvim-lspconfig'
@@ -19,22 +17,10 @@ return require('packer').startup(function()
     use 'kevinhwang91/rnvimr'
     use 'lewis6991/gitsigns.nvim'
     use 'ray-x/lsp_signature.nvim'
-    use 'akinsho/toggleterm.nvim'
     use "lukas-reineke/indent-blankline.nvim"
     use ({
         'projekt0n/github-nvim-theme',
-        requires = {
-            {
-                'akinsho/git-conflict.nvim',
-                tag = "*",
-                config = function()
-                    require('git-conflict').setup()
-                end
-            }
-        },
-        config = function()
-            require('github-theme').setup({})
-        end
+        requires = { 'akinsho/git-conflict.nvim' }
     })
     use {
         'nvim-telescope/telescope.nvim',

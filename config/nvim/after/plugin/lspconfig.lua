@@ -1,6 +1,5 @@
 local util = require'lspconfig'.util
 local lsp = require('lspconfig');
-local null_ls = require("null-ls")
 
 local border = {
     {"┌", "FloatBorder"},
@@ -54,19 +53,3 @@ lsp.yamlls.setup{
       }
     }
 }
-
-null_ls.setup({
-    sources = {
-        -- python
-        null_ls.builtins.diagnostics.pylint,
-        null_ls.builtins.formatting.black,
-        -- javascript
-        null_ls.builtins.diagnostics.eslint,
-        null_ls.builtins.formatting.prettierd,
-        null_ls.builtins.formatting.eslint_d,
-        -- golang
-        null_ls.builtins.formatting.gofmt,
-        -- clang
-        null_ls.builtins.formatting.clang_format,
-    },
-})

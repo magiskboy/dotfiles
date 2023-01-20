@@ -5,7 +5,6 @@ set t_Co=256
 colorscheme github_dark_default
 syntax on
 syntime on
-au VimLeave * set guicursor=a:ver100
 ]])
 
 vim.o.shell = "/bin/zsh"
@@ -33,23 +32,13 @@ vim.o.laststatus = 2
 vim.o.path = vim.o.path .. "**"
 vim.o.updatetime = 250
 
-
-vim.g.did_load_filetypes = 1
 vim.g.python3_host_prog = vim.api.nvim_eval("expand('/usr/bin/python3')")
 vim.g.python_host_prog = vim.api.nvim_eval("expand('/usr/bin/python2')")
 vim.g.indentLine_enabled = 1
 vim.g.indentLine_char = ''
 vim.g.indentLine_color_term = 239
 vim.g.AutoPairsShortcutToggle = ""
-vim.g.floaterm_autoclose = 2
 vim.o.background = 'dark'
-vim.g.vscode_style = "dark"
-
-vim.cmd([[
-let g:test#javascript#runner = 'jest'
-let g:test#javascript#jest#file_pattern = '.*\.(js|jsx|ts|tsx)$'
-let test#javascript#jest#executable = 'yarn jest'
-]])
 
 vim.cmd([[
 hi RedSign guibg=NONE
@@ -72,16 +61,3 @@ vim.api.nvim_create_autocmd("CursorHold,CursorHoldI", {
         vim.diagnostic.open_float(nil, {focus=false})
     end
 })
-
-vim.api.nvim_create_user_command("Python", function (args)
-    python()
-end, {})
-
-vim.api.nvim_create_user_command("Node", function (args)
-    node()
-end, {})
-
-vim.api.nvim_create_user_command("Htop", function (args)
-    htop()
-end, {})
-

@@ -4,10 +4,6 @@ local opts = {
     silent = true
 }
 
-vim.api.nvim_set_keymap('n', '1', '^', {})   -- go to the start line
-vim.api.nvim_set_keymap('n', '0', '$', {})   -- go to the end line
-vim.api.nvim_set_keymap('n', '<F2>', '@:<cr>', {})   -- re-run last command
-
 vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', {})
 vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', {})
 vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', {})
@@ -25,7 +21,6 @@ vim.api.nvim_set_keymap('n', '<C-i>', ':lua vim.lsp.buf.format { async = True }<
 
 vim.api.nvim_set_keymap('n', 'H', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
 vim.api.nvim_set_keymap('n', '<C-r>', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-vim.api.nvim_set_keymap('n', '<C-g>', '<cmd>lua lazygit()<CR>', opts)
 
 vim.api.nvim_set_keymap('n', '[g', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
 vim.api.nvim_set_keymap('n', ']g', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)

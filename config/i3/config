@@ -22,7 +22,7 @@ smart_borders on
 bindsym Print exec flameshot full -p $HOME/Pictures
 bindsym Shift+Print exec flameshot gui
 
-bindsym $mod+Return exec xterm
+bindsym $mod+Return exec alacritty
 
 bindsym $mod+q kill
 

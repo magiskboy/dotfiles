@@ -1,6 +1,7 @@
 local null_ls = require('null-ls');
 
 local formatting = null_ls.builtins.formatting
+local diagnostics = null_ls.builtins.diagnostics
 
 null_ls.setup({
     on_attach = function()
@@ -15,8 +16,12 @@ null_ls.setup({
         formatting.black,
         formatting.isort,
         formatting.prettier,
+        formatting.prettierd,
         formatting.gofmt,
-        -- formatting.golines,
-        -- formatting.gofumpt
+        formatting.clang_format,
+
+        diagnostics.pylint,
+        diagnostics.eslint,
+        diagnostics.clang_check,
     },
 })

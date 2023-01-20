@@ -22,6 +22,10 @@
     show_indicators = no
     icon_position = on
 
+    mouse_left_click = do_action
+    mouse_middle_click = do_action
+    mouse_right_click = close_current
+
 [urgency_low]
     background = "#24283b"
     foreground = "#a9b1d6"
