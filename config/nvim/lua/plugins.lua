@@ -19,8 +19,7 @@ return require('packer').startup(function()
     use 'ray-x/lsp_signature.nvim'
     use "lukas-reineke/indent-blankline.nvim"
     use ({
-        'projekt0n/github-nvim-theme',
-        requires = { 'akinsho/git-conflict.nvim' }
+        'projekt0n/github-nvim-theme'
     })
     use {
         'nvim-telescope/telescope.nvim',

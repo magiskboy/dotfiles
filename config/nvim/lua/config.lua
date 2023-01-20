@@ -30,14 +30,13 @@ vim.o.foldmethod = "indent"
 vim.o.foldlevel = 99
 vim.o.laststatus = 2
 vim.o.path = vim.o.path .. "**"
-vim.o.updatetime = 250
+vim.o.updatetime = 100
 
 vim.g.python3_host_prog = vim.api.nvim_eval("expand('/usr/bin/python3')")
 vim.g.python_host_prog = vim.api.nvim_eval("expand('/usr/bin/python2')")
 vim.g.indentLine_enabled = 1
 vim.g.indentLine_char = ''
 vim.g.indentLine_color_term = 239
-vim.g.AutoPairsShortcutToggle = ""
 vim.o.background = 'dark'
 
 vim.cmd([[
