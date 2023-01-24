@@ -33,13 +33,13 @@ lsp.tsserver.setup({
     handlers = handlers
 })
 
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 lsp.gopls.setup{
     root_dir = util.root_pattern("go.mod", ".git", "*.go"),
-    handlers = handlers
+    handlers = handlers,
+    capabilities = capabilities
 }
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.offsetEncoding = { "utf-16" }
 lsp.clangd.setup{ handlers = handlers, capabilities = capabilities }
 
 lsp.rust_analyzer.setup{}

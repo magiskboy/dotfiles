@@ -25,7 +25,6 @@ export PATH=$PYENV_ROOT/shims:$PATH
 source $HOME/.cargo/env
 
 . "$HOME/.cargo/env"
-export BAT_THEME="Github"
 export EDITOR=nvim vim visudo
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#585858'
 export TERM=xterm-256color
