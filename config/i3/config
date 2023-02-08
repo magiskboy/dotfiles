@@ -7,7 +7,7 @@ exec_always --no-startup-id autotiling
 exec_always --no-startup-id nm-applet
 # exec_always --no-startup-id picom --config /home/nkthanh/.config/picom/picom.conf
 # exec_always --no-startup-id bash /home/nkthanh/.config/i3/scripts/setup_mouse.sh
-exec_always --no-startup-id feh --bg-fill /home/nkthanh/.dotfiles/images/arch-saver.png
+exec_always --no-startup-id feh --bg-fill /home/nkthanh/Pictures/nature_landscape_dark.jpg
 
 floating_modifier $mod
 

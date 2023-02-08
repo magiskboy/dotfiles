@@ -26,7 +26,18 @@ end
 
 -- setup language server
 
-lsp.jedi_language_server.setup{ handlers = handlers }
+lsp.pylsp.setup{
+    handlers = handlers,
+    settings = {
+        pylsp = {
+            plugins = {
+                ruff = {
+                    enabled = true,
+                }
+            }
+        }
+    } 
+}
 
 lsp.tsserver.setup({
     root_dir = util.root_pattern("*.js", "*.ts", "*.tsx", "*.jsx"),
