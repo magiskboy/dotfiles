@@ -5,8 +5,6 @@ export OS=$(uname -s | tr "[:upper:]" "[:lower:]")
 export PATH=$HOME/.local/go/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export PYTHONDONTWRITEBYTECODE=1
-export JAVA_HOME=$(java -XshowSettings:properties -version 2>&1 > /dev/null | grep 'java.home' | cut -d'=' -f2 | xargs)
-export PATH=$JAVA_HOME/bin:$PATH
 export GOPATH=$HOME/Development/go
 export GOROOT=$HOME/.local/go
 export TERM=screen-256color
@@ -32,12 +30,7 @@ alias gd="git diff"
 alias gco="git checkout"
 alias gf="git fetch"
 alias gst="git status"
+alias update-system="sudo pacman -Suy  --noconfirm && sudo reboot"
 
 source "$HOME/.cargo/env"
 . "$HOME/.cargo/env"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/nkthanh/.local/google-cloud-sdk/path.bash.inc' ]; then . '/home/nkthanh/.local/google-cloud-sdk/path.bash.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/nkthanh/.local/google-cloud-sdk/completion.bash.inc' ]; then . '/home/nkthanh/.local/google-cloud-sdk/completion.bash.inc'; fi

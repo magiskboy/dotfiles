@@ -37,6 +37,8 @@ alias -s {mp4,MP4,mov,MOV}='background vlc'
 alias -s {zip,ZIP}="unzip -l"
 alias -s {ts,js,tsx,jsx,c,cpp,h,lua,vim,java,conf,json}="bat"
 alias -s git="git clone"
+alias lenv='export $(grep -v "^#" .env | xargs)'
+alias update-system="sudo pacman -Suy && reboot"
 
 # bindkey '^P' fzf-file-widget
 # bindkey '^H' fzf-history-widget

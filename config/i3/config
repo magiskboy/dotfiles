@@ -4,7 +4,7 @@ set $alt Mod4
 exec_always --no-startup-id bash /home/nkthanh/.config/polybar/launch.sh
 exec_always --no-startup-id autotiling
 exec_always --no-startup-id nm-applet
-exec_always --no-startup-id feh --bg-fill /home/nkthanh/Pictures/nature_landscape_dark.jpg
+exec_always --no-startup-id feh --bg-fill /home/nkthanh/.dotfiles/images/arch-saver.png
 
 floating_modifier $mod
 
@@ -39,7 +39,6 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 bindsym $mod+m split h
-
 bindsym $mod+n split v
 
 bindsym $mod+f fullscreen toggle
@@ -124,19 +123,3 @@ bindsym $mod+r mode "resize"
 bindsym XF86AudioRaiseVolume    exec "amixer -q sset Master,0 5+ unmute"
 bindsym XF86AudioLowerVolume    exec "amixer -q sset Master,0 5- unmute"
 bindsym XF86AudioMute           exec "amixer -q sset Master,0 toggle"
-
-# bar {
-#     output eDP-1
-#     font pango:Hack Nerd Font 12
-#     position top
-#     status_command i3status-rs /home/nkthanh/.config/i3/status.toml
-#     colors {
-#         separator #666666
-#         background #222222
-#         statusline #dddddd
-#         focused_workspace #0088CC #0088CC #ffffff
-#         active_workspace #333333 #333333 #ffffff
-#         inactive_workspace #333333 #333333 #888888
-#         urgent_workspace #2f343a #900000 #ffffff
-#     }
-# }
