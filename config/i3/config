@@ -4,7 +4,7 @@ set $alt Mod4
 exec_always --no-startup-id bash /home/nkthanh/.config/polybar/launch.sh
 exec_always --no-startup-id autotiling
 exec_always --no-startup-id nm-applet
-exec_always --no-startup-id feh --bg-fill /home/nkthanh/.dotfiles/images/arch-saver.png
+# exec_always --no-startup-id feh --bg-fill /home/nkthanh/.dotfiles/images/arch-saver.png
 
 floating_modifier $mod
 
@@ -43,7 +43,7 @@ bindsym $mod+n split v
 
 bindsym $mod+f fullscreen toggle
 
-bindsym $mod+Shift+q exec i3lock -t -i $HOME/.dotfiles/images/arch-saver.png
+bindsym $mod+Shift+q exec i3lock -t -c 000000
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
