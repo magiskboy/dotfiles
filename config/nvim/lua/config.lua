@@ -2,7 +2,7 @@ vim.cmd([[
 filetype plugin indent on
 set termguicolors
 set t_Co=256
-colorscheme github_dark_default
+colorscheme github_dark_high_contrast
 syntax on
 syntime on
 ]])

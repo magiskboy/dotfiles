@@ -17,7 +17,6 @@ return require('packer').startup(function()
     use 'kevinhwang91/rnvimr'
     use 'lewis6991/gitsigns.nvim'
     use 'ray-x/lsp_signature.nvim'
-    use "lukas-reineke/indent-blankline.nvim"
     use ({
         'projekt0n/github-nvim-theme'
     })
@@ -27,7 +26,6 @@ return require('packer').startup(function()
             {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
         },
     }
-    use 'onsails/lspkind.nvim'
     use {
         'hrsh7th/nvim-cmp',
         requires = {
