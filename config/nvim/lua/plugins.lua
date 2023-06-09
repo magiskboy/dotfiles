@@ -20,6 +20,7 @@ return require('packer').startup(function()
     use ({
         'projekt0n/github-nvim-theme'
     })
+    use 'navarasu/onedark.nvim'
     use {
         'nvim-telescope/telescope.nvim',
         requires = { 

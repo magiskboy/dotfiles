@@ -5,20 +5,20 @@ cmp.setup({
     documentation = {
       border = 'single',
       winhighlight = 'NormalFloat:NormalFloat,FloatBorder:FloatBorder',
+      scrollbar = true,
     },
     completion = {
       scrollbar = true,
       border = 'single',
-      winhighlight = 'NormalFloat:NormalFloat,FloatBorder:FloatBorder',
       completeopt = 'menu,menuone,noinsert',
-      keyword_pattern = [[\%(-\?\d\+\%(\.\d\+\)\?\|\h\w*\%(-\w*\)*\)]],
-      keyword_length = 1,
     },
   },
   mapping = {
     ["<Tab>"] = cmp.mapping(cmp.mapping.select_next_item({behavior = cmp.ContextReason.None })),
     ["<S-Tab>"] = cmp.mapping(cmp.mapping.select_prev_item({behavior = cmp.ContextReason.None })),
     ["<CR>"] = cmp.mapping.confirm({ select = true }),
+    ['<C-j>'] = cmp.mapping.scroll_docs(1),
+    ['<C-k>'] = cmp.mapping.scroll_docs(-1),
   },
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },

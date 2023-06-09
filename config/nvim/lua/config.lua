@@ -2,10 +2,16 @@ vim.cmd([[
 filetype plugin indent on
 set termguicolors
 set t_Co=256
-colorscheme github_dark_high_contrast
 syntax on
 syntime on
 ]])
+
+local onedark = require('onedark')
+onedark.setup({
+    style = "deep"
+})
+onedark.load()
+
 
 vim.o.shell = "/bin/zsh"
 vim.o.wrap = true
@@ -40,14 +46,6 @@ vim.g.indentLine_color_term = 239
 vim.o.background = 'dark'
 
 vim.cmd([[
-hi RedSign guibg=NONE
-hi AquaSign guibg=NONE
-hi YellowSign guibg=NONE
-hi BlueSign guibg=NONE
-hi LineNr cterm=NONE ctermbg=NONE ctermfg=NONE gui=NONE guibg=NONE guifg=NONE
-hi SignColumn guibg=NONE ctermbg=NONE
-hi NonText cterm=NONE ctermfg=242 gui=NONE guifg=#4c5b63
-
 autocmd FileType javascript,typescript,typescriptreact,javascriptreact,xml,yaml,json,html,css,sass,scss,less,jinja,htmldjango setlocal ts=2 sts=2 sw=2
 ]])
 
