@@ -3,6 +3,7 @@
 source ./_utils.sh
 
 install_if_unavailable "nerd-fonts-hack starship exa alacritty ripgrep htop fzf pgcli zsh bat jq yq ranger ueberzug libtiff"
+install_if_unavailable ""
 
 if [[ ! -d $HOME/.ohmyzsh ]]; then
     echo "Installing oh-my-zsh..."
