@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+# Launch htop with a role-specific profile from dotfiles.
+# Usage: xtop <dev|devops|sre|sysadmin> [--reset] [htop-args...]
+set -euo pipefail
+
+ROLE="${1:-}"
+if [[ -z "$ROLE" || "$ROLE" == "-h" || "$ROLE" == "--help" ]]; then
+  cat <<'EOF'
+Usage: xtop <profile> [--reset] [htop-args...]
+
+Profiles:
+  dev       Developer — own procs, CPU/MEM, threads, basename highlight
+  devops    Containers/cgroups + disk/network IO
+  sre       Latency delays, PSI pressure, OOM, process churn
+  sysadmin  Full host tree view, nice, CPU freq, disk/net
+
+Options:
+  --reset   Re-seed profile from dotfiles template (discards local F2 tweaks)
+
+Examples:
+  xtop dev
+  xtop devops -F 'docker|containerd|kube'
+  xtop sre -s PERCENT_IO_DELAY
+  xtop sysadmin -t
+  xtop dev -u "$USER"
+EOF
+  exit 0
+fi
+shift
+
+RESET=0
+if [[ "${1:-}" == "--reset" ]]; then
+  RESET=1
+  shift
+fi
+
+SCRIPT_PATH="$(readlink -f "${BASH_SOURCE[0]}")"
+SCRIPT_DIR="$(cd "$(dirname "$SCRIPT_PATH")" && pwd)"
+TEMPLATE="${SCRIPT_DIR}/profiles/${ROLE}.htoprc"
+if [[ ! -f "$TEMPLATE" ]]; then
+  printf 'error: unknown profile "%s" (expected file %s)\n' "$ROLE" "$TEMPLATE" >&2
+  printf 'available:' >&2
+  for f in "${SCRIPT_DIR}/profiles"/*.htoprc; do
+    [[ -f "$f" ]] && printf ' %s' "$(basename "$f" .htoprc)" >&2
+  done
+  printf '\n' >&2
+  exit 1
+fi
+
+CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/htop/profiles"
+mkdir -p "$CONFIG_DIR"
+RUNTIME="${CONFIG_DIR}/${ROLE}.htoprc"
+
+if [[ "$RESET" -eq 1 || ! -f "$RUNTIME" ]]; then
+  cp "$TEMPLATE" "$RUNTIME"
+fi
+
+exec env HTOPRC="$RUNTIME" htop "$@"

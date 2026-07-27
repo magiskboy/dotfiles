@@ -1,0 +1,24 @@
+
+# <type>(<scope>): <subject>
+#
+# Subject: imperative mood, ~50 chars, no trailing period
+# Body: blank line after subject; wrap ~72 chars; what/why, not how
+#
+# Types: feat | fix | docs | style | refactor | perf | test | build | ci | chore | revert
+#
+# Examples:
+#   feat(zsh): load plugins from custom directory
+#   fix(git): correct excludesfile path in gitconfig
+#
+# --- Signing ---
+# Cryptographic (SSH): commit.gpgsign=true, gpg.format=ssh
+#   signingkey = ~/.ssh/id_ed25519.pub  — applied automatically on commit
+#
+# Sign-off trailer (DCO): keep Signed-off-by below, or run: git commit -s
+# Optional trailers (uncomment when needed):
+# Co-authored-by: Name <email@example.com>
+# Fixes: #123
+# Refs: #456
+# Reviewed-by: Name <email@example.com>
+
+Signed-off-by: Nguyen Khac Thanh <ask@nkthanh.dev>

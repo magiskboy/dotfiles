@@ -1,0 +1,25 @@
+neovim
+fzf
+eza
+fd-find
+ripgrep
+clang
+pkg-config
+libssl-dev
+bat
+kind
+kubectl
+htop
+jq
+yq
+unzip
+imagemagick
+build-essential
+gh
+helm
+helmfile
+k9s
+nvm
+uv
+ibus-bamboo
+# virtualization (Fedora): @virtualization edk2-ovmf swtpm guestfs-tools

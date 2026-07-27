@@ -1,0 +1,74 @@
+[cursor]
+blink_interval = 500
+thickness = 0.15
+unfocused_hollow = true
+
+[cursor.style]
+blinking = "Always"
+shape = "Beam"
+
+[font]
+size = 16
+
+[font.bold]
+family = "Monaco Nerd Font Mono"
+style = "Bold"
+
+[font.bold_italic]
+family = "Monaco Nerd Font Mono"
+style = "Bold Italic"
+
+[font.italic]
+family = "Monaco Nerd Font Mono"
+style = "Italic"
+
+[font.normal]
+family = "Monaco Nerd Font Mono"
+style = "Regular"
+
+[window]
+dynamic_padding = false
+startup_mode = "Maximized"
+opacity = 1
+blur = false
+
+[window.padding]
+x = 10
+y = 10
+
+[shell]
+program = "/bin/zsh"
+
+[keyboard]
+bindings = [
+    { key = "n", mods = "Command", action = "CreateNewTab" },
+]
+
+[colors.bright]
+# black = "0x0d1117"
+blue = "0x77bdfb"
+cyan = "0x06d6c5"
+green = "0x7ce38b"
+magenta = "0xcc00ff"
+red = "0xfa7970"
+white = "0xecf2f8"
+yellow = "0xfeff00"
+
+[colors.cursor]
+cursor = "0x89929b"
+text = "0xecf2f8"
+
+[colors.normal]
+black = "0x0d1117"
+blue = "0x77bdfb"
+cyan = "0x06d6c5"
+green = "0x7ce38b"
+magenta = "0xcc00ff"
+red = "0xfa7970"
+white = "0xecf2f8"
+yellow = "0xfeff00"
+
+[colors.primary]
+background = "0x0d1117"
+foreground = "0xecf2f8"
+

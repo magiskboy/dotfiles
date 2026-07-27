@@ -1,0 +1,37 @@
+# Dotfiles zsh config (no Oh My Zsh)
+
+source "${${(%):-%N}:A:h}/libs.zsh"
+
+ZSH_THEME="robbyrussell"
+
+# zsh-syntax-highlighting must be last
+plugins=(
+  git
+  aws
+  helm
+  kubectl
+  kubectx
+  yarn
+  zoxide
+  eza
+  fzf
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+)
+
+export EDITOR=nvim
+export PATH="$HOME/.local/bin:$PATH"
+[ -s "$HOME/.local.env" ] && \. "$HOME/.local.env"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export GOROOT=$HOME/.local/go
+export GOPATH=$HOME/Work/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
+[ -s "$HOME/.cargo/env" ] && \. "$HOME/.cargo/env"
+
+zsh_load_plugins
+zsh_load_theme

@@ -1,0 +1,80 @@
+# vim: ft=gitconfig
+
+[color "branch"]
+    current = green bold
+    local = green
+    remote = yellow
+
+[color "diff"]
+    frag = magenta
+    meta = yellow
+    new = green
+    old = red
+    newMoved = cyan
+    oldMoved = blue
+
+[color "status"]
+    added = green reverse
+    changed = yellow reverse
+    untracked = red reverse
+
+[core]
+    abbrev = 12
+    attributesfile = ~/.dotfiles/git/gitattributes
+    autocrlf = input
+    editor = nvim
+    excludesfile = ~/.dotfiles/git/gitignore
+    pager = delta
+
+[delta]
+    syntax-theme = Monokai Extended
+    side-by-side = true
+    navigate = true
+
+[interactive]
+    diffFilter = delta --color-only
+
+[diff]
+    colorMoved = zebra
+    tool = vimdiff
+
+[diff "bin"]
+    textconv = hexdump -v -C
+
+[push]
+    # Make `git push` no automatically push relevant
+    # annotated tags when pushing branches out.
+    followTags = false
+
+[user]
+    useConfigOnly = true
+    email = ask@nkthanh.dev
+    name = Nguyen Khac Thanh
+	signingkey = ~/.ssh/id_ed25519.pub
+
+[commit]
+    gpgsign = true
+    template = ~/.dotfiles/git/gitmessage
+
+[merge]
+  tool = vimdiff
+
+[mergetool]
+  prompt = true
+
+[mergetool "vimdiff"]
+  cmd = vim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+
+[difftool]
+    prompt = false
+
+[pull]
+	rebase = false
+	ff = only
+
+[gpg]
+	format = ssh
+
+[include]
+    path = ~/.gitconfig.local
+

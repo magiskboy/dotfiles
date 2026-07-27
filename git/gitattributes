@@ -1,0 +1,112 @@
+# Global gitattributes (~/.dotfiles/git/gitattributes via core.attributesfile)
+
+# Default: normalize on commit, LF in working tree
+* text=auto eol=lf
+
+# Explicit text
+*.md        text eol=lf
+*.txt       text eol=lf
+*.json      text eol=lf
+*.jsonc     text eol=lf
+*.toml      text eol=lf
+*.yml       text eol=lf
+*.yaml      text eol=lf
+*.xml       text eol=lf
+*.svg       text eol=lf
+*.csv       text eol=lf
+
+# Shell / editors
+*.sh        text eol=lf
+*.bash      text eol=lf
+*.zsh       text eol=lf
+*.vim       text eol=lf
+*.lua       text eol=lf
+*.kdl       text eol=lf
+
+# Languages
+*.c         text eol=lf
+*.h         text eol=lf
+*.cc        text eol=lf
+*.cpp       text eol=lf
+*.hpp       text eol=lf
+*.go        text eol=lf
+*.py        text eol=lf
+*.rs        text eol=lf
+*.js        text eol=lf
+*.jsx       text eol=lf
+*.ts        text eol=lf
+*.tsx       text eol=lf
+*.css       text eol=lf
+*.scss      text eol=lf
+*.html      text eol=lf
+*.sql       text eol=lf
+
+# Git / Docker / build
+*.gitignore     text eol=lf
+*.gitattributes text eol=lf
+.gitmessage     text eol=lf
+Dockerfile      text eol=lf
+*.dockerfile    text eol=lf
+Makefile        text eol=lf
+*.mk            text eol=lf
+
+# Windows scripts keep CRLF
+*.bat       text eol=crlf
+*.cmd       text eol=crlf
+*.ps1       text eol=crlf
+
+# Binary: no text conversion; use hexdump diff driver from gitconfig [diff "bin"]
+*.bin       binary diff=bin
+*.exe       binary diff=bin
+*.dll       binary diff=bin
+*.so        binary diff=bin
+*.dylib     binary diff=bin
+*.o         binary
+*.a         binary
+*.lib       binary
+*.wasm      binary diff=bin
+*.pyc       binary
+*.pyo       binary
+*.class     binary
+*.jar       binary
+*.war       binary
+*.zip       binary
+*.tar       binary
+*.gz        binary
+*.tgz       binary
+*.bz2       binary
+*.xz        binary
+*.7z        binary
+*.rar       binary
+*.pdf       binary diff=bin
+*.ico       binary
+*.png       binary
+*.jpg       binary
+*.jpeg      binary
+*.gif       binary
+*.webp      binary
+*.avif      binary
+*.mp3       binary
+*.mp4       binary
+*.mov       binary
+*.webm      binary
+*.woff      binary diff=bin
+*.woff2     binary diff=bin
+*.ttf       binary diff=bin
+*.otf       binary diff=bin
+*.eot       binary
+
+# Lock / generated
+package-lock.json   linguist-generated=true
+yarn.lock           linguist-generated=true
+pnpm-lock.yaml      linguist-generated=true
+Cargo.lock          linguist-generated=true
+go.sum              linguist-generated=true
+lazy-lock.json      linguist-generated=true
+*.min.js            linguist-generated=true
+*.min.css           linguist-generated=true
+
+# git archive
+.gitattributes  export-ignore
+.gitignore      export-ignore
+.gitmessage     export-ignore
