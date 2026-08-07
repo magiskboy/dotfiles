@@ -30,6 +30,7 @@ export NVM_DIR="$HOME/.nvm"
 export GOROOT=$HOME/.local/go
 export GOPATH=$HOME/Work/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export PATH=$PATH:/opt/homebrew/bin
 
 [ -s "$HOME/.cargo/env" ] && \. "$HOME/.cargo/env"
 

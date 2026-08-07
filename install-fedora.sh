@@ -171,10 +171,20 @@ install_packages() {
 # Symlinks (after packages)
 # ---------------------------------------------------------------------------
 
+ensure_parent_dir() {
+  local dir="$1"
+  # Stale layout left ~/.config → ~/.dotfiles/config; mkdir -p fails on broken symlinks
+  if [[ -L $dir && ! -e $dir ]]; then
+    log "Removing broken symlink $dir"
+    rm -f "$dir"
+  fi
+  mkdir -p "$dir"
+}
+
 backup_then_link() {
   local src="$1" dest="$2"
 
-  mkdir -p "$(dirname "$dest")"
+  ensure_parent_dir "$(dirname "$dest")"
 
   if [[ -L $dest ]]; then
     rm -f "$dest"
