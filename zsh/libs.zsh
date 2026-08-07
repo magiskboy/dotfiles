@@ -90,6 +90,20 @@ if [[ -n ${terminfo[kcbt]} ]]; then
 fi
 bindkey -M menuselect '^o' accept-and-infer-next-history
 
+# Git helper compatibility (used by custom git plugin aliases)
+function git_current_branch() {
+  git symbolic-ref --quiet --short HEAD 2>/dev/null || \
+    git rev-parse --short HEAD 2>/dev/null
+}
+
+function git_current_user_name() {
+  git config user.name 2>/dev/null
+}
+
+function git_current_user_email() {
+  git config user.email 2>/dev/null
+}
+
 # zsh-autosuggestions.plugin.zsh uses $0 which breaks when sourced from a
 # function; load the main script by absolute path instead.
 zsh_load_plugins() {

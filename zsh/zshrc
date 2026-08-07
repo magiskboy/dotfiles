@@ -33,5 +33,23 @@ export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 [ -s "$HOME/.cargo/env" ] && \. "$HOME/.cargo/env"
 
+alias open="xdg-open"
+
+# Toggle wired bridge br0 (prefer Wi-Fi LAN when cable is unplugged)
+toggle-br0() {
+  local conn="${1:-br0}"
+  local state
+  state="$(nmcli -g GENERAL.STATE connection show "$conn" 2>/dev/null)" || {
+    print -u2 "connection not found: $conn"
+    return 1
+  }
+
+  if [[ "$state" == *activated* ]]; then
+    nmcli connection down "$conn" && print "down: $conn"
+  else
+    nmcli connection up "$conn" && print "up: $conn"
+  fi
+}
+
 zsh_load_plugins
 zsh_load_theme
