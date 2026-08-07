@@ -1,0 +1,27 @@
+# Global ripgrep defaults (one option per line).
+# Loaded via RIPGREP_CONFIG_PATH → ~/.config/ripgrep/config
+
+--smart-case
+--hidden
+--glob=!.git/
+--glob=!node_modules/
+--glob=!target/
+--glob=!dist/
+--glob=!build/
+--glob=!.next/
+--glob=!.venv/
+--glob=!__pycache__/
+--glob=!*.min.js
+--glob=!*.min.css
+--glob=!*.map
+--glob=!package-lock.json
+--glob=!yarn.lock
+--glob=!pnpm-lock.yaml
+--glob=!Cargo.lock
+--glob=!go.sum
+--max-columns=200
+--max-columns-preview
+--colors=line:fg:yellow
+--colors=path:fg:cyan
+--colors=match:fg:red
+--colors=match:style:bold

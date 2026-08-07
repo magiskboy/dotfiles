@@ -34,7 +34,8 @@ export PATH=$PATH:/opt/homebrew/bin
 
 [ -s "$HOME/.cargo/env" ] && \. "$HOME/.cargo/env"
 
-alias open="xdg-open"
+# Canonical CLI names across macOS / Linux (fd, bat, open, …)
+source "${${(%):-%N}:A:h}/cli-compat.zsh"
 
 # Toggle wired bridge br0 (prefer Wi-Fi LAN when cable is unplugged)
 toggle-br0() {
@@ -54,3 +55,7 @@ toggle-br0() {
 
 zsh_load_plugins
 zsh_load_theme
+
+# ripgrep + fzf (folders: ~/.dotfiles/{ripgrep,fzf})
+export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/ripgrep/config"
+[[ -r ${${(%):-%N}:A:h:h}/fzf/fzf.zsh ]] && source "${${(%):-%N}:A:h:h}/fzf/fzf.zsh"

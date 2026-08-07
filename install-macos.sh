@@ -168,6 +168,8 @@ link_configs() {
   backup_then_link "$DOTFILES/htop/xtop"                "$HOME/.local/bin/xtop"
   backup_then_link "$DOTFILES/vim/vimrc"                "$HOME/.vimrc"
   backup_then_link "$DOTFILES/git/gitconfig"            "$HOME/.gitconfig"
+  backup_then_link "$DOTFILES/ripgrep/config"           "$HOME/.config/ripgrep/config"
+  backup_then_link "$DOTFILES/fzf/fzf.zsh"              "$HOME/.config/fzf/fzf.zsh"
 }
 
 main() {
