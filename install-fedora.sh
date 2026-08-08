@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Install packages (Fedora) then symlink dotfiles configs.
-# Package list is maintained here (packages.txt is human reference only).
+# Package list is maintained in this file.
 set -euo pipefail
 
 DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"

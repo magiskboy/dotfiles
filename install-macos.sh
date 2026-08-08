@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Install packages (macOS / Homebrew) then symlink dotfiles configs.
-# Package list is maintained here (packages.txt is human reference only).
+# Package list is maintained in this file.
 # Compatible with macOS system bash 3.2+.
 set -euo pipefail
 
