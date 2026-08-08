@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 # Launch htop with a role-specific profile from dotfiles.
-# Usage: xtop <dev|devops|sre|sysadmin> [--reset] [htop-args...]
+# Usage: xtop [dev|devops|sre|sysadmin] [--reset] [htop-args...]
+# Default profile: dev
 set -euo pipefail
 
-ROLE="${1:-}"
-if [[ -z "$ROLE" || "$ROLE" == "-h" || "$ROLE" == "--help" ]]; then
+if [[ "${1:-}" == "-h" || "${1:-}" == "--help" ]]; then
   cat <<'EOF'
-Usage: xtop <profile> [--reset] [htop-args...]
+Usage: xtop [profile] [--reset] [htop-args...]
 
-Profiles:
+Profiles (default: dev):
   dev       Developer — own procs, CPU/MEM, threads, basename highlight
   devops    Containers/cgroups + disk/network IO
   sre       Latency delays, PSI pressure, OOM, process churn
@@ -17,16 +17,30 @@ Profiles:
 Options:
   --reset   Re-seed profile from dotfiles template (discards local F2 tweaks)
 
+Navigation (htop built-in; plain hjkl is help/kill/lsof):
+  Alt-h/j/k/l   left / down / up / right  (macOS: Left Option via Alacritty)
+  Arrows        same as Alt-hjkl
+  F9 / ? / l    kill / help / lsof
+
 Examples:
-  xtop dev
+  xtop
   xtop devops -F 'docker|containerd|kube'
   xtop sre -s PERCENT_IO_DELAY
   xtop sysadmin -t
+  xtop --reset
   xtop dev -u "$USER"
 EOF
   exit 0
 fi
-shift
+
+SCRIPT_PATH="$(readlink -f "${BASH_SOURCE[0]}")"
+SCRIPT_DIR="$(cd "$(dirname "$SCRIPT_PATH")" && pwd)"
+
+ROLE=dev
+if [[ $# -gt 0 && -f "${SCRIPT_DIR}/profiles/${1}.htoprc" ]]; then
+  ROLE="$1"
+  shift
+fi
 
 RESET=0
 if [[ "${1:-}" == "--reset" ]]; then
@@ -34,8 +48,6 @@ if [[ "${1:-}" == "--reset" ]]; then
   shift
 fi
 
-SCRIPT_PATH="$(readlink -f "${BASH_SOURCE[0]}")"
-SCRIPT_DIR="$(cd "$(dirname "$SCRIPT_PATH")" && pwd)"
 TEMPLATE="${SCRIPT_DIR}/profiles/${ROLE}.htoprc"
 if [[ ! -f "$TEMPLATE" ]]; then
   printf 'error: unknown profile "%s" (expected file %s)\n' "$ROLE" "$TEMPLATE" >&2

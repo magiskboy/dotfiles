@@ -1,15 +1,86 @@
-plugins {
-    tab-bar { path "tab-bar"; }
-    status-bar { path "status-bar"; }
-    strider { path "strider"; }
-    compact-bar { path "compact-bar"; }
+keybinds clear-defaults=true {
+    normal {
+        bind "Ctrl b" { SwitchToMode "tmux"; }
+        bind "Ctrl g" { SwitchToMode "locked"; }
+    }
+    locked {
+        bind "Ctrl g" { SwitchToMode "normal"; }
+    }
+    tmux {
+        bind "Ctrl b" { Write 2; SwitchToMode "normal"; }
+        bind "Esc" "Enter" { SwitchToMode "normal"; }
+
+        bind "\"" { NewPane "down"; SwitchToMode "normal"; }
+        bind "%" { NewPane "right"; SwitchToMode "normal"; }
+        bind "x" { CloseFocus; SwitchToMode "normal"; }
+        bind "z" { ToggleFocusFullscreen; SwitchToMode "normal"; }
+        bind "o" { FocusNextPane; }
+        bind "{" { MovePane "left"; }
+        bind "}" { MovePane "right"; }
+
+        bind "h" "Left" { MoveFocus "left"; SwitchToMode "normal"; }
+        bind "j" "Down" { MoveFocus "down"; SwitchToMode "normal"; }
+        bind "k" "Up" { MoveFocus "up"; SwitchToMode "normal"; }
+        bind "l" "Right" { MoveFocus "right"; SwitchToMode "normal"; }
+
+        bind "c" { NewTab; SwitchToMode "normal"; }
+        bind "&" { CloseTab; SwitchToMode "normal"; }
+        bind "," { SwitchToMode "renametab"; TabNameInput 0; }
+        bind "n" { GoToNextTab; SwitchToMode "normal"; }
+        bind "p" { GoToPreviousTab; SwitchToMode "normal"; }
+        bind "1" { GoToTab 1; SwitchToMode "normal"; }
+        bind "2" { GoToTab 2; SwitchToMode "normal"; }
+        bind "3" { GoToTab 3; SwitchToMode "normal"; }
+        bind "4" { GoToTab 4; SwitchToMode "normal"; }
+        bind "5" { GoToTab 5; SwitchToMode "normal"; }
+        bind "6" { GoToTab 6; SwitchToMode "normal"; }
+        bind "7" { GoToTab 7; SwitchToMode "normal"; }
+        bind "8" { GoToTab 8; SwitchToMode "normal"; }
+        bind "9" { GoToTab 9; SwitchToMode "normal"; }
+
+        bind "[" { SwitchToMode "scroll"; }
+        bind "d" { Detach; }
+        bind "space" { NextSwapLayout; }
+
+        bind "H" { Resize "Increase left"; }
+        bind "J" { Resize "Increase down"; }
+        bind "K" { Resize "Increase up"; }
+        bind "L" { Resize "Increase right"; }
+        bind "+" "=" { Resize "Increase"; }
+        bind "-" { Resize "Decrease"; }
+    }
+    scroll {
+        bind "Esc" "Enter" "Ctrl c" "q" { ScrollToBottom; SwitchToMode "normal"; }
+        bind "j" "Down" { ScrollDown; }
+        bind "k" "Up" { ScrollUp; }
+        bind "Ctrl f" "PageDown" "l" "Right" { PageScrollDown; }
+        bind "Ctrl b" "PageUp" "h" "Left" { PageScrollUp; }
+        bind "d" { HalfPageScrollDown; }
+        bind "u" { HalfPageScrollUp; }
+        bind "e" { EditScrollback; SwitchToMode "normal"; }
+        bind "/" { SwitchToMode "entersearch"; SearchInput 0; }
+    }
+    search {
+        bind "Esc" "Ctrl c" { ScrollToBottom; SwitchToMode "normal"; }
+        bind "n" { Search "down"; }
+        bind "N" "p" { Search "up"; }
+        bind "c" { SearchToggleOption "CaseSensitivity"; }
+    }
+    entersearch {
+        bind "Ctrl c" "Esc" { SwitchToMode "scroll"; }
+        bind "Enter" { SwitchToMode "search"; }
+    }
+    renametab {
+        bind "Esc" { UndoRenameTab; SwitchToMode "tmux"; }
+        bind "Ctrl c" { SwitchToMode "normal"; }
+    }
 }
 
-simplified_ui false
+plugins {
+    compact-bar location="zellij:compact-bar"
+}
 
 default_layout "compact"
-
-default_mode "locked"
-
-default_shell "zsh -l"
-
+pane_frames false
+show_startup_tips false
+copy_command "pbcopy"

@@ -31,13 +31,20 @@ dynamic_padding = false
 startup_mode = "Maximized"
 opacity = 1
 blur = false
+# macOS: Left Option → Alt so htop Alt-hjkl navigation works
+option_as_alt = "OnlyLeft"
 
 [window.padding]
 x = 10
 y = 10
 
-[shell]
-program = "/bin/zsh"
+# Finer trackpad scrolling on macOS (default multiplier is 3)
+[scrolling]
+history = 50000
+multiplier = 1
+
+[terminal]
+shell = { program = "/bin/zsh" }
 
 [keyboard]
 bindings = [

@@ -1,26 +1,23 @@
-# Dotfiles zsh config (no Oh My Zsh)
-
 source "${${(%):-%N}:A:h}/libs.zsh"
 
 ZSH_THEME="robbyrussell"
 
-# zsh-syntax-highlighting must be last
 plugins=(
   git
   aws
   helm
   kubectl
-  kubectx
   yarn
   zoxide
   eza
   fzf
+  zellij
   zsh-autosuggestions
   zsh-syntax-highlighting
 )
 
 export EDITOR=nvim
-export PATH="$HOME/.local/bin:$PATH"
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin:/opt/homebrew/bin:/use/local/bin:$HOME/.local/bin
 [ -s "$HOME/.local.env" ] && \. "$HOME/.local.env"
 
 export NVM_DIR="$HOME/.nvm"
@@ -29,29 +26,11 @@ export NVM_DIR="$HOME/.nvm"
 
 export GOROOT=$HOME/.local/go
 export GOPATH=$HOME/Work/go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-export PATH=$PATH:/opt/homebrew/bin
 
 [ -s "$HOME/.cargo/env" ] && \. "$HOME/.cargo/env"
 
 # Canonical CLI names across macOS / Linux (fd, bat, open, …)
 source "${${(%):-%N}:A:h}/cli-compat.zsh"
-
-# Toggle wired bridge br0 (prefer Wi-Fi LAN when cable is unplugged)
-toggle-br0() {
-  local conn="${1:-br0}"
-  local state
-  state="$(nmcli -g GENERAL.STATE connection show "$conn" 2>/dev/null)" || {
-    print -u2 "connection not found: $conn"
-    return 1
-  }
-
-  if [[ "$state" == *activated* ]]; then
-    nmcli connection down "$conn" && print "down: $conn"
-  else
-    nmcli connection up "$conn" && print "up: $conn"
-  fi
-}
 
 zsh_load_plugins
 zsh_load_theme
@@ -59,3 +38,4 @@ zsh_load_theme
 # ripgrep + fzf (folders: ~/.dotfiles/{ripgrep,fzf})
 export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/ripgrep/config"
 [[ -r ${${(%):-%N}:A:h:h}/fzf/fzf.zsh ]] && source "${${(%):-%N}:A:h:h}/fzf/fzf.zsh"
+

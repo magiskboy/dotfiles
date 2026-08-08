@@ -26,6 +26,7 @@ vim.o.cursorline = true
 vim.o.ignorecase = false
 vim.o.lazyredraw = true
 vim.o.mouse = "a"
+vim.o.mousescroll = "ver:1,hor:1"
 vim.o.number = true
 vim.o.numberwidth = 5
 vim.o.tabstop = 4
