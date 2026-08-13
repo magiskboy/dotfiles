@@ -14,8 +14,6 @@ vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', {})
 vim.api.nvim_set_keymap('n', 'J', '5j', {})
 vim.api.nvim_set_keymap('n', 'K', '5k', {})
 
-vim.api.nvim_set_keymap('n', '<leader>t', ':ToggleTerm<CR>', opts)
-
 vim.api.nvim_set_keymap('n', 'gd', ':Telescope lsp_definitions<CR>', opts)
 vim.api.nvim_set_keymap('n', 'gr', ':Telescope lsp_references<CR>', opts)
 vim.api.nvim_set_keymap('n', 'gi', ':Telescope lsp_implementations<CR>', opts)
@@ -32,7 +30,6 @@ vim.api.nvim_set_keymap('n', ']g', '<cmd>lua vim.diagnostic.goto_next()<CR>', op
 vim.api.nvim_set_keymap('n', 'U', '<cmd>redo<cr>', {})
 vim.api.nvim_set_keymap('n', '\\', '<cmd>noh<cr>', {})
 
-vim.api.nvim_set_keymap('n', '<C-a>', 'ggVG', {})
 vim.api.nvim_set_keymap('', '<C-s>', '<cmd>write<cr>', {})
 vim.api.nvim_set_keymap('n', '<C-q>', '<cmd>quit<cr>', {})
 

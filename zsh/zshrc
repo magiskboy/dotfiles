@@ -42,3 +42,5 @@ export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/ripgrep/config"
 export OPENCODE_CONFIG="${HOME}/.dotfiles/opencode/opencode.jsonc"
 
 [ -s "$HOME/.local.zsh" ] && \. "$HOME/.local.zsh"
+
+alias lt='eza --tree'
