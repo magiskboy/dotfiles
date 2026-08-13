@@ -1,17 +1,12 @@
 return {
-    -- Syntax plugins
+    -- AI coding
     {
-        'nvim-treesitter/nvim-treesitter',
-        build = ':TSUpdate',
+        "nickjvandyke/opencode.nvim",
+        version = "*",
     },
-    'ap/vim-css-color',
-    'towolf/vim-helm',
-    'hashivim/vim-terraform',
 
     -- Theme
     'navarasu/onedark.nvim',
-
-    'luckasRanarison/tailwind-tools.nvim',
 
     -- LSP and signature
     'williamboman/mason.nvim',
@@ -21,23 +16,9 @@ return {
     },
     {
         'neovim/nvim-lspconfig',
-        version = 'v2.3.0'
+        version = 'v2.11.0'
     },
-    {
-        'ray-x/lsp_signature.nvim',
-        version = 'v0.3.1'
-    },
-
     -- Code tools
-    {
-        'fatih/vim-go',
-        ft = 'go',
-        config = function()
-            vim.g.go_doc_keywordprg_enabled = 0
-            vim.g.go_def_mapping_enabled = 0
-            vim.g.go_code_completed_enabled = 0
-        end
-    },
     'alvan/vim-closetag',
     'tpope/vim-surround',
     'windwp/nvim-autopairs',
@@ -51,11 +32,8 @@ return {
             {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
         },
     },
-    'sindrets/diffview.nvim',
-    'akinsho/toggleterm.nvim',
 
     -- UI enhancements
-    'rcarriga/nvim-notify',
     'kyazdani42/nvim-web-devicons',
     {
         'nvim-tree/nvim-tree.lua',

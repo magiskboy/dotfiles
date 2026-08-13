@@ -17,6 +17,7 @@ vim.opt.rtp:prepend(lazypath)
 
 vim.cmd("syntax on")
 vim.opt.termguicolors = true
+vim.o.winborder = "single"
 vim.g.mapleader = ","
 vim.o.shell = "/bin/zsh"
 vim.o.wrap = true

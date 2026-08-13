@@ -39,3 +39,6 @@ zsh_load_theme
 export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/ripgrep/config"
 [[ -r ${${(%):-%N}:A:h:h}/fzf/fzf.zsh ]] && source "${${(%):-%N}:A:h:h}/fzf/fzf.zsh"
 
+export OPENCODE_CONFIG="${HOME}/.dotfiles/opencode/opencode.jsonc"
+
+[ -s "$HOME/.local.zsh" ] && \. "$HOME/.local.zsh"
