@@ -131,6 +131,72 @@ install_nvm() {
   curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.6/install.sh | PROFILE=/dev/null bash
 }
 
+# Official tarball into ~/.local/go (same layout on macOS / Linux).
+# GOTOOLCHAIN=auto (Go default) downloads newer toolchains per go.mod when needed.
+install_go() {
+  local go_root ver os arch tarball tmp current
+  go_root="${HOME}/.local/go"
+  mkdir -p "${HOME}/.local" "${HOME}/go/bin"
+
+  ver="$(curl -fsSL 'https://go.dev/VERSION?m=text' | head -n1)"
+  if [[ -z $ver ]]; then
+    warn "Could not resolve latest Go version from go.dev"
+    return 1
+  fi
+
+  if [[ -x ${go_root}/bin/go ]]; then
+    current="$("${go_root}/bin/go" env GOVERSION 2>/dev/null || true)"
+    if [[ $current == "$ver" ]]; then
+      log "Go already present: $current ($go_root)"
+      return 0
+    fi
+  fi
+
+  case "$(uname -s)" in
+    Darwin) os=darwin ;;
+    Linux)  os=linux ;;
+    *)
+      warn "Unsupported OS for Go install: $(uname -s)"
+      return 1
+      ;;
+  esac
+
+  case "$(uname -m)" in
+    x86_64|amd64)  arch=amd64 ;;
+    aarch64|arm64) arch=arm64 ;;
+    *)
+      warn "Unsupported arch for Go install: $(uname -m)"
+      return 1
+      ;;
+  esac
+
+  tarball="${ver}.${os}-${arch}.tar.gz"
+  log "Installing Go ${ver} -> ${go_root}"
+  tmp="$(mktemp -d)"
+  curl -fsSL "https://go.dev/dl/${tarball}" -o "${tmp}/${tarball}"
+  # Do not untar into an existing go tree (breaks installations).
+  rm -rf "${go_root}"
+  tar -C "${HOME}/.local" -xzf "${tmp}/${tarball}"
+  rm -rf "${tmp}"
+  log "Go installed: $("${go_root}/bin/go" version)"
+}
+
+# Official rustup; --no-modify-path because zshrc already sources ~/.cargo/env.
+install_rustup() {
+  if command -v rustup >/dev/null 2>&1; then
+    log "rustup already present: $(command -v rustup)"
+    return 0
+  fi
+  if [[ -x ${HOME}/.cargo/bin/rustup ]]; then
+    log "rustup already present: ${HOME}/.cargo/bin/rustup"
+    return 0
+  fi
+
+  log "Installing rustup (stable)"
+  curl --proto '=https' --tlsv1.2 -fsSf https://sh.rustup.rs \
+    | sh -s -- -y --default-toolchain stable --no-modify-path
+}
+
 setup_virtualization() {
   log "Enabling libvirtd"
   sudo systemctl enable --now libvirtd.service
@@ -158,6 +224,8 @@ install_packages() {
   install_kubectl
   install_helmfile
   install_nvm
+  install_go
+  install_rustup
   setup_virtualization
 
   log "ibus-bamboo installed. Add Bamboo in Settings → Keyboard → Input Sources (then ibus restart if needed)."
