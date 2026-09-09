@@ -2,6 +2,8 @@ source "${${(%):-%N}:A:h}/libs.zsh"
 
 ZSH_THEME="robbyrussell"
 
+source $HOME/.dotfiles/zsh/custom/plugins/zsh-defer/zsh-defer.plugin.zsh
+
 plugins=(
   git
   aws
@@ -25,8 +27,8 @@ export PATH="$HOME/.local/go/bin:$GOPATH/bin:/opt/homebrew/bin:/usr/local/bin:$H
 [ -s "$HOME/.local.env" ] && \. "$HOME/.local.env"
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && zsh-defer source "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && zsh-defer source "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Rust: rustup installs to ~/.cargo; do not let installers rewrite shell rc
 [ -s "$HOME/.cargo/env" ] && \. "$HOME/.cargo/env"
@@ -46,3 +48,4 @@ export OPENCODE_CONFIG="${HOME}/.dotfiles/opencode/opencode.jsonc"
 [ -s "$HOME/.local.zsh" ] && \. "$HOME/.local.zsh"
 
 alias lt='eza --tree'
+

@@ -29,14 +29,13 @@ style = "Regular"
 [window]
 dynamic_padding = true
 startup_mode = "Maximized"
-opacity = 1
+opacity = 0.89
 blur = false
-# macOS: Left Option → Alt so htop Alt-hjkl navigation works
 option_as_alt = "OnlyLeft"
 
 [window.padding]
-x = 5
-y = 5
+x = 2
+y = 0
 
 # Finer trackpad scrolling on macOS (default multiplier is 3)
 [scrolling]
