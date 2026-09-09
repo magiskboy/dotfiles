@@ -10,7 +10,8 @@ vim.opt.termguicolors = true
 -- OR setup with some options
 require("nvim-tree").setup({
   view = {
-    side = "right"
+    side = "right",
+    width = 45,
   },
   renderer = {
     group_empty = true,

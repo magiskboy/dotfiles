@@ -34,14 +34,14 @@ vim.g.python3_host_prog = python_host
 vim.g.loaded_perl_provider = 0
 
 vim.diagnostic.config({
-  virtual_text = false
+  virtual_text = true
 })
 
-vim.api.nvim_create_autocmd({"CursorHold", "CursorHoldI"}, {
-    callback = function()
-        vim.diagnostic.open_float(nil, {focus=false})
-    end
-})
+-- vim.api.nvim_create_autocmd({"CursorHold", "CursorHoldI"}, {
+--     callback = function()
+--         vim.diagnostic.open_float(nil, {focus=false})
+--     end
+-- })
 
 vim.api.nvim_create_autocmd("ExitPre", {
     group = vim.api.nvim_create_augroup("Exit", { clear = true }),

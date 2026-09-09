@@ -83,4 +83,6 @@ plugins {
 default_layout "compact"
 pane_frames false
 show_startup_tips false
-copy_command "pbcopy"
+// copy_command "pbcopy"
+// copy_command: "wl-copy"
+copy_command "xclip -selection clipboard"
