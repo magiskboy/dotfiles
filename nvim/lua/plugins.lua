@@ -4,6 +4,7 @@ vim.pack.add({
 
     -- Theme
     'https://github.com/navarasu/onedark.nvim',
+    'https://github.com/ellisonleao/gruvbox.nvim',
 
     -- LSP and signature
     -- 'https://github.com/williamboman/mason.nvim',

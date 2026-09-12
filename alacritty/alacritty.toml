@@ -1,3 +1,9 @@
+[general]
+import = [
+  "~/.dotfiles/alacritty/current-theme.toml"
+]
+
+
 [cursor]
 blink_interval = 500
 thickness = 0.15
@@ -29,7 +35,7 @@ style = "Regular"
 [window]
 dynamic_padding = true
 startup_mode = "Maximized"
-opacity = 0.89
+opacity = 1
 blur = false
 option_as_alt = "OnlyLeft"
 
@@ -50,31 +56,5 @@ bindings = [
     { key = "n", mods = "Command", action = "CreateNewTab" },
 ]
 
-[colors.bright]
-# black = "0x0d1117"
-blue = "0x77bdfb"
-cyan = "0x06d6c5"
-green = "0x7ce38b"
-magenta = "0xcc00ff"
-red = "0xfa7970"
-white = "0xecf2f8"
-yellow = "0xfeff00"
 
-[colors.cursor]
-cursor = "0x89929b"
-text = "0xecf2f8"
-
-[colors.normal]
-black = "0x0d1117"
-blue = "0x77bdfb"
-cyan = "0x06d6c5"
-green = "0x7ce38b"
-magenta = "0xcc00ff"
-red = "0xfa7970"
-white = "0xecf2f8"
-yellow = "0xfeff00"
-
-[colors.primary]
-background = "0x0d1117"
-foreground = "0xecf2f8"
 
